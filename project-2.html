@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project 2 - Portfolio de Stéphane Sampah">
+    <title>Project 2 | Stéphane Sampah</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html#home">Stéphane Sampah</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Section -->
+    <section class="project-detail-section">
+        <div class="container">
+            <div class="project-header">
+                <h1 class="project-detail-title" id="project-title">Hotel Manager</h1>
+                <p class="project-detail-subtitle" id="project-subtitle">
+                    This page contains the case study of Hotel Manager which includes the Project Overview, Tools Used and Live Links to the official product.
+                </p>
+                <div class="project-header-links">
+                    <a href="#" id="project-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project Link</a>
+                </div>
+            </div>
+
+            <div class="project-image-large">
+                <div class="project-placeholder-large" id="project-image-placeholder"></div>
+            </div>
+
+            <div class="project-content-detail">
+                <div class="project-overview">
+                    <h2 class="project-section-title">Project Overview</h2>
+                    <div id="project-overview-content">
+                        <p>
+                            Project 2 is a description of your project. This section should contain detailed information about what the project is, what problem it solves, and what makes it special.
+                        </p>
+                        <p>
+                            You can add multiple paragraphs here to describe the project in detail. Include information about the challenges faced, solutions implemented, and the impact of the project.
+                        </p>
+                        <p>
+                            Feel free to check out the Project by visiting the Project Link.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-tools">
+                    <h2 class="project-section-title">Tools Used</h2>
+                    <div class="tools-grid" id="project-tools">
+                        <span class="tool-item">HTML</span>
+                        <span class="tool-item">CSS</span>
+                        <span class="tool-item">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-links-section">
+                    <h2 class="project-section-title">See Live</h2>
+                    <div class="project-links-buttons">
+                        <a href="#" id="see-live-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project Link</a>
+                        <a href="index.html#projects" class="btn btn-secondary">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <h3>Stéphane Sampah</h3>
+                    <p>A Frontend focused Web Developer building the Frontend of Websites and Web Applications that leads to the success of the overall product</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" class="social-link" aria-label="GitHub">GitHub</a>
+                    <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright <span id="current-year"></span>. Made by Stéphane Sampah</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="project-script.js"></script>
+    <script>
+        // Project 2 Data - Hotel Manager
+        const projectData = {
+            title: "Hotel Manager",
+            subtitle: "This page contains the case study of Hotel Manager which includes the Project Overview, Tools Used and Live Links to the official product.",
+            liveUrl: "", // Leave empty if no live site, will use GitHub
+            githubUrl: "https://github.com/yourusername/hotel-manager", // Your GitHub repo URL
+            overview: `
+                <p>
+                    Hotel Manager is a comprehensive hotel management system designed to optimize operations and improve customer experience. This solution provides all the necessary tools for managing a hotel efficiently.
+                </p>
+                <p>
+                    The system includes features for room management, booking systems, customer relations, and reporting. It was built with scalability and user-friendliness in mind, making it suitable for hotels of all sizes.
+                </p>
+                <p>
+                    Feel free to check out the Project by visiting the Project Link.
+                </p>
+            `,
+            tools: ["HTML", "CSS", "JavaScript", "Node.js", "Git", "Github"]
+        };
+        
+        // Initialize project page
+        if (typeof initializeProjectPage === 'function') {
+            initializeProjectPage(projectData);
+        }
+    </script>
+</body>
+</html>
+
