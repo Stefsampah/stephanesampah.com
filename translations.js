@@ -19,6 +19,7 @@ const translations = {
         // About Section
         about: {
             title: "About Me",
+            "title.main": "about.",
             subtitle: "Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology",
             intro: {
                 main: "I'm a product designer based in sunny Sydney, Australia.",
@@ -35,22 +36,20 @@ const translations = {
                 sharks: "Fan de requins"
             },
             parts: {
-                designer: "Part designer 🎨",
-                "designer.ui": "UI design",
-                "designer.ux": "UX design",
-                "designer.systems": "Design Systems",
-                "designer.interaction": "Interaction design",
-                "designer.pop": "\"Faire briller les pixels\"",
-                coder: "Part coder 💻",
+                webProject: "Part web project",
+                "webProject.uiux": "UI/UX design",
+                "webProject.persona": "persona / benchmark / Digital strategies",
+                "webProject.management": "Project management / e-commerce",
+                "webProject.pop": "\"Making it pop\"",
+                coder: "Part coder",
                 "coder.frontend": "Front-end development",
                 "coder.htmlcss": "HTML / CSS",
-                "coder.js": "JavaScript / React.js / Vue.js (kinda)",
-                "coder.rails": "Ruby on Rails",
-                "coder.wordpress": "WordPress",
-                "coder.backend": "Back-End : PostgreSQL, PHP, Node.js",
-                "coder.cloud": "Cloud : Git, GitHub, Heroku",
+                "coder.js": "JavaScript / Ruby on Rails (kinda)",
                 "coder.swearing": "Swearing at my computer",
-                "coder.pizza": "Eating pizza (always)"
+                "coder.music": "Listening to music"
+            },
+            pieChart: {
+                text: "part web project,<br>part Front End Developer"
             },
             tools: {
                 title: "Tools 🛠️",
@@ -66,6 +65,7 @@ const translations = {
             },
             randomFacts: {
                 title: "Random facts 🤓",
+                placeholder: "Image placeholder",
                 social: "Not addicted to social media at all",
                 apero: "Aperitif is my zen time",
                 la: "I dream of living in Los Angeles",
@@ -157,6 +157,7 @@ const translations = {
         // About Section
         about: {
             title: "À propos de moi",
+            "title.main": "about.",
             subtitle: "Ici vous trouverez plus d'informations sur moi, ce que je fais, et mes compétences actuelles principalement en termes de programmation et technologie",
             intro: {
                 main: "Je suis Stéphane, 51 ans, tech addict & music lover. Retourneur de dancefloors entre 80 et 90 (MC Hammer sort de ce corps 😅) et music game addict assumé.",
@@ -173,22 +174,20 @@ const translations = {
                 sharks: "Fan de requins"
             },
             parts: {
-                designer: "Part designer 🎨",
-                "designer.ui": "UI design",
-                "designer.ux": "UX design",
-                "designer.systems": "Design Systems",
-                "designer.interaction": "Interaction design",
-                "designer.pop": "\"Faire briller les pixels\"",
-                coder: "Part coder 💻",
+                webProject: "Part web project",
+                "webProject.uiux": "UI/UX design",
+                "webProject.persona": "persona / benchmark / Digital strategies",
+                "webProject.management": "Project management / e-commerce",
+                "webProject.pop": "\"Making it pop\"",
+                coder: "Part coder",
                 "coder.frontend": "Front-end development",
                 "coder.htmlcss": "HTML / CSS",
-                "coder.js": "JavaScript / React.js / Vue.js (kinda)",
-                "coder.rails": "Ruby on Rails",
-                "coder.wordpress": "WordPress",
-                "coder.backend": "Back-End : PostgreSQL, PHP, Node.js",
-                "coder.cloud": "Cloud : Git, GitHub, Heroku",
-                "coder.swearing": "Jurer sur mon clavier",
-                "coder.pizza": "Manger des pizzas (toujours)"
+                "coder.js": "JavaScript / Ruby on Rails (kinda)",
+                "coder.swearing": "Swearing at my computer",
+                "coder.music": "Listening to music"
+            },
+            pieChart: {
+                text: "part web project,<br>part Front End Developer"
             },
             tools: {
                 title: "Outils 🛠️",
@@ -204,6 +203,7 @@ const translations = {
             },
             randomFacts: {
                 title: "Random facts 🤓",
+                placeholder: "Placeholder d'image",
                 social: "Pas du tout accro aux réseaux sociaux",
                 apero: "L'apéro est mon moment zen",
                 la: "Je rêve de vivre à Los Angeles",

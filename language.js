@@ -34,6 +34,9 @@ function applyTranslations() {
     document.querySelectorAll('[data-translate="about.title"]').forEach(el => {
         el.textContent = t('about.title');
     });
+    document.querySelectorAll('[data-translate="about.title.main"]').forEach(el => {
+        el.textContent = t('about.title.main');
+    });
     document.querySelectorAll('[data-translate="about.subtitle"]').forEach(el => {
         el.textContent = t('about.subtitle');
     });
@@ -61,23 +64,20 @@ function applyTranslations() {
     document.querySelectorAll('[data-translate="about.tags.sharks"]').forEach(el => {
         el.textContent = t('about.tags.sharks');
     });
-    document.querySelectorAll('[data-translate="about.parts.designer"]').forEach(el => {
-        el.textContent = t('about.parts.designer');
+    document.querySelectorAll('[data-translate="about.parts.webProject"]').forEach(el => {
+        el.textContent = t('about.parts.webProject');
     });
-    document.querySelectorAll('[data-translate="about.parts.designer.ui"]').forEach(el => {
-        el.textContent = t('about.parts.designer.ui');
+    document.querySelectorAll('[data-translate="about.parts.webProject.uiux"]').forEach(el => {
+        el.textContent = t('about.parts.webProject.uiux');
     });
-    document.querySelectorAll('[data-translate="about.parts.designer.ux"]').forEach(el => {
-        el.textContent = t('about.parts.designer.ux');
+    document.querySelectorAll('[data-translate="about.parts.webProject.persona"]').forEach(el => {
+        el.textContent = t('about.parts.webProject.persona');
     });
-    document.querySelectorAll('[data-translate="about.parts.designer.systems"]').forEach(el => {
-        el.textContent = t('about.parts.designer.systems');
+    document.querySelectorAll('[data-translate="about.parts.webProject.management"]').forEach(el => {
+        el.textContent = t('about.parts.webProject.management');
     });
-    document.querySelectorAll('[data-translate="about.parts.designer.interaction"]').forEach(el => {
-        el.textContent = t('about.parts.designer.interaction');
-    });
-    document.querySelectorAll('[data-translate="about.parts.designer.pop"]').forEach(el => {
-        el.textContent = t('about.parts.designer.pop');
+    document.querySelectorAll('[data-translate="about.parts.webProject.pop"]').forEach(el => {
+        el.textContent = t('about.parts.webProject.pop');
     });
     document.querySelectorAll('[data-translate="about.parts.coder"]').forEach(el => {
         el.textContent = t('about.parts.coder');
@@ -91,23 +91,14 @@ function applyTranslations() {
     document.querySelectorAll('[data-translate="about.parts.coder.js"]').forEach(el => {
         el.textContent = t('about.parts.coder.js');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder.rails"]').forEach(el => {
-        el.textContent = t('about.parts.coder.rails');
-    });
-    document.querySelectorAll('[data-translate="about.parts.coder.wordpress"]').forEach(el => {
-        el.textContent = t('about.parts.coder.wordpress');
-    });
-    document.querySelectorAll('[data-translate="about.parts.coder.backend"]').forEach(el => {
-        el.textContent = t('about.parts.coder.backend');
-    });
-    document.querySelectorAll('[data-translate="about.parts.coder.cloud"]').forEach(el => {
-        el.textContent = t('about.parts.coder.cloud');
-    });
     document.querySelectorAll('[data-translate="about.parts.coder.swearing"]').forEach(el => {
         el.textContent = t('about.parts.coder.swearing');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder.pizza"]').forEach(el => {
-        el.textContent = t('about.parts.coder.pizza');
+    document.querySelectorAll('[data-translate="about.parts.coder.music"]').forEach(el => {
+        el.textContent = t('about.parts.coder.music');
+    });
+    document.querySelectorAll('[data-translate="about.pieChart.text"]').forEach(el => {
+        el.innerHTML = t('about.pieChart.text');
     });
     document.querySelectorAll('[data-translate="about.tools.title"]').forEach(el => {
         el.textContent = t('about.tools.title');
@@ -135,6 +126,9 @@ function applyTranslations() {
     });
     document.querySelectorAll('[data-translate="about.randomFacts.title"]').forEach(el => {
         el.textContent = t('about.randomFacts.title');
+    });
+    document.querySelectorAll('[data-translate="about.randomFacts.placeholder"]').forEach(el => {
+        el.textContent = t('about.randomFacts.placeholder');
     });
     document.querySelectorAll('[data-translate="about.randomFacts.social"]').forEach(el => {
         el.textContent = t('about.randomFacts.social');

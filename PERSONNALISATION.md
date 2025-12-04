@@ -67,16 +67,42 @@ Pour chaque projet, modifiez :
 
 ### 5. Images
 
+#### Dossier images/
+
+Le dossier `images/` est créé à la racine du projet pour stocker toutes vos images.
+
+**Structure recommandée :**
+```
+images/
+├── random-facts.jpg      # Image pour la section Random facts
+├── photo-fun.jpg         # Photo fun pour la section About
+├── project-1.jpg         # Images de projets
+├── project-2.jpg
+└── ...
+```
+
 #### Images de Projets
 
-- Placez vos images dans un dossier `images/`
+- Placez vos images dans le dossier `images/`
 - Référencez-les dans `config.js` avec `imageUrl: "images/nom-image.jpg"`
 - Ou utilisez des URLs externes
+
+#### Image Random Facts
+
+- Placez votre image dans `images/random-facts.jpg`
+- L'image s'affichera automatiquement à gauche de la section Random facts
+- Si l'image n'existe pas, un placeholder s'affichera
 
 #### Logo / Favicon
 
 - Remplacez le favicon dans le `<head>` de `index.html`
 - Ajoutez votre logo si nécessaire
+
+#### Optimisation des images
+
+- Compressez vos images avant de les ajouter (utilisez des outils comme TinyPNG, ImageOptim)
+- Formats recommandés : JPG pour photos, PNG pour logos/icônes, WebP pour meilleure compression
+- Taille recommandée : max 500KB par image
 
 ### 6. Couleurs et Styles
 

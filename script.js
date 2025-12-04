@@ -33,9 +33,12 @@ document.querySelectorAll('a[href^="#"], a[href*="#"]').forEach(anchor => {
                 e.preventDefault();
                 const target = document.querySelector(`#${hash}`);
                 if (target) {
-                    const offsetTop = target.offsetTop - 80;
+                    // Get navbar height
+                    const navbar = document.getElementById('navbar');
+                    const navbarHeight = navbar ? navbar.offsetHeight : 80;
+                    const offsetTop = target.offsetTop - navbarHeight;
                     window.scrollTo({
-                        top: offsetTop,
+                        top: Math.max(0, offsetTop),
                         behavior: 'smooth'
                     });
                 }
@@ -47,9 +50,12 @@ document.querySelectorAll('a[href^="#"], a[href*="#"]').forEach(anchor => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                const offsetTop = target.offsetTop - 80;
+                // Get navbar height
+                const navbar = document.getElementById('navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 80;
+                const offsetTop = target.offsetTop - navbarHeight;
                 window.scrollTo({
-                    top: offsetTop,
+                    top: Math.max(0, offsetTop),
                     behavior: 'smooth'
                 });
             }
@@ -226,5 +232,61 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         }
     });
+});
+
+// Bar Chart Animation - Adham Dannaway Style
+function animateBarChart() {
+    const barChart = document.querySelector('.bar-chart');
+    if (!barChart) return;
+
+    const bars = barChart.querySelectorAll('li:not(.axis)');
+    const percentages = {
+        'p-95': 95,
+        'p-90': 90,
+        'p-75': 75,
+        'p-40': 40
+    };
+
+    bars.forEach((bar, index) => {
+        const percentageClass = Array.from(bar.classList).find(cls => cls.startsWith('p-'));
+        if (!percentageClass) return;
+
+        const percentage = percentages[percentageClass] || 0;
+        
+        // Set initial state (hidden) - only if not already visible
+        if (!bar.style.height || bar.style.height === '0%') {
+            bar.style.visibility = 'hidden';
+            bar.style.opacity = '0';
+            bar.style.height = '0%';
+
+            // Animate after a delay (like the reference site)
+            setTimeout(() => {
+                bar.style.visibility = 'visible';
+                bar.style.opacity = '1';
+                bar.style.height = percentage + '%';
+            }, index * 150 + 200);
+        }
+    });
+}
+
+// Intersection Observer for bar chart animation
+const barChartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateBarChart();
+            barChartObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe bar chart section
+document.addEventListener('DOMContentLoaded', () => {
+    const barChartSection = document.getElementById('bar-chart');
+    if (barChartSection) {
+        barChartObserver.observe(barChartSection);
+    }
 });
 

@@ -72,162 +72,142 @@
     <!-- Section About -->
     <section id="about" class="section about-section">
         <div class="container">
-            <div class="about-intro">
-                <div class="about-intro-text">
-                    <p class="about-intro-main" data-translate="about.intro.main">
-                        I'm a product designer based in sunny Sydney, Australia.
-                    </p>
-                    <p class="about-intro-description" data-translate="about.intro.description">
-                        Since 2005, I've enjoyed turning complex problems into simple, beautiful and intuitive designs. When I'm not pushing pixels, you'll find me cooking, gardening or working out in the park.
-                    </p>
-                </div>
-                <div class="about-photo-placeholder">
-                    <div class="photo-fun">📸</div>
-                    <p class="photo-label" data-translate="about.photo.fun">Fun photo</p>
-                </div>
-            </div>
-
-            <div class="about-tags">
-                <div class="tag-item">
-                    <span class="tag-icon">👤</span>
-                    <span class="tag-text" data-translate="about.tags.miniMe">Mini me</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">📍</span>
-                    <span class="tag-text" data-translate="about.tags.location">Mérignac / Bordeaux</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">🎵</span>
-                    <span class="tag-text" data-translate="about.tags.mcHammer">MC Hammer</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">💻</span>
-                    <span class="tag-text" data-translate="about.tags.mac">Mon Mac</span>
-                </div>
-                <div class="tag-item">
-                    <span class="tag-icon">🦈</span>
-                    <span class="tag-text" data-translate="about.tags.sharks">Fan de requins</span>
-                </div>
-            </div>
-
-            <div class="about-parts">
-                <div class="part-column part-designer">
-                    <h3 class="part-title" data-translate="about.parts.designer">Part designer 🎨</h3>
-                    <ul class="part-list">
-                        <li data-translate="about.parts.designer.ui">UI design</li>
-                        <li data-translate="about.parts.designer.ux">UX design</li>
-                        <li data-translate="about.parts.designer.systems">Design Systems</li>
-                        <li data-translate="about.parts.designer.interaction">Interaction design</li>
-                        <li data-translate="about.parts.designer.pop">"Faire briller les pixels"</li>
-                    </ul>
-                </div>
-                <div class="part-column part-coder">
-                    <h3 class="part-title" data-translate="about.parts.coder">Part coder 💻</h3>
-                    <ul class="part-list">
-                        <li data-translate="about.parts.coder.frontend">Front-end development</li>
-                        <li data-translate="about.parts.coder.htmlcss">HTML / CSS</li>
-                        <li data-translate="about.parts.coder.js">JavaScript / React.js / Vue.js (kinda)</li>
-                        <li data-translate="about.parts.coder.rails">Ruby on Rails</li>
-                        <li data-translate="about.parts.coder.wordpress">WordPress</li>
-                        <li data-translate="about.parts.coder.backend">Back-End : PostgreSQL, PHP, Node.js</li>
-                        <li data-translate="about.parts.coder.cloud">Cloud : Git, GitHub, Heroku</li>
-                        <li data-translate="about.parts.coder.swearing">Jurer sur mon clavier</li>
-                        <li data-translate="about.parts.coder.pizza">Manger des pizzas (toujours)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="about-tools-section">
-                <h3 class="about-subtitle" data-translate="about.tools.title">Outils 🛠️</h3>
-                <div class="tools-categories">
-                    <div class="tool-category">
-                        <p class="tool-category-text" data-translate="about.tools.design">Figma, Excalidraw, Marvel, Adobe Suite</p>
+            <div class="about-main">
+                <div class="row">
+                    <div id="text-main" class="col-5 text-main">
+                        <h1 class="about-title" data-translate="about.title.main">about.</h1>
+                        <p class="intro" data-translate="about.intro.main">
+                            Je suis Stéphane, 51 ans, tech addict & music lover. Retourneur de dancefloors entre 80 et 90 (MC Hammer sort de ce corps 😅) et music game addict assumé.
+                        </p>
+                        <p class="description" data-translate="about.intro.description">
+                            Quand je ne code pas, tu peux me trouver en train de tester des apps, écouter du son, ou refaire le monde autour d'une pizza.
+                        </p>
                     </div>
-                    <div class="tool-category">
-                        <p class="tool-category-text" data-translate="about.tools.code">CSS / HTML, Bootstrap, Copilot, Cursor</p>
+                    <div id="img-main" class="col-7 align-c">
+                        <img class="major preload" src="images/photo-fun.jpg" alt="Stéphane Sampah" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="about-photo-placeholder" style="display: none;">
+                            <div class="photo-fun">📸</div>
+                            <p class="photo-label" data-translate="about.photo.fun">Photo fun</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="about-marketing-section">
-                <h3 class="about-subtitle" data-translate="about.marketing.title">Marketing 📈</h3>
-                <div class="marketing-content">
-                    <p data-translate="about.marketing.projects">Projets marketing – Campagnes, contenus, e-commerce</p>
-                    <p data-translate="about.marketing.strategy">Stratégie & Produit – Positionnement, roadmap, persona, benchmark</p>
-                    <p data-translate="about.marketing.content">Création de contenus – Visuels, newsletters, vidéos, brochures (Canva, Adobe, etc.)</p>
-                    <p class="marketing-tools" data-translate="about.marketing.tools">Outils : Power BI, Google Ads, WordPress, MailChimp, Trello, Notion</p>
+                <div id="snaps" class="row align-c snaps clearfix">
+                    <a id="snaps-1" href="#" class="snap-item">
+                        <img class="preload" src="images/mini-me.jpg" alt="Mini moi" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E👤%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-2" href="#" class="snap-item">
+                        <img class="preload" src="images/location.jpg" alt="Mérignac / Bordeaux" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E📍%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-3" href="#" class="snap-item">
+                        <img class="preload" src="images/mc-hammer.gif" alt="MC Hammer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🎵%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-4" href="#" class="snap-item">
+                        <img class="preload" src="images/workspace.jpg" alt="Mon Mac" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E💻%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-5" href="#" class="snap-item">
+                        <img class="preload" src="images/sharks.jpg" alt="Fan de requins" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🦈%3C/text%3E%3C/svg%3E';">
+                    </a>
                 </div>
             </div>
+
+            <section class="dark">
+                <div class="row">
+                    <div class="col-12 pie-chart">
+                        <div class="web-project">
+                            <h2 data-translate="about.parts.webProject">Part web project</h2>
+                            <ul class="ul">
+                                <li data-translate="about.parts.webProject.uiux">UI/UX design</li>
+                                <li data-translate="about.parts.webProject.persona">persona / benchmark / Digital strategies</li>
+                                <li data-translate="about.parts.webProject.management">Project management / e-commerce</li>
+                                <li data-translate="about.parts.webProject.pop">"Making it pop"</li>
+                            </ul>
+                        </div>
+                        <div class="coder">
+                            <h2 data-translate="about.parts.coder">Part coder</h2>
+                            <ul class="ul">
+                                <li data-translate="about.parts.coder.frontend">Front-end development</li>
+                                <li data-translate="about.parts.coder.htmlcss">HTML / CSS</li>
+                                <li data-translate="about.parts.coder.js">JavaScript / Ruby on Rails (kinda)</li>
+                                <li data-translate="about.parts.coder.swearing">Swearing at my computer</li>
+                                <li data-translate="about.parts.coder.music">Listening to music</li>
+                            </ul>
+                        </div>
+                        <img id="img-pie" class="preload major" src="images/pie-chart.png" alt="part web project, part Front End Developer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="pie-chart-svg-fallback" style="display: none;">
+                            <div class="pie-chart-wrapper">
+                                <svg class="pie-chart" viewBox="0 0 200 200">
+                                    <circle class="pie-segment pie-web-project" cx="100" cy="100" r="80" fill="none" stroke="#667eea" stroke-width="40" stroke-dasharray="301.59 201.06" transform="rotate(-90 100 100)"/>
+                                    <circle class="pie-segment pie-coder" cx="100" cy="100" r="80" fill="none" stroke="#f093fb" stroke-width="40" stroke-dasharray="201.06 301.59" transform="rotate(126.57 100 100)"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
             <div class="about-random-facts">
-                <h3 class="about-subtitle" data-translate="about.randomFacts.title">Random facts 🤓</h3>
-                <div class="random-facts-grid">
-                    <div class="fact-item" data-translate="about.randomFacts.social">Pas du tout accro aux réseaux sociaux</div>
-                    <div class="fact-item" data-translate="about.randomFacts.apero">L'apéro est mon moment zen</div>
-                    <div class="fact-item" data-translate="about.randomFacts.la">Je rêve de vivre à Los Angeles</div>
-                    <div class="fact-item" data-translate="about.randomFacts.nba">Fan de la NBA</div>
-                    <div class="fact-item" data-translate="about.randomFacts.eat">J'adore manger (mais pas cuisiner)</div>
-                    <div class="fact-item" data-translate="about.randomFacts.design">Passionné de design</div>
-                    <div class="fact-item" data-translate="about.randomFacts.create">J'aime créer des choses</div>
-                    <div class="fact-item" data-translate="about.randomFacts.mentor">Daniel Ek est mon mentor</div>
-                    <div class="fact-item" data-translate="about.randomFacts.coffee">Je bois beaucoup de café</div>
-                    <div class="fact-item" data-translate="about.randomFacts.daniel">Daniel Ek rocks ✨</div>
+                <div class="row alt">
+                    <div class="col-5 ten-things">
+                        <h2 data-translate="about.randomFacts.title">Random facts</h2>
+                        <ul class="ul">
+                            <li data-translate="about.randomFacts.social">Pas du tout accro aux réseaux sociaux</li>
+                            <li data-translate="about.randomFacts.apero">L'apéro est mon moment zen</li>
+                            <li data-translate="about.randomFacts.la">Je rêve de vivre à Los Angeles</li>
+                            <li data-translate="about.randomFacts.nba">Fan de la NBA</li>
+                            <li data-translate="about.randomFacts.eat">J'adore manger (mais pas cuisiner)</li>
+                            <li data-translate="about.randomFacts.design">Passionné de design</li>
+                            <li data-translate="about.randomFacts.create">J'aime créer des choses</li>
+                            <li data-translate="about.randomFacts.mentor">Daniel Ek est mon mentor</li>
+                            <li data-translate="about.randomFacts.coffee">Je bois beaucoup de café</li>
+                            <li data-translate="about.randomFacts.daniel">Daniel Ek rocks ✨</li>
+                        </ul>
+                    </div>
+                    <div id="img-random-facts" class="col-7 align-c">
+                        <img class="major" src="images/random-facts.jpg" alt="Random facts visual" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="facts-visual-placeholder" style="display: none;">
+                            <span class="placeholder-icon">🖼️</span>
+                            <p class="placeholder-text" data-translate="about.randomFacts.placeholder">Image placeholder</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="about-stats">
-                <h3 class="about-subtitle" data-translate="about.stats.title">Mes skills ⚡</h3>
-                <div class="skills-chart-container">
-                    <div class="skills-chart-y-axis">
-                        <div class="y-axis-label" data-translate="about.stats.jedi">Jedi</div>
-                        <div class="y-axis-label" data-translate="about.stats.ninja">Ninja</div>
-                        <div class="y-axis-label" data-translate="about.stats.geek">Geek</div>
-                        <div class="y-axis-label" data-translate="about.stats.newbie">Newbie</div>
-                    </div>
-                    <div class="skills-chart-bars">
-                        <div class="skill-bar-item" data-percentage="95">
-                            <div class="skill-bar" style="--bar-color: #17a2b8; --bar-height: 95%">
-                                <div class="skill-bar-fill">
-                                    <span class="skill-percentage">95%</span>
-                                </div>
-                            </div>
-                            <div class="skill-name" data-translate="about.stats.coffee">café bu ☕</div>
-                        </div>
-                        <div class="skill-bar-item" data-percentage="90">
-                            <div class="skill-bar" style="--bar-color: #ff6b9d; --bar-height: 90%">
-                                <div class="skill-bar-fill">
-                                    <span class="skill-percentage">90%</span>
-                                </div>
-                            </div>
-                            <div class="skill-name" data-translate="about.stats.design">Design Systems 🎨</div>
-                        </div>
-                        <div class="skill-bar-item" data-percentage="95">
-                            <div class="skill-bar" style="--bar-color: #ffc107; --bar-height: 95%">
-                                <div class="skill-bar-fill">
-                                    <span class="skill-percentage">95%</span>
-                                </div>
-                            </div>
-                            <div class="skill-name" data-translate="about.stats.youtube">YouTube 📺</div>
-                        </div>
-                        <div class="skill-bar-item" data-percentage="75">
-                            <div class="skill-bar" style="--bar-color: #d4a574; --bar-height: 75%">
-                                <div class="skill-bar-fill">
-                                    <span class="skill-percentage">75%</span>
-                                </div>
-                            </div>
-                            <div class="skill-name" data-translate="about.stats.dreamer">Dreamer 🌌</div>
-                        </div>
-                        <div class="skill-bar-item" data-percentage="40">
-                            <div class="skill-bar" style="--bar-color: #dc3545; --bar-height: 40%">
-                                <div class="skill-bar-fill">
-                                    <span class="skill-percentage">40%</span>
-                                </div>
-                            </div>
-                            <div class="skill-name" data-translate="about.stats.basketball">Basket-ball 🏀</div>
-                        </div>
+            <section id="bar-chart" class="dark nopad-b">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="align-r" data-translate="about.stats.title">My skills</h2>
+                        <ul class="bar-chart">
+                            <li class="axis">
+                                <div class="label" data-translate="about.stats.jedi">Jedi</div>
+                                <div class="label" data-translate="about.stats.ninja">Ninja</div>
+                                <div class="label" data-translate="about.stats.geek">Geek</div>
+                                <div class="label" data-translate="about.stats.newbie">Newbie</div>
+                            </li>
+                            <li id="aqua" class="aqua p-95">
+                                <div class="percent">95<span>%</span></div>
+                                <div class="skill" data-translate="about.stats.coffee">café bu ☕</div>
+                            </li>
+                            <li id="pink" class="pink p-90">
+                                <div class="percent">90<span>%</span></div>
+                                <div class="skill" data-translate="about.stats.design">Design Systems 🎨</div>
+                            </li>
+                            <li id="yellow" class="yellow p-95">
+                                <div class="percent">95<span>%</span></div>
+                                <div class="skill" data-translate="about.stats.youtube">YouTube 📺</div>
+                            </li>
+                            <li id="brown" class="brown p-75">
+                                <div class="percent">75<span>%</span></div>
+                                <div class="skill" data-translate="about.stats.dreamer">Dreamer 🌌</div>
+                            </li>
+                            <li id="red" class="red p-40">
+                                <div class="percent">40<span>%</span></div>
+                                <div class="skill" data-translate="about.stats.basketball">Basket-ball 🏀</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </section>
 
