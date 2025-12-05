@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Project 2 - Portfolio de Stéphane Sampah">
-    <title>Project 2 | Stéphane Sampah</title>
+    <meta name="description" content="Hotel Manager - Portfolio de Stéphane Sampah">
+    <title>Hotel Manager | Stéphane Sampah</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="project-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,16 +20,22 @@
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html#home" class="nav-link">Home</a>
+                    <a href="index.html#home" class="nav-link" data-translate="nav.home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#about" class="nav-link" data-translate="nav.about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html#projects" class="nav-link">Projects</a>
+                    <a href="index.html#projects" class="nav-link" data-translate="nav.projects">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html#contact" class="nav-link">Contact</a>
+                    <a href="index.html#contact" class="nav-link" data-translate="nav.contact">Contact</a>
+                </li>
+                <li class="nav-item lang-switcher">
+                    <div class="language-selector">
+                        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+                        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                    </div>
                 </li>
             </ul>
             <div class="nav-toggle" id="nav-toggle">
@@ -46,47 +52,82 @@
             <div class="project-header">
                 <h1 class="project-detail-title" id="project-title">Hotel Manager</h1>
                 <p class="project-detail-subtitle" id="project-subtitle">
-                    This page contains the case study of Hotel Manager which includes the Project Overview, Tools Used and Live Links to the official product.
+                    A modern full-stack application for comprehensive hotel management, featuring an immersive interface and advanced functionalities. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Video Demo.
                 </p>
-                <div class="project-header-links">
-                    <a href="#" id="project-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project Link</a>
-                </div>
             </div>
 
             <div class="project-image-large">
-                <div class="project-placeholder-large" id="project-image-placeholder"></div>
+                <img src="images/dashboard.jpg" alt="Hotel Manager - Dashboard" class="project-main-image">
             </div>
 
             <div class="project-content-detail">
                 <div class="project-overview">
-                    <h2 class="project-section-title">Project Overview</h2>
+                    <h2 class="project-section-title" data-translate="project.overview">Project Overview</h2>
                     <div id="project-overview-content">
                         <p>
-                            Project 2 is a description of your project. This section should contain detailed information about what the project is, what problem it solves, and what makes it special.
+                            Hotel Manager is a modern full-stack application for comprehensive hotel management, featuring an immersive interface and advanced functionalities.
                         </p>
                         <p>
-                            You can add multiple paragraphs here to describe the project in detail. Include information about the challenges faced, solutions implemented, and the impact of the project.
+                            This application provides all the necessary tools for managing a hotel efficiently, including room management, booking systems, customer relations, and reporting. It was built with scalability and user-friendliness in mind, making it suitable for hotels of all sizes.
                         </p>
-                        <p>
-                            Feel free to check out the Project by visiting the Project Link.
-                        </p>
+                    </div>
+                </div>
+
+                <div class="project-features">
+                    <h2 class="project-section-title" data-translate="project.features">Features</h2>
+                    <ul class="features-list" id="project-features-list">
+                        <li>Room Management – Full CRUD with images and status indicators</li>
+                        <li>Reservation System – Advanced booking functionality</li>
+                        <li>User Management – JWT authentication with role-based access</li>
+                        <li>Interactive Dashboard – Real-time statistics and insights</li>
+                        <li>Immersive UI – Sleek design powered by Tailwind CSS</li>
+                        <li>Responsive Design – Optimized for both mobile and desktop</li>
+                        <li>Security – Robust authentication and authorization</li>
+                    </ul>
+                </div>
+
+                <div class="project-screenshots">
+                    <h2 class="project-section-title" data-translate="project.screenshots">Screenshots</h2>
+                    <div class="screenshots-grid screenshots-grid-3" id="project-screenshots">
+                        <div class="screenshot-item">
+                            <img src="images/dashboard.jpg" alt="Hotel Manager - Dashboard">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="images/chambres.jpg" alt="Hotel Manager - Rooms">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="images/reservations.jpg" alt="Hotel Manager - Reservations">
+                        </div>
                     </div>
                 </div>
 
                 <div class="project-tools">
-                    <h2 class="project-section-title">Tools Used</h2>
+                    <h2 class="project-section-title" data-translate="project.toolsUsed">Tools Used</h2>
                     <div class="tools-grid" id="project-tools">
-                        <span class="tool-item">HTML</span>
-                        <span class="tool-item">CSS</span>
-                        <span class="tool-item">JavaScript</span>
+                        <span class="tool-item">React 18</span>
+                        <span class="tool-item">TypeScript</span>
+                        <span class="tool-item">Tailwind CSS</span>
+                        <span class="tool-item">Vite</span>
+                        <span class="tool-item">Node.js</span>
+                        <span class="tool-item">Express.js</span>
+                        <span class="tool-item">MongoDB</span>
+                        <span class="tool-item">Mongoose</span>
+                        <span class="tool-item">JWT</span>
+                        <span class="tool-item">bcrypt</span>
+                    </div>
+                </div>
+
+                <div class="project-video" id="project-video-section">
+                    <h2 class="project-section-title" data-translate="project.videoDemo">Video Demo</h2>
+                    <div class="video-container" id="project-video-container">
+                        <iframe src="https://www.loom.com/embed/490ed71a65ad4e4792553de7a34651b6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                 </div>
 
                 <div class="project-links-section">
-                    <h2 class="project-section-title">See Live</h2>
+                    <h2 class="project-section-title" data-translate="project.seeLive">See Live</h2>
                     <div class="project-links-buttons">
-                        <a href="#" id="see-live-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project Link</a>
-                        <a href="index.html#projects" class="btn btn-secondary">Go Back</a>
+                        <a href="index.html#projects" class="btn btn-secondary" data-translate="project.goBack">Go Back</a>
                     </div>
                 </div>
             </div>
@@ -113,34 +154,66 @@
         </div>
     </footer>
 
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
     <script src="script.js"></script>
     <script src="project-script.js"></script>
     <script>
         // Project 2 Data - Hotel Manager
         const projectData = {
-            title: "Hotel Manager",
-            subtitle: "This page contains the case study of Hotel Manager which includes the Project Overview, Tools Used and Live Links to the official product.",
-            liveUrl: "", // Leave empty if no live site, will use GitHub
-            githubUrl: "https://github.com/yourusername/hotel-manager", // Your GitHub repo URL
-            overview: `
-                <p>
-                    Hotel Manager is a comprehensive hotel management system designed to optimize operations and improve customer experience. This solution provides all the necessary tools for managing a hotel efficiently.
-                </p>
-                <p>
-                    The system includes features for room management, booking systems, customer relations, and reporting. It was built with scalability and user-friendliness in mind, making it suitable for hotels of all sizes.
-                </p>
-                <p>
-                    Feel free to check out the Project by visiting the Project Link.
-                </p>
-            `,
-            tools: ["HTML", "CSS", "JavaScript", "Node.js", "Git", "Github"]
+            projectKey: "hotelManager", // Key for translations
+            liveUrl: "", // No live site, video instead
+            githubUrl: "", // Your GitHub repo URL (if available)
+            videoUrl: "https://www.loom.com/embed/490ed71a65ad4e4792553de7a34651b6", // Loom video URL
+            tools: ["React 18", "TypeScript", "Tailwind CSS", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "bcrypt"]
         };
         
-        // Initialize project page
-        if (typeof initializeProjectPage === 'function') {
-            initializeProjectPage(projectData);
+        // Get translations based on current language
+        function getProjectTranslations() {
+            const lang = typeof currentLanguage !== 'undefined' ? currentLanguage : (localStorage.getItem('preferredLanguage') || 'en');
+            const projectKey = projectData.projectKey || 'hotelManager';
+            
+            if (typeof translations !== 'undefined' && translations[lang] && translations[lang].project && translations[lang].project[projectKey]) {
+                return translations[lang].project[projectKey];
+            }
+            // Fallback to English
+            return translations?.en?.project?.[projectKey] || {};
         }
+        
+        // Initialize project data with translations
+        const projectTranslations = getProjectTranslations();
+        projectData.title = projectTranslations.title || "Hotel Manager";
+        projectData.subtitle = projectTranslations.subtitle || "";
+        projectData.overview = `
+            <p>${projectTranslations.overview?.p1 || ""}</p>
+            <p>${projectTranslations.overview?.p2 || ""}</p>
+        `;
+        projectData.features = projectTranslations.features || {};
+        
+        // Initialize or update project page
+        function updateProjectData() {
+            const projectTranslations = getProjectTranslations();
+            projectData.title = projectTranslations.title || "Hotel Manager";
+            projectData.subtitle = projectTranslations.subtitle || "";
+            projectData.overview = `
+                <p>${projectTranslations.overview?.p1 || ""}</p>
+                <p>${projectTranslations.overview?.p2 || ""}</p>
+            `;
+            projectData.features = projectTranslations.features || {};
+            
+            // Initialize or update project page
+            if (typeof initializeProjectPage === 'function') {
+                initializeProjectPage(projectData);
+            }
+        }
+        
+        // Initial load
+        updateProjectData();
+        
+        // Update when language changes
+        document.addEventListener('languageChanged', () => {
+            updateProjectData();
+        });
     </script>
 </body>
 </html>
-

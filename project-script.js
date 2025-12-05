@@ -37,11 +37,18 @@ function initializeProjectPage(projectData) {
         const featuresList = document.getElementById('project-features-list');
         if (featuresList) {
             featuresList.innerHTML = '';
+            // Support both AutonoMe (4 features) and Hotel Manager (7 features)
             const features = [
                 projectData.features.help,
                 projectData.features.geo,
                 projectData.features.auth,
-                projectData.features.responsive
+                projectData.features.responsive,
+                projectData.features.room,
+                projectData.features.reservation,
+                projectData.features.user,
+                projectData.features.dashboard,
+                projectData.features.ui,
+                projectData.features.security
             ].filter(Boolean);
             
             features.forEach(feature => {

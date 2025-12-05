@@ -154,6 +154,24 @@ const translations = {
                     auth: "Authentication with Devise",
                     responsive: "Responsive Bootstrap design"
                 }
+            },
+            // Hotel Manager specific
+            hotelManager: {
+                title: "Hotel Manager",
+                subtitle: "A modern full-stack application for comprehensive hotel management, featuring an immersive interface and advanced functionalities. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Video Demo.",
+                overview: {
+                    p1: "Hotel Manager is a modern full-stack application for comprehensive hotel management, featuring an immersive interface and advanced functionalities.",
+                    p2: "This application provides all the necessary tools for managing a hotel efficiently, including room management, booking systems, customer relations, and reporting. It was built with scalability and user-friendliness in mind, making it suitable for hotels of all sizes."
+                },
+                features: {
+                    room: "Room Management – Full CRUD with images and status indicators",
+                    reservation: "Reservation System – Advanced booking functionality",
+                    user: "User Management – JWT authentication with role-based access",
+                    dashboard: "Interactive Dashboard – Real-time statistics and insights",
+                    ui: "Immersive UI – Sleek design powered by Tailwind CSS",
+                    responsive: "Responsive Design – Optimized for both mobile and desktop",
+                    security: "Security – Robust authentication and authorization"
+                }
             }
         }
     },
@@ -309,6 +327,24 @@ const translations = {
                     geo: "Position géographique et itinéraire via import-maps",
                     auth: "Authentification avec Devise",
                     responsive: "Design responsive Bootstrap"
+                }
+            },
+            // Hotel Manager specific
+            hotelManager: {
+                title: "Hotel Manager",
+                subtitle: "Une application full-stack moderne pour la gestion complète d'hôtels, avec une interface immersive et des fonctionnalités avancées. Cette page contient l'étude de cas incluant l'Aperçu du Projet, les Fonctionnalités, les Captures d'écran, les Outils Utilisés et la Démo Vidéo.",
+                overview: {
+                    p1: "Hotel Manager est une application full-stack moderne pour la gestion complète d'hôtels, avec une interface immersive et des fonctionnalités avancées.",
+                    p2: "Cette application fournit tous les outils nécessaires pour gérer un hôtel efficacement, incluant la gestion des chambres, les systèmes de réservation, les relations clients et les rapports. Elle a été construite en pensant à l'évolutivité et à la convivialité, la rendant adaptée aux hôtels de toutes tailles."
+                },
+                features: {
+                    room: "Gestion des Chambres – CRUD complet avec images et indicateurs de statut",
+                    reservation: "Système de Réservation – Fonctionnalité de réservation avancée",
+                    user: "Gestion des Utilisateurs – Authentification JWT avec accès basé sur les rôles",
+                    dashboard: "Tableau de Bord Interactif – Statistiques et insights en temps réel",
+                    ui: "Interface Immersive – Design élégant avec Tailwind CSS",
+                    responsive: "Design Responsive – Optimisé pour mobile et desktop",
+                    security: "Sécurité – Authentification et autorisation robustes"
                 }
             }
         }

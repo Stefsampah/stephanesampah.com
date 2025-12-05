@@ -341,11 +341,18 @@ function updateProjectPageTranslations() {
     const featuresList = document.getElementById('project-features-list');
     if (featuresList && projectTranslations.features) {
         featuresList.innerHTML = '';
+        // Support both AutonoMe (4 features) and Hotel Manager (7 features)
         const features = [
             projectTranslations.features.help,
             projectTranslations.features.geo,
             projectTranslations.features.auth,
-            projectTranslations.features.responsive
+            projectTranslations.features.responsive,
+            projectTranslations.features.room,
+            projectTranslations.features.reservation,
+            projectTranslations.features.user,
+            projectTranslations.features.dashboard,
+            projectTranslations.features.ui,
+            projectTranslations.features.security
         ].filter(Boolean);
         
         features.forEach(feature => {

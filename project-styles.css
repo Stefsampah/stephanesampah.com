@@ -137,9 +137,17 @@
     justify-items: center;
 }
 
+.screenshots-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1600px;
+    gap: 2.5rem;
+}
+
 .screenshot-item {
-    width: 231px;
-    height: 400px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -158,14 +166,12 @@
 }
 
 .screenshot-item img {
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center center;
     background-color: #f5f5f5;
-    min-width: 100%;
-    min-height: 100%;
 }
 
 .screenshot-item img[src*="10.17.04"] {
@@ -181,7 +187,7 @@
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 46.875%; /* Loom video aspect ratio */
     height: 0;
     overflow: hidden;
     border-radius: 8px;
@@ -189,6 +195,14 @@
     margin-top: 2rem;
 }
 
+.video-container > div {
+    position: relative;
+    width: 100%;
+    padding-bottom: 46.875%;
+    height: 0;
+}
+
+.video-container iframe,
 .project-video-iframe {
     position: absolute;
     top: 0;
@@ -261,9 +275,14 @@
         gap: 1rem;
     }
     
+    .screenshots-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+        gap: 1.5rem;
+    }
+    
     .screenshot-item {
-        width: 200px;
-        height: 346px;
+        max-width: 100%;
     }
 
     .project-links-buttons {
@@ -290,9 +309,13 @@
         max-width: 100%;
     }
     
+    .screenshots-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
     .screenshot-item {
-        width: 150px;
-        height: 260px;
+        max-width: 100%;
     }
 }
 
