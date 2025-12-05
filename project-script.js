@@ -32,6 +32,26 @@ function initializeProjectPage(projectData) {
         }
     }
 
+    // Update features list
+    if (projectData.features && typeof projectData.features === 'object') {
+        const featuresList = document.getElementById('project-features-list');
+        if (featuresList) {
+            featuresList.innerHTML = '';
+            const features = [
+                projectData.features.help,
+                projectData.features.geo,
+                projectData.features.auth,
+                projectData.features.responsive
+            ].filter(Boolean);
+            
+            features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+        }
+    }
+
     // Update tools
     if (projectData.tools && Array.isArray(projectData.tools)) {
         const toolsElement = document.getElementById('project-tools');
@@ -107,6 +127,41 @@ function initializeProjectPage(projectData) {
             imagePlaceholder.style.backgroundSize = 'cover';
             imagePlaceholder.style.backgroundPosition = 'center';
             imagePlaceholder.textContent = '';
+        }
+    }
+
+    // Handle video section
+    if (projectData.videoUrl && projectData.videoUrl.trim() !== '') {
+        const videoSection = document.getElementById('project-video-section');
+        const videoContainer = document.getElementById('project-video-container');
+        
+        if (videoSection && videoContainer) {
+            videoSection.style.display = 'block';
+            
+            // Check if it's a YouTube URL
+            let embedUrl = '';
+            if (projectData.videoUrl.includes('youtube.com/watch?v=')) {
+                const videoId = projectData.videoUrl.split('v=')[1]?.split('&')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            } else if (projectData.videoUrl.includes('youtu.be/')) {
+                const videoId = projectData.videoUrl.split('youtu.be/')[1]?.split('?')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            } else if (projectData.videoUrl.includes('youtube.com/embed/')) {
+                embedUrl = projectData.videoUrl;
+            } else {
+                // For other video URLs, try to embed directly
+                embedUrl = projectData.videoUrl;
+            }
+            
+            videoContainer.innerHTML = `
+                <iframe 
+                    src="${embedUrl}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    class="project-video-iframe">
+                </iframe>
+            `;
         }
     }
 }

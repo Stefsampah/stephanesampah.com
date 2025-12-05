@@ -876,6 +876,20 @@ body {
     height: 250px;
     background-color: var(--hover-color);
     overflow: hidden;
+    position: relative;
+}
+
+.project-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-card-link:hover .project-card-image {
+    transform: scale(1.05);
 }
 
 .project-placeholder {

@@ -50,9 +50,9 @@
     <section class="project-detail-section">
         <div class="container">
             <div class="project-header">
-                <h1 class="project-detail-title" id="project-title">Autonome</h1>
+                <h1 class="project-detail-title" id="project-title">AutonoMe</h1>
                 <p class="project-detail-subtitle" id="project-subtitle">
-                    This page contains the case study of Autonome which includes the Project Overview, Tools Used and Live Links to the official product.
+                    A web application designed, implemented and shipped to production for people with autism. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Live Links.
                 </p>
                 <div class="project-header-links">
                     <a href="#" id="project-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project Link</a>
@@ -60,7 +60,7 @@
             </div>
 
             <div class="project-image-large">
-                <div class="project-placeholder-large" id="project-image-placeholder"></div>
+                <img src="images/Capture_decran_2025-12-05_a_15.43.14.png" alt="AutonoMe - Bienvenue sur AutonoMe" class="project-main-image">
             </div>
 
             <div class="project-content-detail">
@@ -68,23 +68,58 @@
                     <h2 class="project-section-title" data-translate="project.overview">Project Overview</h2>
                     <div id="project-overview-content">
                         <p>
-                            Project 1 is a description of your project. This section should contain detailed information about what the project is, what problem it solves, and what makes it special.
+                            The AutonoMe project consisted in the designing, implementing and shipping to production a web application for people with autism.
                         </p>
                         <p>
-                            You can add multiple paragraphs here to describe the project in detail. Include information about the challenges faced, solutions implemented, and the impact of the project.
+                            This application was built with a focus on accessibility and user experience, providing essential features to help users navigate and interact with the platform independently.
                         </p>
-                        <p>
-                            Feel free to check out the Project by visiting the Project Link.
-                        </p>
+                    </div>
+                </div>
+
+                <div class="project-features">
+                    <h2 class="project-section-title" data-translate="project.features">Features</h2>
+                    <ul class="features-list" id="project-features-list">
+                        <li>Help button with Stimulus JS</li>
+                        <li>Geographical position and route via import-maps</li>
+                        <li>Authentication with Devise</li>
+                        <li>Responsive Bootstrap design</li>
+                    </ul>
+                </div>
+
+                <div class="project-screenshots">
+                    <h2 class="project-section-title" data-translate="project.screenshots">Screenshots</h2>
+                    <div class="screenshots-grid" id="project-screenshots">
+                        <div class="screenshot-item">
+                            <img src="images/Capture_decran_2025-04-07_a_10.15.56.png" alt="AutonoMe - Screenshot 1">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="images/Capture_decran_2025-04-07_a_10.16.45.png" alt="AutonoMe - Screenshot 2">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="images/Capture_decran_2025-04-07_a_10.17.04.png" alt="AutonoMe - Screenshot 3">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="images/Capture_decran_2025-04-07_a_10.18.01.png" alt="AutonoMe - Screenshot 4">
+                        </div>
                     </div>
                 </div>
 
                 <div class="project-tools">
                     <h2 class="project-section-title" data-translate="project.toolsUsed">Tools Used</h2>
                     <div class="tools-grid" id="project-tools">
-                        <span class="tool-item">HTML</span>
-                        <span class="tool-item">CSS</span>
+                        <span class="tool-item">Ruby on Rails</span>
+                        <span class="tool-item">Bootstrap</span>
                         <span class="tool-item">JavaScript</span>
+                        <span class="tool-item">Import Maps</span>
+                        <span class="tool-item">Devise</span>
+                        <span class="tool-item">StimulusJS</span>
+                    </div>
+                </div>
+
+                <div class="project-video" id="project-video-section" style="display: none;">
+                    <h2 class="project-section-title" data-translate="project.videoDemo">Video Demo</h2>
+                    <div class="video-container" id="project-video-container">
+                        <!-- Video will be inserted here via JavaScript -->
                     </div>
                 </div>
 
@@ -124,30 +159,51 @@
     <script src="script.js"></script>
     <script src="project-script.js"></script>
     <script>
-        // Project 1 Data - Autonome
+        // Project 1 Data - AutonoMe
         const projectData = {
-            title: "Autonome",
-            subtitle: "This page contains the case study of Autonome which includes the Project Overview, Tools Used and Live Links to the official product.",
-            liveUrl: "", // Leave empty if no live site, will use GitHub
-            githubUrl: "https://github.com/yourusername/autonome", // Your GitHub repo URL
-            overview: `
-                <p>
-                    Autonome is an application web designed for autonomous and independent management. This project provides a comprehensive solution for managing various aspects of autonomous operations.
-                </p>
-                <p>
-                    The application was built with a focus on user experience and efficiency. It includes features that allow users to manage their tasks independently while maintaining a clean and intuitive interface.
-                </p>
-                <p>
-                    Feel free to check out the Project by visiting the Project Link.
-                </p>
-            `,
-            tools: ["HTML", "CSS", "JavaScript", "React", "Git", "Github"]
+            projectKey: "autonome", // Key for translations
+            liveUrl: "https://www.autonome.online/", // Live site URL
+            githubUrl: "", // Your GitHub repo URL (if available)
+            videoUrl: "", // YouTube or other video URL (optional)
+            tools: ["Ruby on Rails", "Bootstrap", "JavaScript", "Import Maps", "Devise", "StimulusJS"]
         };
         
-        // Initialize project page
-        if (typeof initializeProjectPage === 'function') {
-            initializeProjectPage(projectData);
+        // Get translations based on current language
+        function getProjectTranslations() {
+            const lang = typeof currentLanguage !== 'undefined' ? currentLanguage : (localStorage.getItem('preferredLanguage') || 'en');
+            const projectKey = projectData.projectKey || 'autonome';
+            
+            if (typeof translations !== 'undefined' && translations[lang] && translations[lang].project && translations[lang].project[projectKey]) {
+                return translations[lang].project[projectKey];
+            }
+            // Fallback to English
+            return translations?.en?.project?.[projectKey] || {};
         }
+        
+        // Initialize project data with translations
+        function updateProjectData() {
+            const projectTranslations = getProjectTranslations();
+            projectData.title = projectTranslations.title || "AutonoMe";
+            projectData.subtitle = projectTranslations.subtitle || "";
+            projectData.overview = `
+                <p>${projectTranslations.overview?.p1 || ""}</p>
+                <p>${projectTranslations.overview?.p2 || ""}</p>
+            `;
+            projectData.features = projectTranslations.features || {};
+            
+            // Initialize or update project page
+            if (typeof initializeProjectPage === 'function') {
+                initializeProjectPage(projectData);
+            }
+        }
+        
+        // Initial load
+        updateProjectData();
+        
+        // Update when language changes
+        document.addEventListener('languageChanged', () => {
+            updateProjectData();
+        });
     </script>
 </body>
 </html>

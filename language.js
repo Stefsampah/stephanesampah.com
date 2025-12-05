@@ -277,6 +277,20 @@ function applyTranslations() {
     document.querySelectorAll('[data-translate="project.goBack"]').forEach(el => {
         el.textContent = t('project.goBack');
     });
+    document.querySelectorAll('[data-translate="project.features"]').forEach(el => {
+        el.textContent = t('project.features');
+    });
+    document.querySelectorAll('[data-translate="project.screenshots"]').forEach(el => {
+        el.textContent = t('project.screenshots');
+    });
+    document.querySelectorAll('[data-translate="project.videoDemo"]').forEach(el => {
+        el.textContent = t('project.videoDemo');
+    });
+    
+    // Update project page content if projectData exists
+    if (typeof projectData !== 'undefined' && projectData.projectKey) {
+        updateProjectPageTranslations();
+    }
 
     // Update language selector
     updateLanguageSelector();
@@ -294,6 +308,54 @@ function updateLanguageSelector() {
     });
 }
 
+// Update project page translations
+function updateProjectPageTranslations() {
+    if (typeof projectData === 'undefined' || !projectData.projectKey) return;
+    
+    const lang = currentLanguage;
+    const projectKey = projectData.projectKey;
+    const projectTranslations = translations[lang]?.project?.[projectKey] || {};
+    
+    // Update title
+    const titleElement = document.getElementById('project-title');
+    if (titleElement && projectTranslations.title) {
+        titleElement.textContent = projectTranslations.title;
+    }
+    
+    // Update subtitle
+    const subtitleElement = document.getElementById('project-subtitle');
+    if (subtitleElement && projectTranslations.subtitle) {
+        subtitleElement.textContent = projectTranslations.subtitle;
+    }
+    
+    // Update overview
+    const overviewElement = document.getElementById('project-overview-content');
+    if (overviewElement && projectTranslations.overview) {
+        overviewElement.innerHTML = `
+            <p>${projectTranslations.overview.p1 || ''}</p>
+            <p>${projectTranslations.overview.p2 || ''}</p>
+        `;
+    }
+    
+    // Update features
+    const featuresList = document.getElementById('project-features-list');
+    if (featuresList && projectTranslations.features) {
+        featuresList.innerHTML = '';
+        const features = [
+            projectTranslations.features.help,
+            projectTranslations.features.geo,
+            projectTranslations.features.auth,
+            projectTranslations.features.responsive
+        ].filter(Boolean);
+        
+        features.forEach(feature => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+        });
+    }
+}
+
 // Switch language
 function switchLanguage(lang) {
     if (lang === 'fr' || lang === 'en') {
@@ -306,6 +368,9 @@ function switchLanguage(lang) {
         
         // Update page direction if needed (for RTL languages in future)
         document.documentElement.dir = 'ltr';
+        
+        // Trigger language change event
+        document.dispatchEvent(new CustomEvent('languageChanged'));
     }
 }
 

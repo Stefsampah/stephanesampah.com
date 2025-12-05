@@ -136,7 +136,25 @@ const translations = {
             projectLink: "Project Link",
             viewOnGithub: "View on GitHub",
             goBack: "Go Back",
-            subtitle: "This page contains the case study of {project} which includes the Project Overview, Tools Used and Live Links to the official product."
+            subtitle: "This page contains the case study of {project} which includes the Project Overview, Tools Used and Live Links to the official product.",
+            features: "Features",
+            screenshots: "Screenshots",
+            videoDemo: "Video Demo",
+            // AutonoMe specific
+            autonome: {
+                title: "AutonoMe",
+                subtitle: "A web application designed, implemented and shipped to production for people with autism. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Live Links.",
+                overview: {
+                    p1: "The AutonoMe project consisted in the designing, implementing and shipping to production a web application for people with autism.",
+                    p2: "This application was built with a focus on accessibility and user experience, providing essential features to help users navigate and interact with the platform independently."
+                },
+                features: {
+                    help: "Help button with Stimulus JS",
+                    geo: "Geographical position and route via import-maps",
+                    auth: "Authentication with Devise",
+                    responsive: "Responsive Bootstrap design"
+                }
+            }
         }
     },
     fr: {
@@ -274,7 +292,25 @@ const translations = {
             projectLink: "Lien du Projet",
             viewOnGithub: "Voir sur GitHub",
             goBack: "Retour",
-            subtitle: "Cette page contient l'étude de cas de {project} qui inclut l'Aperçu du Projet, les Outils Utilisés et les Liens vers le produit officiel."
+            subtitle: "Cette page contient l'étude de cas de {project} qui inclut l'Aperçu du Projet, les Outils Utilisés et les Liens vers le produit officiel.",
+            features: "Fonctionnalités",
+            screenshots: "Captures d'écran",
+            videoDemo: "Démo Vidéo",
+            // AutonoMe specific
+            autonome: {
+                title: "AutonoMe",
+                subtitle: "Une application web conçue, implémentée et mise en production pour les personnes autistes. Cette page contient l'étude de cas incluant l'Aperçu du Projet, les Fonctionnalités, les Captures d'écran, les Outils Utilisés et les Liens vers le site.",
+                overview: {
+                    p1: "Le projet AutonoMe consistait à concevoir, implémenter et mettre en production une application web pour les personnes autistes.",
+                    p2: "Cette application a été construite en se concentrant sur l'accessibilité et l'expérience utilisateur, fournissant des fonctionnalités essentielles pour aider les utilisateurs à naviguer et interagir avec la plateforme de manière indépendante."
+                },
+                features: {
+                    help: "Bouton d'aide avec Stimulus JS",
+                    geo: "Position géographique et itinéraire via import-maps",
+                    auth: "Authentification avec Devise",
+                    responsive: "Design responsive Bootstrap"
+                }
+            }
         }
     }
 };
