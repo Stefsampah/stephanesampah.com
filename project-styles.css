@@ -143,6 +143,21 @@
     gap: 2.5rem;
 }
 
+/* Hotel Manager screenshots: keep landscape and show full image */
+.screenshots-grid-3 .screenshot-item {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+}
+
+.screenshots-grid-3 .screenshot-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+}
+
 .screenshot-item {
     width: 231px;
     height: 400px;
