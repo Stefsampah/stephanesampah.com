@@ -844,7 +844,7 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
 }
 
@@ -891,6 +891,26 @@ body {
 
 .project-card-link:hover .project-card-image {
     transform: scale(1.05);
+}
+
+.project-card-link:hover .project-card-image-phone {
+    transform: scale(1.02);
+}
+
+/* Specific styles for phone images to show full device */
+.project-image-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
+
+.project-card-image-phone {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
 }
 
 .project-placeholder {

@@ -11,19 +11,19 @@ const translations = {
         },
         // Home Section
         home: {
-            greeting: "Hey, I'm",
-            subtitle: "A <strong>Result-Oriented Web Developer</strong> building and managing Websites and Web Applications that leads to the success of the overall product",
+            greeting: "Hi, I am",
+            subtitle: "A Results-Oriented Web Developer creating and managing Websites and Web Applications that lead to overall product success",
             projectsBtn: "Projects",
             contactBtn: "Contact"
         },
         // About Section
         about: {
             title: "About Me",
-            "title.main": "about.",
+            "title.main": "About",
             subtitle: "Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology",
             intro: {
-                main: "I'm a product designer based in sunny Sydney, Australia.",
-                description: "Since 2005, I've enjoyed turning complex problems into simple, beautiful and intuitive designs. When I'm not pushing pixels, you'll find me cooking, gardening or working out in the park."
+                main: "I'm Stéphane, 51 years old, a tech addict and music lover. A dancefloor rover from the '80s and '90s (MC Hammer, get out of my body 😅) and a self-confessed music game addict.",
+                description: "When I'm not coding, you can find me testing apps, listening to music, or putting the world to rights over a pizza."
             },
             photo: {
                 fun: "Fun photo"
@@ -35,19 +35,17 @@ const translations = {
                 mac: "Mon Mac",
                 sharks: "Fan de requins"
             },
-            parts: {
                 webProject: "Part web project",
-                "webProject.uiux": "UI/UX design",
-                "webProject.persona": "persona / benchmark / Digital strategies",
-                "webProject.management": "Project management / e-commerce",
-                "webProject.pop": "\"Making it pop\"",
+            webProjectUiux: "UI/UX design",
+            webProjectPersona: "persona / benchmark / Digital strategies",
+            webProjectManagement: "Project management / e-commerce",
+            webProjectPop: "\"Making it pop\"",
                 coder: "Part coder",
-                "coder.frontend": "Front-end development",
-                "coder.htmlcss": "HTML / CSS",
-                "coder.js": "JavaScript / Ruby on Rails (kinda)",
-                "coder.swearing": "Swearing at my computer",
-                "coder.music": "Listening to music"
-            },
+            coderFrontend: "Front-end development",
+            coderHtmlcss: "HTML / CSS",
+            coderJs: "JavaScript / Ruby on Rails (kinda)",
+            coderSwearing: "Swearing at my computer",
+            coderMusic: "Listening to music",
             pieChart: {
                 text: "part web project,<br>part Front End Developer"
             },
@@ -65,26 +63,27 @@ const translations = {
             },
             randomFacts: {
                 title: "Random facts 🤓",
+                visual: "Visual trivia",
                 placeholder: "Image placeholder",
-                social: "Not addicted to social media at all",
-                apero: "Aperitif is my zen time",
+                social: "Not at all addicted to social media",
+                apero: "Happy hour is my zen moment",
                 la: "I dream of living in Los Angeles",
                 nba: "NBA fan",
-                eat: "I love eating (but not cooking)",
+                eat: "I love to eat (but not cook)",
                 design: "Passionate about design",
-                create: "I like creating things",
+                create: "I love creating things",
                 mentor: "Daniel Ek is my mentor",
                 coffee: "I drink a lot of coffee",
-                daniel: "Daniel Ek rocks ✨"
+                daniel: "Daniel Ek is rock ✨"
             },
             stats: {
                 title: "My skills ⚡",
                 jedi: "Jedi",
                 ninja: "Ninja",
                 geek: "Geek",
-                newbie: "Newbie",
-                coffee: "coffee drunk ☕",
-                design: "Design Systems 🎨",
+                newbie: "Beginner",
+                coffee: "Coffee ☕",
+                design: "Design systems 🎨",
                 youtube: "YouTube 📺",
                 dreamer: "Dreamer 🌌",
                 basketball: "Basketball 🏀"
@@ -93,7 +92,7 @@ const translations = {
         // Projects Section
         projects: {
             title: "Projects",
-            subtitle: "Here you will find some of the personal and clients projects that I created with each project containing its own case study",
+            subtitle: "Here you will find some of the personal and client projects I have created, each project containing its own case study",
             caseStudy: "Case Study",
             // Project descriptions
             autonome: {
@@ -105,12 +104,12 @@ const translations = {
                 description: "Complete hotel management system to optimize operations and improve customer experience."
             },
             taxiEssaouira: {
-                title: "Taxi Essaouira",
-                description: "Taxi booking application for the city of Essaouira. Modern solution to facilitate transportation."
+                title: "Oukditours",
+                description: "Web and mobile application for taxi and tourist transfer bookings in Essaouira. Focus on user experience and ease of booking."
             },
             tubenplay: {
-                title: "Tube'Nplay",
-                description: "Streaming and entertainment platform. Modern interface for an optimal user experience."
+                title: "Tube'NPlay",
+                description: "Innovative music gamification platform that transforms music listening into an interactive adventure. Swipe, earn points, collect badges, and unlock exclusive rewards."
             }
         },
         // Contact Section
@@ -172,6 +171,24 @@ const translations = {
                     responsive: "Responsive Design – Optimized for both mobile and desktop",
                     security: "Security – Robust authentication and authorization"
                 }
+            },
+            // Tube'NPlay specific
+            tubenplay: {
+                title: "Tube'NPlay",
+                subtitle: "Transform your music listening into an interactive adventure. Swipe, earn, unlock. The music game that transforms your listening into rewards. This page contains the case study including Project Overview, Features, Screenshots, Tools Used, Video Demo and Live Links.",
+                overview: {
+                    p1: "Tube'NPlay is an innovative music gamification platform that transforms your music listening experience into an interactive adventure. The platform combines music discovery with gaming mechanics, allowing users to swipe through playlists, earn points, collect badges, and unlock exclusive rewards.",
+                    p2: "Built with a focus on user engagement and gamification, the platform features exclusive playlists, a badge collection system, premium rewards including VIP experiences, and an integrated shop. Each interaction brings users closer to unlocking unique content and real-world experiences like concert tickets and backstage access."
+                },
+                features: {
+                    playlists: "Exclusive Playlists – Curated music by genre (Rock, Pop, Hits, Afro)",
+                    gamification: "Gamification System – Swipe, earn points, unlock rewards",
+                    badges: "Badge Collection – Bronze, Silver, Gold badges system",
+                    rewards: "Premium Rewards – Unlock exclusive content, VIP experiences, concert tickets",
+                    shop: "Premium Shop – Buy points packs and VIP subscriptions",
+                    rankings: "Rankings & Stats – Track your progress and compete",
+                    multilingual: "Multilingual – French and English support"
+                }
             }
         }
     },
@@ -193,7 +210,7 @@ const translations = {
         // About Section
         about: {
             title: "À propos de moi",
-            "title.main": "about.",
+            "title.main": "À propos",
             subtitle: "Ici vous trouverez plus d'informations sur moi, ce que je fais, et mes compétences actuelles principalement en termes de programmation et technologie",
             intro: {
                 main: "Je suis Stéphane, 51 ans, tech addict & music lover. Retourneur de dancefloors entre 80 et 90 (MC Hammer sort de ce corps 😅) et music game addict assumé.",
@@ -209,19 +226,17 @@ const translations = {
                 mac: "Mon Mac",
                 sharks: "Fan de requins"
             },
-            parts: {
                 webProject: "Part web project",
-                "webProject.uiux": "UI/UX design",
-                "webProject.persona": "persona / benchmark / Digital strategies",
-                "webProject.management": "Project management / e-commerce",
-                "webProject.pop": "\"Making it pop\"",
+            webProjectUiux: "UI/UX design",
+            webProjectPersona: "persona / benchmark / Digital strategies",
+            webProjectManagement: "Project management / e-commerce",
+            webProjectPop: "\"Making it pop\"",
                 coder: "Part coder",
-                "coder.frontend": "Front-end development",
-                "coder.htmlcss": "HTML / CSS",
-                "coder.js": "JavaScript / Ruby on Rails (kinda)",
-                "coder.swearing": "Swearing at my computer",
-                "coder.music": "Listening to music"
-            },
+            coderFrontend: "Développement front-end",
+            coderHtmlcss: "HTML / CSS",
+            coderJs: "JavaScript / Ruby on Rails (un peu)",
+            coderSwearing: "Je peste contre mon ordinateur",
+            coderMusic: "J'écoute de la musique",
             pieChart: {
                 text: "part web project,<br>part Front End Developer"
             },
@@ -238,7 +253,8 @@ const translations = {
                 tools: "Outils : Power BI, Google Ads, WordPress, MailChimp, Trello, Notion"
             },
             randomFacts: {
-                title: "Random facts 🤓",
+                title: "Faits divers 🤓",
+                visual: "Faits divers visuel",
                 placeholder: "Placeholder d'image",
                 social: "Pas du tout accro aux réseaux sociaux",
                 apero: "L'apéro est mon moment zen",
@@ -279,12 +295,12 @@ const translations = {
                 description: "Système de gestion hôtelière complet pour optimiser les opérations et améliorer l'expérience client."
             },
             taxiEssaouira: {
-                title: "Taxi Essaouira",
-                description: "Application de réservation de taxis pour la ville d'Essaouira. Solution moderne pour faciliter les déplacements."
+                title: "Oukditours",
+                description: "Application web et mobile pour la réservation de taxis et transferts touristiques à Essaouira. Focus sur l'expérience utilisateur et la facilité de réservation."
             },
             tubenplay: {
-                title: "Tube'Nplay",
-                description: "Plateforme de streaming et de divertissement. Interface moderne pour une expérience utilisateur optimale."
+                title: "Tube'NPlay",
+                description: "Plateforme innovante de gamification musicale qui transforme l'écoute musicale en aventure interactive. Swipe, gagne des points, collectionne des badges et débloque des récompenses exclusives."
             }
         },
         // Contact Section
@@ -345,6 +361,24 @@ const translations = {
                     ui: "Interface Immersive – Design élégant avec Tailwind CSS",
                     responsive: "Design Responsive – Optimisé pour mobile et desktop",
                     security: "Sécurité – Authentification et autorisation robustes"
+                }
+            },
+            // Tube'NPlay specific
+            tubenplay: {
+                title: "Tube'NPlay",
+                subtitle: "Transforme tes écoutes en aventure interactive. Swippe, gagne, débloque. Le jeu musical qui transforme vos écoutes en récompenses. Cette page contient l'étude de cas incluant l'Aperçu du Projet, les Fonctionnalités, les Captures d'écran, les Outils Utilisés, la Démo Vidéo et les Liens en Direct.",
+                overview: {
+                    p1: "Tube'NPlay est une plateforme innovante de gamification musicale qui transforme votre expérience d'écoute musicale en aventure interactive. La plateforme combine la découverte musicale avec des mécaniques de jeu, permettant aux utilisateurs de swiper à travers des playlists, gagner des points, collectionner des badges et débloquer des récompenses exclusives.",
+                    p2: "Construite avec un focus sur l'engagement utilisateur et la gamification, la plateforme propose des playlists exclusives, un système de collection de badges, des récompenses premium incluant des expériences VIP, et une boutique intégrée. Chaque interaction rapproche les utilisateurs du déblocage de contenu unique et d'expériences réelles comme des places de concert et des accès backstage."
+                },
+                features: {
+                    playlists: "Playlists Exclusives – Musique sélectionnée par genre (Rock, Pop, Hits, Afro)",
+                    gamification: "Système de Gamification – Swipe, gagne des points, débloque des récompenses",
+                    badges: "Collection de Badges – Système de badges Bronze, Silver, Gold",
+                    rewards: "Récompenses Premium – Débloque contenu exclusif, expériences VIP, places de concert",
+                    shop: "Boutique Premium – Achète des packs de points et abonnements VIP",
+                    rankings: "Classements & Stats – Suis ta progression et compète",
+                    multilingual: "Multilingue – Support français et anglais"
                 }
             },
             // Oukditours specific
@@ -412,6 +446,23 @@ const translations = {
                     security: "Security – Robust authentication and authorization"
                 }
             },
+            // Tube'NPlay specific
+            tubenplay: {
+                title: "Tube'NPlay",
+                subtitle: "Transform your music listening into an interactive adventure. Swipe, earn, unlock. The music game that transforms your listening into rewards. This page contains the case study including Project Overview, Features, Screenshots, Tools Used, Video Demo and Live Links.",
+                overview: {
+                    p1: "Tube'NPlay is an innovative music gamification platform that transforms your music listening experience into an interactive adventure. The platform combines music discovery with gaming mechanics, allowing users to swipe through playlists, earn points, collect badges, and unlock exclusive rewards.",
+                    p2: "Built with a focus on user engagement and gamification, the platform features exclusive playlists, a badge collection system, premium rewards including VIP experiences, and an integrated shop. Each interaction brings users closer to unlocking unique content and real-world experiences like concert tickets and backstage access."
+                },
+                features: {
+                    playlists: "Exclusive Playlists – Curated music collections across multiple genres",
+                    gamification: "Gamification System – Swipe, earn points, and unlock rewards",
+                    badges: "Badge Collection – Collect badges by reaching milestones",
+                    rewards: "Premium Rewards – Unlock exclusive content, VIP experiences, and concert access",
+                    shop: "Premium Shop – Purchase points and VIP subscriptions",
+                    interactive: "Interactive UI – Modern, engaging interface for music discovery"
+                }
+            },
             // Oukditours specific
             oukditours: {
                 title: "Oukditours",
@@ -433,39 +484,121 @@ const translations = {
     }
 };
 
-// Get current language from localStorage or default to browser language
+// Get current language from localStorage or default to French (since HTML lang="fr")
 function getCurrentLanguage() {
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && (savedLang === 'fr' || savedLang === 'en')) {
         return savedLang;
     }
-    // Detect browser language
-    const browserLang = navigator.language || navigator.userLanguage;
-    return browserLang.startsWith('fr') ? 'fr' : 'en';
+    // Default to French since HTML has lang="fr"
+    return 'fr';
 }
 
 // Set current language
 let currentLanguage = getCurrentLanguage();
 
+// Expose function to update currentLanguage from other scripts
+if (typeof window !== 'undefined') {
+    window.setCurrentLanguage = function(lang) {
+        currentLanguage = lang;
+        window.currentLanguage = lang;
+    };
+    window.currentLanguage = currentLanguage;
+}
+
 // Translation function
 function t(key) {
-    const keys = key.split('.');
-    let value = translations[currentLanguage];
+    if (!key) return '';
     
-    for (const k of keys) {
-        if (value && value[k]) {
-            value = value[k];
-        } else {
-            // Fallback to English if translation not found
-            value = translations.en;
-            for (const k2 of keys) {
-                value = value[k2];
-            }
-            break;
-        }
+    // Get current language - prioritize window.currentLanguage, then local currentLanguage
+    let lang = 'fr'; // default
+    if (typeof window !== 'undefined' && window.currentLanguage) {
+        lang = window.currentLanguage;
+    } else if (typeof currentLanguage !== 'undefined') {
+        lang = currentLanguage;
     }
     
-    return value || key;
+    // Ensure lang is valid
+    if (lang !== 'fr' && lang !== 'en') {
+        lang = 'fr';
+    }
+    
+    // Check if translations exist for this language
+    if (!translations || !translations[lang]) {
+        lang = 'fr';
+    }
+    
+    // Helper function to recursively search for a key in an object
+    // Handles both nested keys (about.title) and keys with dots in name (about["title.main"])
+    function findTranslation(obj, keyParts, currentIndex = 0) {
+        if (!obj || typeof obj !== 'object') return null;
+        
+        // If we've processed all parts, we're done (shouldn't happen, but safety check)
+        if (currentIndex >= keyParts.length) return null;
+        
+        // Strategy 1: Try to find the remaining keys as a joined string (for "title.main" case)
+        // This handles keys like about["title.main"] when searching for about.title.main
+        if (currentIndex < keyParts.length) {
+            const remainingKeys = keyParts.slice(currentIndex).join('.');
+            // Check both with and without quotes (in case it's stored as "title.main" with quotes)
+            if (obj[remainingKeys] !== undefined) {
+                return obj[remainingKeys];
+            }
+            // Also try with quotes
+            const remainingKeysQuoted = '"' + remainingKeys + '"';
+            if (obj[remainingKeysQuoted] !== undefined) {
+                return obj[remainingKeysQuoted];
+            }
+            // Try all object keys to see if any match
+            for (const objKey in obj) {
+                if (objKey === remainingKeys || objKey === remainingKeysQuoted || objKey.replace(/"/g, '') === remainingKeys) {
+                    return obj[objKey];
+                }
+            }
+        }
+        
+        // Strategy 2: Try normal nested navigation
+        const currentKey = keyParts[currentIndex];
+        
+        // If this is the last key part
+        if (currentIndex === keyParts.length - 1) {
+            if (obj[currentKey] !== undefined) {
+                return obj[currentKey];
+            }
+            return null;
+        }
+        
+        // If there are more key parts, continue navigation
+        if (obj[currentKey] !== undefined) {
+            const nextValue = obj[currentKey];
+            // If it's an object, continue navigating
+            if (typeof nextValue === 'object' && nextValue !== null) {
+                return findTranslation(nextValue, keyParts, currentIndex + 1);
+            }
+            // If it's not an object but we have more keys, this path is invalid
+            return null;
+        }
+        
+        return null;
+    }
+    
+    // Try to find the translation in current language
+    const keys = key.split('.');
+    let value = findTranslation(translations[lang], keys, 0);
+    
+    // If not found, try fallback language
+    if (value === null || value === undefined) {
+        const fallbackLang = lang === 'fr' ? 'en' : 'fr';
+        value = findTranslation(translations[fallbackLang], keys, 0);
+    }
+    
+    // Return the translation or the key if not found
+    if (value === null || value === undefined) {
+        console.warn('Translation not found for key:', key, 'in language:', lang);
+        return key;
+    }
+    
+    return (typeof value === 'string' || typeof value === 'number') ? value : key;
 }
 
 // Replace placeholder in strings

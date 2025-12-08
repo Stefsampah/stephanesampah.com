@@ -37,7 +37,7 @@ function initializeProjectPage(projectData) {
         const featuresList = document.getElementById('project-features-list');
         if (featuresList) {
             featuresList.innerHTML = '';
-            // Support AutonoMe (4 features), Hotel Manager (7 features), and Oukditours (6 features)
+            // Support AutonoMe (4 features), Hotel Manager (7 features), Oukditours (6 features), and Tube'NPlay (7 features)
             const features = [
                 projectData.features.help,
                 projectData.features.geo,
@@ -53,7 +53,13 @@ function initializeProjectPage(projectData) {
                 projectData.features.form,
                 projectData.features.whatsapp,
                 projectData.features.multilingual,
-                projectData.features.gallery
+                projectData.features.gallery,
+                projectData.features.playlists,
+                projectData.features.gamification,
+                projectData.features.badges,
+                projectData.features.rewards,
+                projectData.features.shop,
+                projectData.features.rankings
             ].filter(Boolean);
             
             features.forEach(feature => {
@@ -186,13 +192,16 @@ function initializeProjectPage(projectData) {
                 }
                 
                 videoContainer.innerHTML = `
-                    <iframe 
-                        src="${embedUrl}" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        class="project-video-iframe">
-                    </iframe>
+                    <div>
+                        <iframe 
+                            src="${embedUrl}" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            webkitallowfullscreen
+                            mozallowfullscreen>
+                        </iframe>
+                    </div>
                 `;
             }
         }

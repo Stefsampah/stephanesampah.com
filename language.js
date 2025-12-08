@@ -64,38 +64,38 @@ function applyTranslations() {
     document.querySelectorAll('[data-translate="about.tags.sharks"]').forEach(el => {
         el.textContent = t('about.tags.sharks');
     });
-    document.querySelectorAll('[data-translate="about.parts.webProject"]').forEach(el => {
-        el.textContent = t('about.parts.webProject');
+    document.querySelectorAll('[data-translate="about.webProject"]').forEach(el => {
+        el.textContent = t('about.webProject');
     });
-    document.querySelectorAll('[data-translate="about.parts.webProject.uiux"]').forEach(el => {
-        el.textContent = t('about.parts.webProject.uiux');
+    document.querySelectorAll('[data-translate="about.webProjectUiux"]').forEach(el => {
+        el.textContent = t('about.webProjectUiux');
     });
-    document.querySelectorAll('[data-translate="about.parts.webProject.persona"]').forEach(el => {
-        el.textContent = t('about.parts.webProject.persona');
+    document.querySelectorAll('[data-translate="about.webProjectPersona"]').forEach(el => {
+        el.textContent = t('about.webProjectPersona');
     });
-    document.querySelectorAll('[data-translate="about.parts.webProject.management"]').forEach(el => {
-        el.textContent = t('about.parts.webProject.management');
+    document.querySelectorAll('[data-translate="about.webProjectManagement"]').forEach(el => {
+        el.textContent = t('about.webProjectManagement');
     });
-    document.querySelectorAll('[data-translate="about.parts.webProject.pop"]').forEach(el => {
-        el.textContent = t('about.parts.webProject.pop');
+    document.querySelectorAll('[data-translate="about.webProjectPop"]').forEach(el => {
+        el.textContent = t('about.webProjectPop');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder"]').forEach(el => {
-        el.textContent = t('about.parts.coder');
+    document.querySelectorAll('[data-translate="about.coder"]').forEach(el => {
+        el.textContent = t('about.coder');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder.frontend"]').forEach(el => {
-        el.textContent = t('about.parts.coder.frontend');
+    document.querySelectorAll('[data-translate="about.coderFrontend"]').forEach(el => {
+        el.textContent = t('about.coderFrontend');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder.htmlcss"]').forEach(el => {
-        el.textContent = t('about.parts.coder.htmlcss');
+    document.querySelectorAll('[data-translate="about.coderHtmlcss"]').forEach(el => {
+        el.textContent = t('about.coderHtmlcss');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder.js"]').forEach(el => {
-        el.textContent = t('about.parts.coder.js');
+    document.querySelectorAll('[data-translate="about.coderJs"]').forEach(el => {
+        el.textContent = t('about.coderJs');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder.swearing"]').forEach(el => {
-        el.textContent = t('about.parts.coder.swearing');
+    document.querySelectorAll('[data-translate="about.coderSwearing"]').forEach(el => {
+        el.textContent = t('about.coderSwearing');
     });
-    document.querySelectorAll('[data-translate="about.parts.coder.music"]').forEach(el => {
-        el.textContent = t('about.parts.coder.music');
+    document.querySelectorAll('[data-translate="about.coderMusic"]').forEach(el => {
+        el.textContent = t('about.coderMusic');
     });
     document.querySelectorAll('[data-translate="about.pieChart.text"]').forEach(el => {
         el.innerHTML = t('about.pieChart.text');
@@ -126,6 +126,9 @@ function applyTranslations() {
     });
     document.querySelectorAll('[data-translate="about.randomFacts.title"]').forEach(el => {
         el.textContent = t('about.randomFacts.title');
+    });
+    document.querySelectorAll('[data-translate-alt="about.randomFacts.visual"]').forEach(el => {
+        el.alt = t('about.randomFacts.visual');
     });
     document.querySelectorAll('[data-translate="about.randomFacts.placeholder"]').forEach(el => {
         el.textContent = t('about.randomFacts.placeholder');
@@ -371,9 +374,19 @@ function updateProjectPageTranslations() {
 // Switch language
 function switchLanguage(lang) {
     if (lang === 'fr' || lang === 'en') {
+        // Update currentLanguage everywhere - this is critical!
+        if (typeof currentLanguage !== 'undefined') {
         currentLanguage = lang;
+        }
+        if (typeof window !== 'undefined') {
+            window.currentLanguage = lang;
+        }
         localStorage.setItem('preferredLanguage', lang);
-        applyTranslations();
+        
+        // Force update currentLanguage in translations.js scope
+        if (typeof window.setCurrentLanguage === 'function') {
+            window.setCurrentLanguage(lang);
+        }
         
         // Update HTML lang attribute
         document.documentElement.lang = lang;
@@ -381,17 +394,38 @@ function switchLanguage(lang) {
         // Update page direction if needed (for RTL languages in future)
         document.documentElement.dir = 'ltr';
         
+        // Apply translations - this must happen after all language variables are updated
+        applyTranslations();
+        
+        // Update language selector buttons
+        updateLanguageSelector();
+        
         // Trigger language change event
         document.dispatchEvent(new CustomEvent('languageChanged'));
     }
 }
 
 // Initialize language on page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Set initial language
-    document.documentElement.lang = currentLanguage;
+function initializeLanguage() {
+    // Get current language from localStorage or default to French
+    const savedLang = localStorage.getItem('preferredLanguage');
+    const initialLang = (savedLang && (savedLang === 'fr' || savedLang === 'en')) ? savedLang : 'fr';
     
-    // Apply translations
+    // Set currentLanguage everywhere - CRITICAL: must be set before applyTranslations()
+    if (typeof currentLanguage !== 'undefined') {
+        currentLanguage = initialLang;
+    }
+    if (typeof window !== 'undefined') {
+        window.currentLanguage = initialLang;
+    }
+    if (typeof window.setCurrentLanguage === 'function') {
+        window.setCurrentLanguage(initialLang);
+    }
+    
+    // Set initial language
+    document.documentElement.lang = initialLang;
+    
+    // Apply translations - this will use window.currentLanguage
     applyTranslations();
     
     // Add language switcher event listeners
@@ -402,5 +436,13 @@ document.addEventListener('DOMContentLoaded', () => {
             switchLanguage(lang);
         });
     });
-});
+}
+
+// Run on DOMContentLoaded or immediately if already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeLanguage);
+} else {
+    // DOM is already loaded, run immediately
+    setTimeout(initializeLanguage, 0);
+}
 
