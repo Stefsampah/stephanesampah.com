@@ -346,6 +346,88 @@ const translations = {
                     responsive: "Design Responsive – Optimisé pour mobile et desktop",
                     security: "Sécurité – Authentification et autorisation robustes"
                 }
+            },
+            // Oukditours specific
+            oukditours: {
+                title: "Oukditours",
+                subtitle: "Une application web et mobile conçue, implémentée et mise en production pour la réservation de taxis et transferts touristiques. Cette page contient l'étude de cas incluant l'Aperçu du Projet, les Fonctionnalités, les Captures d'écran et les Outils Utilisés.",
+                overview: {
+                    p1: "Le projet Oukditours consistait à concevoir, implémenter et mettre en production une application web et mobile pour la réservation de taxis et transferts touristiques à Essaouira.",
+                    p2: "Cette application a été construite en se concentrant sur l'expérience utilisateur et la facilité de réservation, fournissant des fonctionnalités essentielles pour permettre aux utilisateurs de réserver rapidement leurs transferts entre villes et leurs déplacements touristiques."
+                },
+                features: {
+                    booking: "Réservation en ligne de transferts entre villes",
+                    form: "Formulaire de réservation avec sélection de date et heure",
+                    whatsapp: "Intégration WhatsApp pour contact direct",
+                    responsive: "Design responsive mobile-first",
+                    multilingual: "Multilingue (Français/Anglais)",
+                    gallery: "Galerie de véhicules disponibles"
+                }
+            }
+        }
+    },
+    en: {
+        // ... existing English translations ...
+        project: {
+            overview: "Project Overview",
+            toolsUsed: "Tools Used",
+            seeLive: "See Live",
+            projectLink: "Project Link",
+            viewOnGithub: "View on GitHub",
+            goBack: "Go Back",
+            subtitle: "This page contains the case study of {project} which includes the Project Overview, Tools Used and Live Links to the official product.",
+            features: "Features",
+            screenshots: "Screenshots",
+            videoDemo: "Video Demo",
+            // AutonoMe specific
+            autonome: {
+                title: "AutonoMe",
+                subtitle: "A web application designed, implemented and shipped to production for people with autism. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Live Links.",
+                overview: {
+                    p1: "The AutonoMe project consisted in the designing, implementing and shipping to production a web application for people with autism.",
+                    p2: "This application was built with a focus on accessibility and user experience, providing essential features to help users navigate and interact with the platform independently."
+                },
+                features: {
+                    help: "Help button with Stimulus JS",
+                    geo: "Geographical position and route via import-maps",
+                    auth: "Authentication with Devise",
+                    responsive: "Responsive Bootstrap design"
+                }
+            },
+            // Hotel Manager specific
+            hotelManager: {
+                title: "Hotel Manager",
+                subtitle: "A modern full-stack application for complete hotel management, with an immersive interface and advanced features. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Video Demo.",
+                overview: {
+                    p1: "Hotel Manager is a modern full-stack application for complete hotel management, with an immersive interface and advanced features.",
+                    p2: "This application provides all the tools needed to manage a hotel efficiently, including room management, booking systems, customer relations and reports. It was built with scalability and user-friendliness in mind, making it suitable for hotels of all sizes."
+                },
+                features: {
+                    room: "Room Management – Full CRUD with images and status indicators",
+                    reservation: "Reservation System – Advanced booking functionality",
+                    user: "User Management – JWT authentication with role-based access",
+                    dashboard: "Interactive Dashboard – Real-time statistics and insights",
+                    ui: "Immersive Interface – Elegant design with Tailwind CSS",
+                    responsive: "Responsive Design – Optimized for mobile and desktop",
+                    security: "Security – Robust authentication and authorization"
+                }
+            },
+            // Oukditours specific
+            oukditours: {
+                title: "Oukditours",
+                subtitle: "A web and mobile application designed, implemented and shipped to production for taxi and tourist transfer bookings. This page contains the case study including Project Overview, Features, Screenshots and Tools Used.",
+                overview: {
+                    p1: "The Oukditours project consisted in designing, implementing and shipping to production a web and mobile application for taxi and tourist transfer bookings in Essaouira.",
+                    p2: "This application was built with a focus on user experience and ease of booking, providing essential features to allow users to quickly book their inter-city transfers and tourist trips."
+                },
+                features: {
+                    booking: "Online booking of inter-city transfers",
+                    form: "Booking form with date and time selection",
+                    whatsapp: "WhatsApp integration for direct contact",
+                    responsive: "Mobile-first responsive design",
+                    multilingual: "Multilingual (French/English)",
+                    gallery: "Available vehicles gallery"
+                }
             }
         }
     }

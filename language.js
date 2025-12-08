@@ -341,7 +341,7 @@ function updateProjectPageTranslations() {
     const featuresList = document.getElementById('project-features-list');
     if (featuresList && projectTranslations.features) {
         featuresList.innerHTML = '';
-        // Support both AutonoMe (4 features) and Hotel Manager (7 features)
+        // Support AutonoMe (4 features), Hotel Manager (7 features), and Oukditours (6 features)
         const features = [
             projectTranslations.features.help,
             projectTranslations.features.geo,
@@ -352,7 +352,12 @@ function updateProjectPageTranslations() {
             projectTranslations.features.user,
             projectTranslations.features.dashboard,
             projectTranslations.features.ui,
-            projectTranslations.features.security
+            projectTranslations.features.security,
+            projectTranslations.features.booking,
+            projectTranslations.features.form,
+            projectTranslations.features.whatsapp,
+            projectTranslations.features.multilingual,
+            projectTranslations.features.gallery
         ].filter(Boolean);
         
         features.forEach(feature => {

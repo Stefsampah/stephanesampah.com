@@ -44,9 +44,9 @@
     <section class="project-detail-section">
         <div class="container">
             <div class="project-header">
-                <h1 class="project-detail-title" id="project-title">Taxi Essaouira</h1>
+                <h1 class="project-detail-title" id="project-title">Oukditours</h1>
                 <p class="project-detail-subtitle" id="project-subtitle">
-                    This page contains the case study of Taxi Essaouira which includes the Project Overview, Tools Used and Live Links to the official product.
+                    Une application web et mobile conçue, implémentée et mise en production pour la réservation de taxis et transferts touristiques. Cette page contient l'étude de cas incluant l'Aperçu du Projet, les Fonctionnalités, les Captures d'écran et les Outils Utilisés.
                 </p>
                 <div class="project-header-links">
                     <a href="#" id="project-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project Link</a>
@@ -54,39 +54,67 @@
             </div>
 
             <div class="project-image-large">
-                <div class="project-placeholder-large" id="project-image-placeholder"></div>
+                <img src="images/Capture_decran_2025-12-08_a_11.26.45.png" alt="Oukditours - Application de réservation" class="project-main-image">
             </div>
 
             <div class="project-content-detail">
                 <div class="project-overview">
-                    <h2 class="project-section-title">Project Overview</h2>
+                    <h2 class="project-section-title" data-translate="project.overview">Aperçu du Projet</h2>
                     <div id="project-overview-content">
                         <p>
-                            Project 3 is a description of your project. This section should contain detailed information about what the project is, what problem it solves, and what makes it special.
+                            Le projet Oukditours consistait à concevoir, implémenter et mettre en production une application web et mobile pour la réservation de taxis et transferts touristiques à Essaouira.
                         </p>
                         <p>
-                            You can add multiple paragraphs here to describe the project in detail. Include information about the challenges faced, solutions implemented, and the impact of the project.
+                            Cette application a été construite en se concentrant sur l'expérience utilisateur et la facilité de réservation, fournissant des fonctionnalités essentielles pour permettre aux utilisateurs de réserver rapidement leurs transferts entre villes et leurs déplacements touristiques.
                         </p>
-                        <p>
-                            Feel free to check out the Project by visiting the Project Link.
-                        </p>
+                    </div>
+                </div>
+
+                <div class="project-features">
+                    <h2 class="project-section-title" data-translate="project.features">Fonctionnalités</h2>
+                    <ul class="features-list" id="project-features-list">
+                        <li>Réservation en ligne de transferts entre villes</li>
+                        <li>Formulaire de réservation avec sélection de date et heure</li>
+                        <li>Intégration WhatsApp pour contact direct</li>
+                        <li>Design responsive mobile-first</li>
+                        <li>Multilingue (Français/Anglais)</li>
+                        <li>Galerie de véhicules disponibles</li>
+                    </ul>
+                </div>
+
+                <div class="project-screenshots">
+                    <h2 class="project-section-title" data-translate="project.screenshots">Captures d'écran</h2>
+                    <div class="screenshots-grid" id="project-screenshots">
+                        <!-- Screenshots will be dynamically loaded from projectData -->
                     </div>
                 </div>
 
                 <div class="project-tools">
-                    <h2 class="project-section-title">Tools Used</h2>
+                    <h2 class="project-section-title" data-translate="project.toolsUsed">Outils Utilisés</h2>
                     <div class="tools-grid" id="project-tools">
-                        <span class="tool-item">HTML</span>
-                        <span class="tool-item">CSS</span>
-                        <span class="tool-item">JavaScript</span>
+                        <span class="tool-item">Ruby on Rails</span>
+                        <span class="tool-item">PostgreSQL</span>
+                        <span class="tool-item">Bootstrap</span>
+                        <span class="tool-item">Stimulus JS</span>
+                        <span class="tool-item">Turbo Rails</span>
+                        <span class="tool-item">Import Maps</span>
+                        <span class="tool-item">Cloudinary</span>
+                        <span class="tool-item">Git</span>
+                        <span class="tool-item">Github</span>
+                    </div>
+                </div>
+
+                <div class="project-video" id="project-video-section" style="display: none;">
+                    <h2 class="project-section-title" data-translate="project.videoDemo">Démo Vidéo</h2>
+                    <div class="video-container" id="project-video-container">
+                        <!-- Video will be dynamically loaded from projectData -->
                     </div>
                 </div>
 
                 <div class="project-links-section">
-                    <h2 class="project-section-title">See Live</h2>
+                    <h2 class="project-section-title" data-translate="project.seeLive">Voir en Direct</h2>
                     <div class="project-links-buttons">
-                        <a href="#" id="see-live-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project Link</a>
-                        <a href="index.html#projects" class="btn btn-secondary">Go Back</a>
+                        <a href="index.html#projects" class="btn btn-secondary" data-translate="project.goBack">Retour</a>
                     </div>
                 </div>
             </div>
@@ -116,24 +144,37 @@
     <script src="script.js"></script>
     <script src="project-script.js"></script>
     <script>
-        // Project 3 Data - Taxi Essaouira
+        // Project 3 Data - Oukditours
         const projectData = {
-            title: "Taxi Essaouira",
-            subtitle: "This page contains the case study of Taxi Essaouira which includes the Project Overview, Tools Used and Live Links to the official product.",
+            projectKey: "oukditours",
+            title: "Oukditours",
+            subtitle: "Une application web et mobile conçue, implémentée et mise en production pour la réservation de taxis et transferts touristiques. Cette page contient l'étude de cas incluant l'Aperçu du Projet, les Fonctionnalités, les Captures d'écran et les Outils Utilisés.",
             liveUrl: "", // Leave empty if no live site, will use GitHub
-            githubUrl: "https://github.com/yourusername/taxi-essaouira", // Your GitHub repo URL
+            githubUrl: "https://github.com/yourusername/oukditours", // Your GitHub repo URL
             overview: `
                 <p>
-                    Taxi Essaouira is a modern taxi booking application designed specifically for the city of Essaouira. This solution makes it easy for residents and tourists to book taxis quickly and efficiently.
+                    Le projet Oukditours consistait à concevoir, implémenter et mettre en production une application web et mobile pour la réservation de taxis et transferts touristiques à Essaouira.
                 </p>
                 <p>
-                    The application features real-time booking, GPS tracking, and a user-friendly interface. It was developed to address the transportation needs of Essaouira while providing a seamless experience for both drivers and passengers.
-                </p>
-                <p>
-                    Feel free to check out the Project by visiting the Project Link.
+                    Cette application a été construite en se concentrant sur l'expérience utilisateur et la facilité de réservation, fournissant des fonctionnalités essentielles pour permettre aux utilisateurs de réserver rapidement leurs transferts entre villes et leurs déplacements touristiques.
                 </p>
             `,
-            tools: ["HTML", "CSS", "JavaScript", "TypeScript", "Git", "Github"]
+            features: {
+                booking: "Réservation en ligne de transferts entre villes",
+                form: "Formulaire de réservation avec sélection de date et heure",
+                whatsapp: "Intégration WhatsApp pour contact direct",
+                responsive: "Design responsive mobile-first",
+                multilingual: "Multilingue (Français/Anglais)",
+                gallery: "Galerie de véhicules disponibles"
+            },
+            tools: ["Ruby on Rails", "PostgreSQL", "Bootstrap", "Stimulus JS", "Turbo Rails", "Import Maps", "Cloudinary", "Git", "Github"],
+            screenshots: [
+                "images/Oukditours_home.png",
+                "images/Oukditours_reserver.png",
+                "images/Oukditours_Transferts_ville.png",
+                "images/Oukditours_excursions.png"
+            ],
+            videoUrl: "images/Oukditours_demo.webm"
         };
         
         // Initialize project page

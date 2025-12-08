@@ -37,7 +37,7 @@ function initializeProjectPage(projectData) {
         const featuresList = document.getElementById('project-features-list');
         if (featuresList) {
             featuresList.innerHTML = '';
-            // Support both AutonoMe (4 features) and Hotel Manager (7 features)
+            // Support AutonoMe (4 features), Hotel Manager (7 features), and Oukditours (6 features)
             const features = [
                 projectData.features.help,
                 projectData.features.geo,
@@ -48,7 +48,12 @@ function initializeProjectPage(projectData) {
                 projectData.features.user,
                 projectData.features.dashboard,
                 projectData.features.ui,
-                projectData.features.security
+                projectData.features.security,
+                projectData.features.booking,
+                projectData.features.form,
+                projectData.features.whatsapp,
+                projectData.features.multilingual,
+                projectData.features.gallery
             ].filter(Boolean);
             
             features.forEach(feature => {
@@ -145,30 +150,68 @@ function initializeProjectPage(projectData) {
         if (videoSection && videoContainer) {
             videoSection.style.display = 'block';
             
-            // Check if it's a YouTube URL
-            let embedUrl = '';
-            if (projectData.videoUrl.includes('youtube.com/watch?v=')) {
-                const videoId = projectData.videoUrl.split('v=')[1]?.split('&')[0];
-                embedUrl = `https://www.youtube.com/embed/${videoId}`;
-            } else if (projectData.videoUrl.includes('youtu.be/')) {
-                const videoId = projectData.videoUrl.split('youtu.be/')[1]?.split('?')[0];
-                embedUrl = `https://www.youtube.com/embed/${videoId}`;
-            } else if (projectData.videoUrl.includes('youtube.com/embed/')) {
-                embedUrl = projectData.videoUrl;
-            } else {
-                // For other video URLs, try to embed directly
-                embedUrl = projectData.videoUrl;
-            }
+            const videoUrl = projectData.videoUrl.trim();
             
-            videoContainer.innerHTML = `
-                <iframe 
-                    src="${embedUrl}" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    class="project-video-iframe">
-                </iframe>
-            `;
+            // Check if it's a local video file (webm, mp4, etc.)
+            const isLocalVideo = /\.(webm|mp4|ogg|mov)$/i.test(videoUrl);
+            
+            if (isLocalVideo) {
+                // Use HTML5 video tag for local files
+                videoContainer.innerHTML = `
+                    <video 
+                        controls 
+                        class="project-video-iframe"
+                        preload="metadata">
+                        <source src="${videoUrl}" type="video/${videoUrl.split('.').pop().toLowerCase()}">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                `;
+            } else {
+                // Check if it's a YouTube URL
+                let embedUrl = '';
+                if (videoUrl.includes('youtube.com/watch?v=')) {
+                    const videoId = videoUrl.split('v=')[1]?.split('&')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                } else if (videoUrl.includes('youtu.be/')) {
+                    const videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                } else if (videoUrl.includes('youtube.com/embed/')) {
+                    embedUrl = videoUrl;
+                } else if (videoUrl.includes('loom.com')) {
+                    // Loom video - use as is
+                    embedUrl = videoUrl;
+                } else {
+                    // For other video URLs, try to embed directly
+                    embedUrl = videoUrl;
+                }
+                
+                videoContainer.innerHTML = `
+                    <iframe 
+                        src="${embedUrl}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="project-video-iframe">
+                    </iframe>
+                `;
+            }
+        }
+    }
+
+    // Handle screenshots dynamically
+    if (projectData.screenshots && Array.isArray(projectData.screenshots)) {
+        const screenshotsGrid = document.getElementById('project-screenshots');
+        if (screenshotsGrid) {
+            screenshotsGrid.innerHTML = '';
+            projectData.screenshots.forEach((screenshot, index) => {
+                const div = document.createElement('div');
+                div.className = 'screenshot-item';
+                const img = document.createElement('img');
+                img.src = screenshot;
+                img.alt = `${projectData.title || 'Project'} - Screenshot ${index + 1}`;
+                div.appendChild(img);
+                screenshotsGrid.appendChild(div);
+            });
         }
     }
 }

@@ -202,12 +202,12 @@
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 46.875%; /* Loom video aspect ratio */
-    height: 0;
-    overflow: hidden;
+    max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
+    overflow: hidden;
+    background-color: #000;
 }
 
 .video-container > div {
@@ -217,14 +217,50 @@
     height: 0;
 }
 
-.video-container iframe,
-.project-video-iframe {
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: none;
+}
+
+/* Styles pour les vidéos HTML5 locales */
+.video-container video,
+.project-video-iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    background-color: #000;
+    object-fit: contain;
+}
+
+/* Pour les vidéos mobiles en format portrait, centrer et limiter la largeur */
+.video-container video {
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .video-container video {
+        max-width: 450px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .video-container video {
+        max-width: 500px;
+    }
 }
 
 .project-tools {
