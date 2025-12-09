@@ -63,22 +63,27 @@ document.querySelectorAll('a[href^="#"], a[href*="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background on scroll
+// Navbar background on scroll - Keep black background always
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 50) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-    } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+    // Keep navbar black at all times (like reference site)
+    if (navbar) {
+        navbar.style.backgroundColor = '#000';
+        navbar.style.boxShadow = currentScroll > 50 ? '0 2px 20px rgba(0, 0, 0, 0.3)' : 'none';
     }
     
     lastScroll = currentScroll;
+});
+
+// Ensure navbar is black on page load
+document.addEventListener('DOMContentLoaded', () => {
+    if (navbar) {
+        navbar.style.backgroundColor = '#000';
+    }
 });
 
 // Active navigation link on scroll (only on index.html)
@@ -170,10 +175,7 @@ if (yearElement) {
 const style = document.createElement('style');
 style.textContent = `
     .nav-link.active {
-        color: var(--accent-color);
-    }
-    .nav-link.active::after {
-        width: 100%;
+        color: #757575;
     }
 `;
 document.head.appendChild(style);
@@ -288,5 +290,117 @@ document.addEventListener('DOMContentLoaded', () => {
     if (barChartSection) {
         barChartObserver.observe(barChartSection);
     }
+});
+
+// Scroll animations for About section - Adham Dannaway style
+function initScrollAnimations() {
+    // Animation options
+    const animationOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    // Animate text-main and img-main
+    const aboutMainObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const textMain = document.getElementById('text-main');
+                const imgMain = document.getElementById('img-main');
+                
+                if (textMain) {
+                    setTimeout(() => {
+                        textMain.classList.add('animated');
+                    }, 100);
+                }
+                
+                if (imgMain) {
+                    setTimeout(() => {
+                        imgMain.classList.add('animated');
+                    }, 300);
+                }
+                
+                aboutMainObserver.unobserve(entry.target);
+            }
+        });
+    }, animationOptions);
+
+    const aboutMain = document.querySelector('.about-main');
+    if (aboutMain) {
+        aboutMainObserver.observe(aboutMain);
+    }
+
+    // Animate snaps
+    const snapsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const snaps = document.getElementById('snaps');
+                if (snaps) {
+                    snaps.classList.add('animated');
+                    
+                    // Animate each snap item with delay
+                    const snapItems = snaps.querySelectorAll('.snap-item');
+                    snapItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('animated');
+                        }, index * 100 + 200);
+                    });
+                }
+                
+                snapsObserver.unobserve(entry.target);
+            }
+        });
+    }, animationOptions);
+
+    const snapsContainer = document.getElementById('snaps');
+    if (snapsContainer) {
+        snapsObserver.observe(snapsContainer);
+    }
+
+    // Animate pie chart image
+    const pieChartObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const imgPie = document.getElementById('img-pie');
+                if (imgPie) {
+                    setTimeout(() => {
+                        imgPie.classList.add('animated');
+                    }, 300);
+                }
+                
+                pieChartObserver.unobserve(entry.target);
+            }
+        });
+    }, animationOptions);
+
+    const pieChartSection = document.querySelector('.pie-chart');
+    if (pieChartSection) {
+        pieChartObserver.observe(pieChartSection);
+    }
+
+    // Animate random facts image
+    const randomFactsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const imgRandomFacts = document.getElementById('img-random-facts');
+                if (imgRandomFacts) {
+                    setTimeout(() => {
+                        imgRandomFacts.classList.add('animated');
+                    }, 200);
+                }
+                
+                randomFactsObserver.unobserve(entry.target);
+            }
+        });
+    }, animationOptions);
+
+    const randomFactsSection = document.querySelector('.about-random-facts');
+    if (randomFactsSection) {
+        randomFactsObserver.observe(randomFactsSection);
+    }
+}
+
+// Initialize scroll animations on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollAnimations();
 });
 

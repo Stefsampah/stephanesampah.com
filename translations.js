@@ -251,7 +251,7 @@ const translations = {
                 coder: "Part coder",
             coderFrontend: "Développement front-end",
             coderHtmlcss: "HTML / CSS",
-            coderJs: "JavaScript / Ruby on Rails (un peu)",
+            coderJs: "JavaScript / Ruby on Rails",
             coderSwearing: "Je peste contre mon ordinateur",
             coderMusic: "J'écoute de la musique",
             pieChart: {
