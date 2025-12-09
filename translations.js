@@ -19,7 +19,7 @@ const translations = {
         // About Section
         about: {
             title: "About Me",
-            "title.main": "About",
+            titleMain: "About",
             subtitle: "Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology",
             intro: {
                 main: "I'm Stéphane, 51 years old, a tech addict and music lover. A dancefloor rover from the '80s and '90s (MC Hammer, get out of my body 😅) and a self-confessed music game addict.",
@@ -189,6 +189,23 @@ const translations = {
                     rankings: "Rankings & Stats – Track your progress and compete",
                     multilingual: "Multilingual – French and English support"
                 }
+            },
+            // Oukditours specific
+            oukditours: {
+                title: "Oukditours",
+                subtitle: "A web and mobile application designed, implemented and shipped to production for taxi and tourist transfer bookings. This page contains the case study including Project Overview, Features, Screenshots and Tools Used.",
+                overview: {
+                    p1: "The Oukditours project consisted in designing, implementing and shipping to production a web and mobile application for taxi and tourist transfer bookings in Essaouira.",
+                    p2: "This application was built with a focus on user experience and ease of booking, providing essential features to allow users to quickly book their inter-city transfers and tourist trips."
+                },
+                features: {
+                    booking: "Online booking of inter-city transfers",
+                    form: "Booking form with date and time selection",
+                    whatsapp: "WhatsApp integration for direct contact",
+                    responsive: "Mobile-first responsive design",
+                    multilingual: "Multilingual (French/English)",
+                    gallery: "Available vehicles gallery"
+                }
             }
         }
     },
@@ -210,7 +227,7 @@ const translations = {
         // About Section
         about: {
             title: "À propos de moi",
-            "title.main": "À propos",
+            titleMain: "À propos",
             subtitle: "Ici vous trouverez plus d'informations sur moi, ce que je fais, et mes compétences actuelles principalement en termes de programmation et technologie",
             intro: {
                 main: "Je suis Stéphane, 51 ans, tech addict & music lover. Retourneur de dancefloors entre 80 et 90 (MC Hammer sort de ce corps 😅) et music game addict assumé.",
@@ -399,90 +416,13 @@ const translations = {
                 }
             }
         }
-    },
-    en: {
-        // ... existing English translations ...
-        project: {
-            overview: "Project Overview",
-            toolsUsed: "Tools Used",
-            seeLive: "See Live",
-            projectLink: "Project Link",
-            viewOnGithub: "View on GitHub",
-            goBack: "Go Back",
-            subtitle: "This page contains the case study of {project} which includes the Project Overview, Tools Used and Live Links to the official product.",
-            features: "Features",
-            screenshots: "Screenshots",
-            videoDemo: "Video Demo",
-            // AutonoMe specific
-            autonome: {
-                title: "AutonoMe",
-                subtitle: "A web application designed, implemented and shipped to production for people with autism. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Live Links.",
-                overview: {
-                    p1: "The AutonoMe project consisted in the designing, implementing and shipping to production a web application for people with autism.",
-                    p2: "This application was built with a focus on accessibility and user experience, providing essential features to help users navigate and interact with the platform independently."
-                },
-                features: {
-                    help: "Help button with Stimulus JS",
-                    geo: "Geographical position and route via import-maps",
-                    auth: "Authentication with Devise",
-                    responsive: "Responsive Bootstrap design"
-                }
-            },
-            // Hotel Manager specific
-            hotelManager: {
-                title: "Hotel Manager",
-                subtitle: "A modern full-stack application for complete hotel management, with an immersive interface and advanced features. This page contains the case study including Project Overview, Features, Screenshots, Tools Used and Video Demo.",
-                overview: {
-                    p1: "Hotel Manager is a modern full-stack application for complete hotel management, with an immersive interface and advanced features.",
-                    p2: "This application provides all the tools needed to manage a hotel efficiently, including room management, booking systems, customer relations and reports. It was built with scalability and user-friendliness in mind, making it suitable for hotels of all sizes."
-                },
-                features: {
-                    room: "Room Management – Full CRUD with images and status indicators",
-                    reservation: "Reservation System – Advanced booking functionality",
-                    user: "User Management – JWT authentication with role-based access",
-                    dashboard: "Interactive Dashboard – Real-time statistics and insights",
-                    ui: "Immersive Interface – Elegant design with Tailwind CSS",
-                    responsive: "Responsive Design – Optimized for mobile and desktop",
-                    security: "Security – Robust authentication and authorization"
-                }
-            },
-            // Tube'NPlay specific
-            tubenplay: {
-                title: "Tube'NPlay",
-                subtitle: "Transform your music listening into an interactive adventure. Swipe, earn, unlock. The music game that transforms your listening into rewards. This page contains the case study including Project Overview, Features, Screenshots, Tools Used, Video Demo and Live Links.",
-                overview: {
-                    p1: "Tube'NPlay is an innovative music gamification platform that transforms your music listening experience into an interactive adventure. The platform combines music discovery with gaming mechanics, allowing users to swipe through playlists, earn points, collect badges, and unlock exclusive rewards.",
-                    p2: "Built with a focus on user engagement and gamification, the platform features exclusive playlists, a badge collection system, premium rewards including VIP experiences, and an integrated shop. Each interaction brings users closer to unlocking unique content and real-world experiences like concert tickets and backstage access."
-                },
-                features: {
-                    playlists: "Exclusive Playlists – Curated music collections across multiple genres",
-                    gamification: "Gamification System – Swipe, earn points, and unlock rewards",
-                    badges: "Badge Collection – Collect badges by reaching milestones",
-                    rewards: "Premium Rewards – Unlock exclusive content, VIP experiences, and concert access",
-                    shop: "Premium Shop – Purchase points and VIP subscriptions",
-                    interactive: "Interactive UI – Modern, engaging interface for music discovery"
-                }
-            },
-            // Oukditours specific
-            oukditours: {
-                title: "Oukditours",
-                subtitle: "A web and mobile application designed, implemented and shipped to production for taxi and tourist transfer bookings. This page contains the case study including Project Overview, Features, Screenshots and Tools Used.",
-                overview: {
-                    p1: "The Oukditours project consisted in designing, implementing and shipping to production a web and mobile application for taxi and tourist transfer bookings in Essaouira.",
-                    p2: "This application was built with a focus on user experience and ease of booking, providing essential features to allow users to quickly book their inter-city transfers and tourist trips."
-                },
-                features: {
-                    booking: "Online booking of inter-city transfers",
-                    form: "Booking form with date and time selection",
-                    whatsapp: "WhatsApp integration for direct contact",
-                    responsive: "Mobile-first responsive design",
-                    multilingual: "Multilingual (French/English)",
-                    gallery: "Available vehicles gallery"
-                }
-            }
-        }
     }
 };
+
+// Expose translations for debugging/console access
+if (typeof window !== 'undefined') {
+    window.translations = translations;
+}
 
 // Get current language from localStorage or default to French (since HTML lang="fr")
 function getCurrentLanguage() {
@@ -510,6 +450,9 @@ if (typeof window !== 'undefined') {
 function t(key) {
     if (!key) return '';
     
+    // Resolve translations source
+    const tx = (typeof window !== 'undefined' && window.translations) ? window.translations : translations || {};
+    
     // Get current language - prioritize window.currentLanguage, then local currentLanguage
     let lang = 'fr'; // default
     if (typeof window !== 'undefined' && window.currentLanguage) {
@@ -524,7 +467,7 @@ function t(key) {
     }
     
     // Check if translations exist for this language
-    if (!translations || !translations[lang]) {
+    if (!tx || !tx[lang]) {
         lang = 'fr';
     }
     
@@ -584,12 +527,12 @@ function t(key) {
     
     // Try to find the translation in current language
     const keys = key.split('.');
-    let value = findTranslation(translations[lang], keys, 0);
+    let value = findTranslation(tx[lang], keys, 0);
     
     // If not found, try fallback language
     if (value === null || value === undefined) {
         const fallbackLang = lang === 'fr' ? 'en' : 'fr';
-        value = findTranslation(translations[fallbackLang], keys, 0);
+        value = findTranslation(tx[fallbackLang], keys, 0);
     }
     
     // Return the translation or the key if not found
