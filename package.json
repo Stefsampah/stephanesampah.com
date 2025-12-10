@@ -1,0 +1,13 @@
+{
+  "name": "stephanesampah-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio served via Express for Heroku deployment.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
