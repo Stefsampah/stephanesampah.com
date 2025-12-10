@@ -48,12 +48,17 @@
 
 .project-main-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 900px;
     height: auto;
     display: block;
     object-fit: contain;
     object-position: center;
     margin: 0 auto;
+}
+
+/* Tube'NPlay only: smaller main image */
+.project-4-main {
+    max-width: 430px;
 }
 
 .project-placeholder-large {
