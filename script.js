@@ -145,22 +145,30 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // Get form values
         const formData = new FormData(contactForm);
         const name = formData.get('name');
         const email = formData.get('email');
         const message = formData.get('message');
-        
-        // Here you would typically send the data to a server
-        // For now, we'll just show an alert
-        console.log('Form submitted:', { name, email, message });
-        
-        // Show success message (you can customize this)
-        alert('Merci pour votre message ! Je vous répondrai bientôt.');
-        
-        // Reset form
-        contactForm.reset();
+
+        // Create mailto link with form data
+        const subject = encodeURIComponent(`Contact depuis stephanesampah.com - ${name}`);
+        const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        const mailtoLink = `mailto:stefsampah@hotmail.com?subject=${subject}&body=${body}`;
+
+        // Open email client
+        window.location.href = mailtoLink;
+
+        // Show success message
+        setTimeout(() => {
+            alert('Merci pour votre message ! Votre client email devrait s\'ouvrir. Si ce n\'est pas le cas, envoyez votre message à stefsampah@hotmail.com');
+        }, 500);
+
+        // Reset form after a delay
+        setTimeout(() => {
+            contactForm.reset();
+        }, 1000);
     });
 }
 
@@ -402,5 +410,264 @@ function initScrollAnimations() {
 // Initialize scroll animations on page load
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
+    
+    // Inject dynamic style tag with maximum specificity
+    function injectMobileStyles() {
+        // Remove existing dynamic style if it exists
+        const existingStyle = document.getElementById('mobile-force-styles');
+        if (existingStyle) {
+            existingStyle.remove();
+        }
+        
+        const style = document.createElement('style');
+        style.id = 'mobile-force-styles';
+        style.textContent = `
+            @media screen and (max-width: 768px) {
+                /* Force ALL elements with maximum specificity */
+                html, body {
+                    overflow-x: hidden !important;
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                }
+                
+                section.dark,
+                section.dark .row,
+                section.dark .row .col-12,
+                section.dark .row .col-12.pie-chart,
+                .dark .row .col-12.pie-chart {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    min-width: 0 !important;
+                    overflow-x: hidden !important;
+                    box-sizing: border-box !important;
+                    margin: 0 !important;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                }
+                
+                section.dark .row .col-12.pie-chart .web-project,
+                section.dark .row .col-12.pie-chart .coder,
+                .col-12.pie-chart .web-project,
+                .col-12.pie-chart .coder,
+                .pie-chart .web-project,
+                .pie-chart .coder,
+                .web-project,
+                .coder {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    min-width: 0 !important;
+                    flex: 1 1 100% !important;
+                    margin: 0 !important;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    padding: 1rem !important;
+                    box-sizing: border-box !important;
+                }
+                
+                section.dark .row .col-12.pie-chart .web-project .ul,
+                section.dark .row .col-12.pie-chart .coder .ul,
+                .col-12.pie-chart .web-project .ul,
+                .col-12.pie-chart .coder .ul,
+                .pie-chart .web-project .ul,
+                .pie-chart .coder .ul,
+                .web-project .ul,
+                .coder .ul {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    min-width: 0 !important;
+                    box-sizing: border-box !important;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                }
+                
+                section.dark .row .col-12.pie-chart .web-project .ul li,
+                section.dark .row .col-12.pie-chart .coder .ul li,
+                .col-12.pie-chart .web-project .ul li,
+                .col-12.pie-chart .coder .ul li,
+                .pie-chart .web-project .ul li,
+                .pie-chart .coder .ul li,
+                .web-project .ul li,
+                .coder .ul li,
+                li {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    min-width: 0 !important;
+                    box-sizing: border-box !important;
+                    word-wrap: break-word !important;
+                    overflow-wrap: break-word !important;
+                    display: block !important;
+                }
+                
+                .bar-chart,
+                .bar-chart li {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    min-width: 0 !important;
+                    box-sizing: border-box !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Force mobile responsive fix for pie-chart sections
+    function forceMobileResponsive() {
+        if (window.innerWidth <= 768) {
+            console.log('Force mobile responsive - window width:', window.innerWidth);
+            
+            // Inject dynamic styles first
+            injectMobileStyles();
+            
+            // Force all list items to 100% width - CRITICAL FIX for 246px issue
+            const listItems = document.querySelectorAll('.web-project .ul li, .coder .ul li, .pie-chart .web-project .ul li, .pie-chart .coder .ul li, .col-12.pie-chart .web-project .ul li, .col-12.pie-chart .coder .ul li');
+            console.log('Found list items:', listItems.length);
+            listItems.forEach(li => {
+                li.style.setProperty('width', '100%', 'important');
+                li.style.setProperty('max-width', '100%', 'important');
+                li.style.setProperty('min-width', '0', 'important');
+                li.style.setProperty('box-sizing', 'border-box', 'important');
+                li.style.setProperty('word-wrap', 'break-word', 'important');
+                li.style.setProperty('overflow-wrap', 'break-word', 'important');
+                li.style.setProperty('display', 'block', 'important');
+            });
+            
+            // Force bar-chart section to be responsive
+            const barCharts = document.querySelectorAll('.bar-chart');
+            barCharts.forEach(chart => {
+                chart.style.setProperty('width', '100%', 'important');
+                chart.style.setProperty('max-width', '100%', 'important');
+                chart.style.setProperty('box-sizing', 'border-box', 'important');
+                chart.style.setProperty('overflow-x', 'hidden', 'important');
+            });
+            
+            const barChartItems = document.querySelectorAll('.bar-chart li');
+            barChartItems.forEach(li => {
+                li.style.setProperty('width', '100%', 'important');
+                li.style.setProperty('max-width', '100%', 'important');
+                li.style.setProperty('min-width', '0', 'important');
+                li.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+            
+            // Force lists to 100% width
+            const lists = document.querySelectorAll('.web-project .ul, .coder .ul, .pie-chart .web-project .ul, .pie-chart .coder .ul');
+            lists.forEach(ul => {
+                ul.style.setProperty('width', '100%', 'important');
+                ul.style.setProperty('max-width', '100%', 'important');
+                ul.style.setProperty('min-width', '0', 'important');
+                ul.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+            
+            const webProjects = document.querySelectorAll('.web-project, .coder');
+            console.log('Found web-project/coder elements:', webProjects.length);
+            webProjects.forEach(el => {
+                el.style.setProperty('flex', '1 1 100%', 'important');
+                el.style.setProperty('min-width', '0', 'important');
+                el.style.setProperty('max-width', '100%', 'important');
+                el.style.setProperty('width', '100%', 'important');
+                el.style.setProperty('margin', '0', 'important');
+                el.style.setProperty('margin-left', '0', 'important');
+                el.style.setProperty('margin-right', '0', 'important');
+                el.style.setProperty('padding', '1rem', 'important');
+                el.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+            
+            // Force headings to 100% width
+            const headings = document.querySelectorAll('.web-project h2, .coder h2');
+            headings.forEach(h2 => {
+                h2.style.setProperty('width', '100%', 'important');
+                h2.style.setProperty('max-width', '100%', 'important');
+                h2.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+            
+            // Force ALL pie-chart containers - target the actual container
+            const pieCharts = document.querySelectorAll('.pie-chart, .col-12.pie-chart, div.pie-chart');
+            console.log('Found pie-chart elements:', pieCharts.length);
+            pieCharts.forEach(pieChart => {
+                console.log('Applying styles to:', pieChart.className);
+                pieChart.style.setProperty('flex-direction', 'column', 'important');
+                pieChart.style.setProperty('align-items', 'stretch', 'important');
+                pieChart.style.setProperty('justify-content', 'flex-start', 'important');
+                pieChart.style.setProperty('width', '100%', 'important');
+                pieChart.style.setProperty('max-width', '100%', 'important');
+                pieChart.style.setProperty('min-width', '0', 'important');
+                pieChart.style.setProperty('padding', '1rem', 'important');
+                pieChart.style.setProperty('margin', '0', 'important');
+                pieChart.style.setProperty('box-sizing', 'border-box', 'important');
+                pieChart.style.setProperty('overflow-x', 'hidden', 'important');
+            });
+            
+            // Also force the parent row if it exists
+            const pieChartRows = document.querySelectorAll('.col-12.pie-chart');
+            pieChartRows.forEach(row => {
+                const parentRow = row.closest('.row');
+                if (parentRow) {
+                    parentRow.style.setProperty('width', '100%', 'important');
+                    parentRow.style.setProperty('max-width', '100%', 'important');
+                    parentRow.style.setProperty('overflow-x', 'hidden', 'important');
+                    parentRow.style.setProperty('box-sizing', 'border-box', 'important');
+                }
+            });
+            
+            // Force all .dark sections to prevent overflow
+            const darkSections = document.querySelectorAll('.dark');
+            darkSections.forEach(section => {
+                section.style.setProperty('width', '100%', 'important');
+                section.style.setProperty('max-width', '100%', 'important');
+                section.style.setProperty('overflow-x', 'hidden', 'important');
+                section.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+            
+            // Force all .row and .col-12 to prevent overflow
+            const rows = document.querySelectorAll('.dark .row');
+            rows.forEach(row => {
+                row.style.setProperty('width', '100%', 'important');
+                row.style.setProperty('max-width', '100%', 'important');
+                row.style.setProperty('overflow-x', 'hidden', 'important');
+                row.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+            
+            const col12s = document.querySelectorAll('.dark .col-12');
+            col12s.forEach(col => {
+                col.style.setProperty('width', '100%', 'important');
+                col.style.setProperty('max-width', '100%', 'important');
+                col.style.setProperty('overflow-x', 'hidden', 'important');
+                col.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+        }
+    }
+    
+    // Run immediately and on load/resize
+    forceMobileResponsive();
+    window.addEventListener('resize', forceMobileResponsive);
+    window.addEventListener('load', forceMobileResponsive);
+    
+    // Also run after delays to ensure DOM is fully ready
+    setTimeout(forceMobileResponsive, 100);
+    setTimeout(forceMobileResponsive, 300);
+    setTimeout(forceMobileResponsive, 500);
+    setTimeout(forceMobileResponsive, 1000);
+    setTimeout(forceMobileResponsive, 2000);
+    
+    // Run on scroll to catch any lazy-loaded content
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(forceMobileResponsive, 100);
+    });
+    
+    // Use MutationObserver to force styles when DOM changes
+    const observer = new MutationObserver(() => {
+        if (window.innerWidth <= 768) {
+            forceMobileResponsive();
+        }
+    });
+    
+    // Observe changes to the document body
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style', 'class']
+    });
 });
 

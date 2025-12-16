@@ -5,6 +5,18 @@
     box-sizing: border-box;
 }
 
+@media screen and (max-width: 768px) {
+    * {
+        max-width: 100vw;
+    }
+    
+    body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+}
+
 :root {
     --primary-color: #000;
     --secondary-color: #666;
@@ -20,6 +32,9 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 body {
@@ -29,6 +44,9 @@ body {
     line-height: 1.6;
     font-size: 16px;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 .container {
@@ -332,6 +350,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .row {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .col-5 {
@@ -350,6 +378,15 @@ body {
     flex: 0 0 100%;
     max-width: 100%;
     padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .col-12 {
+        padding: 0;
+        margin: 0;
+    }
 }
 
 .align-c {
@@ -509,6 +546,21 @@ body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .dark {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
 }
 
 .dark .row {
@@ -517,36 +569,189 @@ body {
     padding: 0 2rem;
 }
 
-.pie-chart {
-    position: relative;
-    min-height: 600px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 2rem 0;
+@media screen and (max-width: 768px) {
+    .dark .row {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+    
+    .dark .row .col-12 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
 }
 
-.web-project,
-.coder {
-    position: relative;
-    z-index: 2;
-    flex: 0 0 calc(50% - 200px);
-    min-width: 200px;
-    max-width: 300px;
-    margin-top: 0;
-    align-self: flex-start;
+@media (max-width: 768px) {
+    .dark {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .dark .row {
+        padding: 0 1rem;
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .col-12 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .col-12.pie-chart {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
+    }
 }
 
+/* Desktop only - pie-chart layout */
+@media screen and (min-width: 769px) {
+    .pie-chart {
+        position: relative;
+        min-height: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 2rem 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pie-chart {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        min-height: auto !important;
+        gap: 1.5rem !important;
+        padding: 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+}
+
+/* Desktop only - web-project and coder flex layout */
+@media screen and (min-width: 769px) {
+    .web-project,
+    .coder {
+        position: relative;
+        z-index: 2;
+        flex: 0 0 calc(50% - 200px);
+        min-width: 200px;
+        max-width: 300px;
+        margin-top: 0;
+        align-self: flex-start;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+}
+
+/* Force mobile responsive - override all desktop rules */
+@media screen and (max-width: 768px) {
+    .web-project,
+    .coder {
+        flex: 1 1 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        align-self: stretch !important;
+    }
+    
+    .web-project {
+        margin-left: 0 !important;
+    }
+}
+
+/* Mobile override - must be after desktop rules */
+@media screen and (max-width: 768px) {
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder,
+    .pie-chart .web-project,
+    .pie-chart .coder {
+        flex: 1 1 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 0 !important;
+        padding: 1rem 0.5rem !important;
+        box-sizing: border-box !important;
+        align-self: stretch !important;
+        position: relative !important;
+    }
+    
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2,
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+    
+    .col-12.pie-chart .web-project .ul,
+    .col-12.pie-chart .coder .ul,
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .col-12.pie-chart .web-project .ul li,
+    .col-12.pie-chart .coder .ul li,
+    .pie-chart .web-project .ul li,
+    .pie-chart .coder .ul li {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        padding: 0.5rem 0 !important;
+    }
+}
+
+/* Desktop only - web-project margin */
+@media screen and (min-width: 769px) {
     .web-project {
         margin-left: 40px;
     }
-
-    @media (max-width: 768px) {
-        .web-project {
-            margin-left: 0;
-        }
-    }
+}
 
 .web-project h2,
 .coder h2 {
@@ -554,6 +759,9 @@ body {
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .ul {
@@ -569,6 +777,9 @@ body {
     line-height: 1.6;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     transition: var(--transition);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .ul li:last-child {
@@ -841,6 +1052,9 @@ body {
     align-items: flex-end;
     height: 300px;
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .bar-chart li {
@@ -1316,38 +1530,120 @@ body {
         height: 100px;
     }
 
+    .col-12.pie-chart,
     .pie-chart {
-        flex-direction: column;
-        align-items: center;
-        min-height: auto;
-        gap: 2rem;
-        padding: 2rem 1rem;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        min-height: auto !important;
+        gap: 1.5rem !important;
+        padding: 1rem 0.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+        justify-content: flex-start !important;
+        margin: 0 !important;
     }
 
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder,
+    .pie-chart .web-project,
+    .pie-chart .coder,
     .web-project,
     .coder {
-        flex: 0 0 100%;
-        max-width: 100%;
-        min-width: 100%;
-        margin-left: 0;
-        padding: 1.5rem;
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 0 !important;
+        padding: 1rem 0.5rem !important;
+        box-sizing: border-box !important;
+        align-self: stretch !important;
+        position: relative !important;
+    }
+    
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2,
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2,
+    .web-project h2,
+    .coder h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+    
+    .col-12.pie-chart .web-project .ul,
+    .col-12.pie-chart .coder .ul,
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul,
+    .web-project .ul,
+    .coder .ul {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .col-12.pie-chart .web-project .ul li,
+    .col-12.pie-chart .coder .ul li,
+    .pie-chart .web-project .ul li,
+    .pie-chart .coder .ul li,
+    .web-project .ul li,
+    .coder .ul li {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        padding: 0.5rem 0 !important;
     }
 
     .web-project h2,
     .coder h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .web-project .ul,
     .coder .ul {
-        padding-left: 0;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        list-style: none !important;
     }
 
     .web-project .ul li,
     .coder .ul li {
-        font-size: 0.95rem;
-        padding: 0.5rem 0;
+        font-size: 0.95rem !important;
+        padding: 0.5rem 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        display: block !important;
     }
 
     #img-pie,
@@ -1397,30 +1693,40 @@ body {
     }
 
     .bar-chart {
-        flex-direction: column;
-        height: auto;
-        gap: 1.5rem;
-        padding: 1rem 0;
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 1.5rem !important;
+        padding: 1rem 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
 
     .bar-chart li.axis {
-        flex: 0 0 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        padding-right: 0;
-        margin-bottom: 1rem;
-        order: -1;
+        flex: 0 0 100% !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        padding-right: 0 !important;
+        margin-bottom: 1rem !important;
+        order: -1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .bar-chart li:not(.axis) {
-        flex: 0 0 100%;
-        min-width: 100%;
+        flex: 0 0 100% !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
         height: 60px !important;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-        border-radius: 4px;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 1rem !important;
+        border-radius: 4px !important;
+        box-sizing: border-box !important;
     }
 
     .bar-chart li .percent {
@@ -1680,5 +1986,226 @@ body {
 /* Smooth scroll indicator */
 html {
     scroll-padding-top: 80px;
+}
+
+/* ULTIMATE MOBILE FIX - Force 100% width on all list items to fix 246px issue */
+@media screen and (max-width: 768px) {
+    /* Prevent ALL horizontal overflow */
+    body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+    
+    /* Force all .dark sections */
+    .dark {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .dark .row,
+    .dark .row .col-12 {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Target ALL possible selectors to override 246px width */
+    .dark .row .col-12.pie-chart .web-project .ul li,
+    .dark .row .col-12.pie-chart .coder .ul li,
+    section.dark .row .col-12.pie-chart .web-project .ul li,
+    section.dark .row .col-12.pie-chart .coder .ul li,
+    .col-12.pie-chart .web-project .ul li,
+    .col-12.pie-chart .coder .ul li,
+    .pie-chart .web-project .ul li,
+    .pie-chart .coder .ul li,
+    .web-project .ul li,
+    .coder .ul li,
+    li[data-translate*="webProject"],
+    li[data-translate*="coder"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    /* Also force parent containers */
+    .web-project .ul,
+    .coder .ul {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .web-project,
+    .coder {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+    
+    /* Fix bar-chart section */
+    .bar-chart,
+    .bar-chart li {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* FINAL MOBILE FIX - Force responsive for pie-chart sections */
+@media screen and (max-width: 768px) {
+    /* Force all containers to 100% width and prevent overflow */
+    .dark {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .dark .row {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+    
+    .dark .row .col-12 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+    
+    .dark .row .col-12.pie-chart {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Force pie-chart to column layout */
+    .pie-chart {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        margin: 0 !important;
+        gap: 1.5rem !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Force web-project and coder to full width - ALL POSSIBLE SELECTORS */
+    .web-project,
+    .coder,
+    .pie-chart .web-project,
+    .pie-chart .coder,
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder,
+    .dark .row .col-12.pie-chart .web-project,
+    .dark .row .col-12.pie-chart .coder,
+    section.dark .row .col-12.pie-chart .web-project,
+    section.dark .row .col-12.pie-chart .coder {
+        flex: 1 1 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        align-self: stretch !important;
+        position: relative !important;
+    }
+    
+    .web-project {
+        margin-left: 0 !important;
+    }
+    
+    /* Force headings to full width */
+    .web-project h2,
+    .coder h2,
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2,
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 0 1.5rem 0 !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* Force lists to full width */
+    .web-project .ul,
+    .coder .ul,
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul,
+    .col-12.pie-chart .web-project .ul,
+    .col-12.pie-chart .coder .ul {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Force list items to full width */
+    .web-project .ul li,
+    .coder .ul li,
+    .pie-chart .web-project .ul li,
+    .pie-chart .coder .ul li,
+    .col-12.pie-chart .web-project .ul li,
+    .col-12.pie-chart .coder .ul li {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        padding: 0.5rem 0 !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+    
+    /* Force web-project and coder containers - override any calculated width */
+    .web-project,
+    .coder {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .web-project .ul,
+    .coder .ul {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
 }
 
