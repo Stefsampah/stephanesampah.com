@@ -120,3 +120,4 @@ console.log('✅ Layout forcé !');
 - [ ] CSS chargé (Network → styles.css → Status 200)
 - [ ] Script de force exécuté
 - [ ] Vérification dans DevTools (Computed)
+

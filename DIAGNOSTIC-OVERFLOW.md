@@ -66,3 +66,4 @@ Le script `script.js` contient maintenant un diagnostic automatique qui :
 2. **Vérifiez le cache** : Videz le cache du navigateur
 3. **Vérifiez le serveur** : Assurez-vous que le fichier CSS est bien mis à jour
 4. **Testez en navigation privée** : Pour éviter les problèmes de cache
+

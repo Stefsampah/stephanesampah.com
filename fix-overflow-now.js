@@ -222,3 +222,4 @@
     console.log(`Total d'éléments corrigés: ${fixedCount}`);
     console.log('%c✅ Correction terminée', 'color: green; font-weight: bold;');
 })();
+

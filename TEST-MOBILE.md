@@ -78,3 +78,4 @@ document.body.style.width = '375px';
 console.log('Body scrollWidth:', document.body.scrollWidth);
 console.log('Overflow:', document.body.scrollWidth > window.innerWidth);
 ```
+

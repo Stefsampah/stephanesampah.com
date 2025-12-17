@@ -112,3 +112,4 @@
     console.log('');
     console.log('%c✅ Layout forcé ! Vérifiez visuellement si les éléments sont empilés verticalement.', 'color: green; font-weight: bold;');
 })();
+
