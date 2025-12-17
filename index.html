@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Stéphane Sampah - Développeur Web">
     <title>Stéphane Sampah | Portfolio</title>
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=12">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -167,40 +167,37 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - Style Adham Dannaway -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html#home" class="logo-link">
-                    <img src="images/photo_logo.jpg" alt="Stéphane Sampah" class="logo-photo">
+                <a href="index.html#home" class="logo-link" id="logo">
                     <span class="logo-name">Stéphane Sampah</span>
                 </a>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html#home" class="nav-link" data-translate="nav.home"></a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#about" class="nav-link" data-translate="nav.about"></a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#projects" class="nav-link" data-translate="nav.projects"></a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#contact" class="nav-link" data-translate="nav.contact"></a>
-                </li>
-                <li class="nav-item lang-switcher">
-                    <div class="language-selector">
-                        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
-                        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
-                    </div>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <div class="icon-nav" id="icon-nav">navigation</div>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link" data-translate="nav.home"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link" data-translate="nav.about"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#projects" class="nav-link" data-translate="nav.projects"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contact" class="nav-link" data-translate="nav.contact"></a>
+                    </li>
+                    <li class="nav-item lang-switcher">
+                        <div class="language-selector">
+                            <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+                            <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -291,15 +288,7 @@
                                 <li data-translate="about.coderMusic">J'écoute de la musique</li>
                             </ul>
                         </div>
-                        <img id="img-pie" class="preload major" src="images/pie-chart-removebg-preview.png" alt="part web project, part Front End Developer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="pie-chart-svg-fallback" style="display: none;">
-                            <div class="pie-chart-wrapper">
-                                <svg class="pie-chart" viewBox="0 0 200 200">
-                                    <circle class="pie-segment pie-web-project" cx="100" cy="100" r="80" fill="none" stroke="#667eea" stroke-width="40" stroke-dasharray="301.59 201.06" transform="rotate(-90 100 100)"/>
-                                    <circle class="pie-segment pie-coder" cx="100" cy="100" r="80" fill="none" stroke="#f093fb" stroke-width="40" stroke-dasharray="201.06 301.59" transform="rotate(126.57 100 100)"/>
-                                </svg>
-                            </div>
-                        </div>
+                        <img id="img-pie" class="preload major" src="images/pie-chart-removebg-preview.png" alt="part web project, part Front End Developer">
                     </div>
                 </div>
             </section>
@@ -494,7 +483,7 @@
     <script src="config.js?v=20251211"></script>
     <script src="translations.js?v=20251211"></script>
     <script src="language.js?v=20251211"></script>
-    <script src="script.js?v=20251213"></script>
+    <script src="script.js?v=20251214"></script>
     <!-- Script de correction immédiate - FORCE TOUT -->
     <script>
         // Forcer les corrections immédiatement après chargement
@@ -502,95 +491,80 @@
             function forceAllCorrections() {
                 console.log('🔧 FORCEMENT DES CORRECTIONS...');
                 
-                // 1. Forcer pie-chart image - CORRIGER LE CHEMIN
+                // 1. Corriger pie-chart image
+                const imgPie = document.getElementById('img-pie');
+                if (imgPie && imgPie.src.indexOf('pie-chart-removebg-preview') === -1) {
+                    imgPie.src = 'images/pie-chart-removebg-preview.png';
+                }
+                if (imgPie) {
+                    imgPie.classList.add('loaded', 'animated');
+                }
+                
+                // 2. Images visibles (via classes)
+                document.querySelectorAll('img.major').forEach(img => {
+                    img.classList.add('loaded', 'animated');
+                });
+                
+                // 2b. Forcer img-random-facts visible
+                const imgRandomFacts = document.getElementById('img-random-facts');
+                if (imgRandomFacts) {
+                    imgRandomFacts.classList.add('animated');
+                    imgRandomFacts.style.setProperty('visibility', 'visible', 'important');
+                    imgRandomFacts.style.setProperty('opacity', '1', 'important');
+                    imgRandomFacts.style.setProperty('display', 'flex', 'important');
+                    const img = imgRandomFacts.querySelector('img.major');
+                    if (img) {
+                        img.classList.add('loaded', 'animated');
+                        img.style.setProperty('visibility', 'visible', 'important');
+                        img.style.setProperty('opacity', '1', 'important');
+                        img.style.setProperty('display', 'block', 'important');
+                    }
+                }
+                
+                // 2c. Forcer pie-chart plus grand
                 const imgPie = document.getElementById('img-pie');
                 if (imgPie) {
-                    // Forcer le bon chemin
-                    if (imgPie.src.indexOf('pie-chart-removebg-preview') === -1) {
-                        imgPie.src = 'images/pie-chart-removebg-preview.png';
-                        console.log('✅ Chemin pie-chart corrigé');
-                    }
-                    // Forcer la visibilité
-                    imgPie.style.setProperty('display', 'block', 'important');
-                    imgPie.style.setProperty('visibility', 'visible', 'important');
-                    imgPie.style.setProperty('opacity', '1', 'important');
-                    imgPie.style.setProperty('width', '100%', 'important');
-                    imgPie.style.setProperty('max-width', '300px', 'important');
-                    imgPie.style.setProperty('height', 'auto', 'important');
-                    console.log('✅ #img-pie forcé visible');
+                    imgPie.style.setProperty('max-width', '500px', 'important');
                 }
                 
-                // 2. Forcer toutes les images à être visibles
-                const allMajorImages = document.querySelectorAll('img.major');
-                allMajorImages.forEach(img => {
-                    img.style.setProperty('visibility', 'visible', 'important');
-                    img.style.setProperty('opacity', '1', 'important');
-                });
-                console.log('✅ Toutes les images .major forcées visibles');
-                
-                // 3. Forcer text-main visible
-                const textMain = document.getElementById('text-main');
-                if (textMain) {
-                    textMain.style.setProperty('visibility', 'visible', 'important');
-                    textMain.style.setProperty('opacity', '1', 'important');
-                    textMain.style.setProperty('transform', 'translateX(0)', 'important');
-                }
-                
-                // 4. Forcer section skills padding
-                const barChart = document.querySelector('.bar-chart');
-                if (barChart) {
-                    barChart.style.setProperty('padding', '4rem 0 3rem 0', 'important');
-                    barChart.style.setProperty('overflow-y', 'visible', 'important');
-                    console.log('✅ .bar-chart padding corrigé');
-                }
-                
-                // 5. Forcer les pourcentages
-                document.querySelectorAll('.bar-chart li .percent').forEach((percent, idx) => {
-                    percent.style.setProperty('position', 'absolute', 'important');
-                    percent.style.setProperty('top', '-3.5rem', 'important');
-                    percent.style.setProperty('font-size', '1.75rem', 'important');
-                    percent.style.setProperty('white-space', 'nowrap', 'important');
-                    percent.style.setProperty('z-index', '10', 'important');
-                });
-                console.log('✅ Pourcentages corrigés');
-                
-                // 6. Forcer les skills
-                document.querySelectorAll('.bar-chart li .skill').forEach(skill => {
-                    skill.style.setProperty('position', 'absolute', 'important');
-                    skill.style.setProperty('bottom', '-2.5rem', 'important');
-                    skill.style.setProperty('font-size', '0.9rem', 'important');
-                });
-                console.log('✅ Skills corrigés');
-                
-                // 7. Forcer les snaps
+                // 2d. Forcer snaps-grid visible en desktop
                 const snaps = document.getElementById('snaps');
-                if (snaps) {
-                    snaps.style.setProperty('visibility', 'visible', 'important');
-                    snaps.style.setProperty('opacity', '1', 'important');
+                if (snaps && window.innerWidth >= 830) {
+                    snaps.style.setProperty('grid-template-columns', 'repeat(5, 1fr)', 'important');
+                    snaps.style.setProperty('display', 'grid', 'important');
                     const snapItems = snaps.querySelectorAll('.snap-item');
                     snapItems.forEach(item => {
-                        item.style.setProperty('visibility', 'visible', 'important');
-                        item.style.setProperty('opacity', '1', 'important');
+                        item.style.setProperty('width', '150px', 'important');
+                        item.style.setProperty('height', '150px', 'important');
                     });
-                    console.log('✅ Snaps forcés visibles');
+                }
+                
+                // 3. Text-main visible (via classes)
+                const textMain = document.getElementById('text-main');
+                if (textMain) {
+                    textMain.classList.add('animated');
+                }
+                
+                // 4-6. Les styles CSS avec !important devraient suffire pour skills
+                
+                // 7. Snaps visibles (via classes)
+                const snaps = document.getElementById('snaps');
+                if (snaps) {
+                    snaps.classList.add('animated');
+                    snaps.querySelectorAll('.snap-item').forEach((item, idx) => {
+                        setTimeout(() => {
+                            item.classList.add('animated');
+                        }, idx * 100 + 200);
+                    });
                 }
                 
             }
             
-            // Exécuter immédiatement et plusieurs fois pour être sûr
             forceAllCorrections();
-            
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', forceAllCorrections);
             }
-            
             window.addEventListener('load', forceAllCorrections);
-            
-            // Exécuter aussi après des délais pour forcer après chargement complet
-            setTimeout(forceAllCorrections, 100);
-            setTimeout(forceAllCorrections, 500);
-            setTimeout(forceAllCorrections, 1000);
-            setTimeout(forceAllCorrections, 2000);
         })();
     </script>
 </body>
