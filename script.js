@@ -1,9 +1,19 @@
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle - Style Adham Dannaway
 document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('nav-toggle');
+    const iconNav = document.getElementById('icon-nav');
     const navMenu = document.getElementById('nav-menu');
+    const nav = document.querySelector('nav');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // Bouton "navigation" (style Adham Dannaway)
+    if (iconNav && nav) {
+        iconNav.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+
+    // Ancien système nav-toggle (fallback)
+    const navToggle = document.getElementById('nav-toggle');
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
@@ -14,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
+            if (nav) nav.classList.remove('active');
             if (navMenu) navMenu.classList.remove('active');
             if (navToggle) navToggle.classList.remove('active');
         });

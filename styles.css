@@ -762,10 +762,17 @@ body {
 }
 
 #text-main {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(-50px);
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation au scroll pour text-main */
+#text-main:not(.animated) {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 #text-main.animated {
@@ -788,6 +795,7 @@ body {
     display: block;
     object-fit: cover;
     opacity: 1;
+    visibility: visible;
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     transform: translateX(0);
 }
@@ -821,9 +829,9 @@ body {
     margin: 3rem auto;
     justify-items: center;
     align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
 }
 
 .snaps-grid.animated {
@@ -840,9 +848,9 @@ body {
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(20px);
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
     position: relative;
     flex-shrink: 0;
     box-sizing: border-box;
@@ -1192,6 +1200,7 @@ body {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     box-sizing: border-box;
+    display: block;
 }
 
 #img-pie.animated {
@@ -1364,8 +1373,23 @@ body {
     gap: 1rem;
 }
 
+/* Random facts - Desktop: texte à droite, image à gauche */
+@media only screen and (min-width: 769px) {
+    .about-random-facts .row.alt {
+        flex-direction: row !important;
+    }
+    
+    .about-random-facts .row.alt .col-5 {
+        order: 2 !important;
+    }
+    
+    .about-random-facts .row.alt .col-7 {
+        order: 1 !important;
+    }
+}
+
 .row.alt {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 #img-random-facts {
@@ -1393,6 +1417,7 @@ body {
     display: block;
     visibility: visible;
     opacity: 1;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .placeholder-icon {
@@ -1524,16 +1549,6 @@ body {
 
 .bar-chart li.p-40 {
     height: 40% !important;
-}
-
-/* En mobile, les hauteurs sont ignorées car on utilise des barres horizontales */
-@media (max-width: 768px) {
-    .bar-chart li.p-95,
-    .bar-chart li.p-90,
-    .bar-chart li.p-75,
-    .bar-chart li.p-40 {
-        height: auto !important;
-    }
 }
 
 .bar-chart li .percent {
@@ -1819,6 +1834,13 @@ body {
         text-decoration: none;
     }
     
+    /* Logo photo visible en desktop */
+    .logo-photo {
+        display: block !important;
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
     /* Desktop: Snaps en 1 ligne avec 5 images */
     .snaps-grid {
         grid-template-columns: repeat(5, 1fr) !important;
@@ -1826,11 +1848,15 @@ body {
         max-width: 100% !important;
         margin: 3rem auto !important;
         display: grid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .snaps-grid .snap-item {
         width: 150px !important;
         height: 150px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Desktop: Projects en 2 colonnes (comme avant) */
@@ -1840,6 +1866,63 @@ body {
         display: grid !important;
         width: 100% !important;
         max-width: 100% !important;
+    }
+    
+    /* Desktop: Pie-chart centré entre web-project (gauche) et coder (droite) */
+    .col-12.pie-chart {
+        position: relative !important;
+        min-height: 600px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 2rem 0 !important;
+    }
+    
+    .col-12.pie-chart .web-project {
+        flex: 0 0 calc(50% - 200px) !important;
+        min-width: 200px !important;
+        max-width: 300px !important;
+        margin-left: 40px !important;
+        z-index: 2 !important;
+        position: relative !important;
+    }
+    
+    .col-12.pie-chart .coder {
+        flex: 0 0 calc(50% - 200px) !important;
+        min-width: 200px !important;
+        max-width: 300px !important;
+        margin-right: 40px !important;
+        z-index: 2 !important;
+        position: relative !important;
+    }
+    
+    .col-12.pie-chart #img-pie {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 1 !important;
+        max-width: 400px !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    
+    /* Desktop: Random facts - texte à droite, image à gauche */
+    .about-random-facts .row.alt {
+        flex-direction: row !important;
+    }
+    
+    .about-random-facts .col-5 {
+        order: 2 !important;
+    }
+    
+    .about-random-facts .col-7 {
+        order: 1 !important;
+    }
+    
+    #img-random-facts img.major {
+        max-width: 590px !important;
     }
 }
 
@@ -1875,7 +1958,7 @@ body {
         text-overflow: ellipsis;
     }
     
-    /* Logo photo masqué seulement en mobile */
+    /* Logo photo masqué en mobile seulement */
     .logo-photo {
         display: none !important;
     }
@@ -1983,10 +2066,30 @@ body {
     }
 
     #img-main img.major {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        aspect-ratio: auto;
+        width: 100% !important;
+        max-width: 617px !important;
+        height: auto !important;
+        aspect-ratio: 617 / 482 !important;
+        display: block !important;
+    }
+    
+    #text-main {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+    
+    /* Mobile: Random facts - texte en haut, image en bas */
+    .about-random-facts .row.alt {
+        flex-direction: column;
+    }
+    
+    .about-random-facts .col-5 {
+        order: 1;
+    }
+    
+    .about-random-facts .col-7 {
+        order: 2;
     }
     
     #img-random-facts {
@@ -2008,6 +2111,12 @@ body {
         display: block !important;
     }
     
+    #text-main {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+    
     /* Pie chart responsive en mobile */
     #img-pie {
         max-width: 100% !important;
@@ -2020,17 +2129,22 @@ body {
         text-align: center;
     }
 
-    /* Mobile: Snaps en grille 2x2 */
+    /* Mobile: Snaps en grille 2x2 - VISIBLES */
     .snaps-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 0.75rem !important;
         max-width: 100% !important;
         padding: 0 1rem !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .snaps-grid .snap-item {
         width: 120px !important;
         height: 120px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
     }
     
     /* Si on a 5 images, la 5ème va en bas centrée */
@@ -2101,11 +2215,11 @@ body {
         height: auto;
     }
 
-    /* Bar-chart mobile - REVENIR AU STYLE ORIGINAL (barres verticales) */
+    /* Bar-chart mobile - Barres horizontales (pratique standard) */
     .bar-chart {
         flex-direction: column;
         height: auto;
-        gap: 2rem;
+        gap: 1.5rem;
         padding: 3rem 0 2rem 0;
         width: 100%;
         max-width: 100%;
@@ -2115,48 +2229,108 @@ body {
     }
     
     .bar-chart li.axis {
-        flex: 0 0 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        padding-right: 0;
-        margin-bottom: 1rem;
-        order: -1;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        height: auto;
+        display: none;
     }
 
     .bar-chart li:not(.axis) {
-        flex: 0 0 100%;
-        min-width: 0;
+        flex: 0 0 auto;
         width: 100%;
         max-width: 100%;
-        height: 60px;
+        min-width: 0;
+        height: auto;
+        min-height: auto;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
-        border-radius: 4px;
+        padding: 0.75rem 0;
+        margin-bottom: 0;
+        border-radius: 0;
         box-sizing: border-box;
+        position: relative;
+        background: transparent !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    .bar-chart li .percent {
+    .bar-chart li:not(.axis) .percent {
         position: static;
         top: auto;
-        margin-right: 1rem;
-        font-size: 1.2rem;
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-color);
         white-space: nowrap;
+        order: 1;
+        flex-shrink: 0;
     }
 
-    .bar-chart li .skill {
+    .bar-chart li:not(.axis) .skill {
         position: static;
         bottom: auto;
-        margin-left: 1rem;
-        font-size: 0.85rem;
-        text-align: left;
-        flex: 1;
+        margin: 0 0 0 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-color);
+        text-align: right;
         white-space: normal;
+        order: 2;
+        flex: 1;
+    }
+
+    /* Barre de progression horizontale */
+    .bar-chart li:not(.axis)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 6px;
+        width: 0%;
+        border-radius: 3px;
+        transition: width 0.8s ease-out;
+        z-index: 1;
+    }
+
+    .bar-chart li.p-95::after {
+        width: 95%;
+    }
+
+    .bar-chart li.p-90::after {
+        width: 90%;
+    }
+
+    .bar-chart li.p-75::after {
+        width: 75%;
+    }
+
+    .bar-chart li.p-40::after {
+        width: 40%;
+    }
+
+    .bar-chart li.aqua::after {
+        background: linear-gradient(90deg, #17a2b8 0%, #138496 100%);
+    }
+
+    .bar-chart li.pink::after {
+        background: linear-gradient(90deg, #ff6b9d 0%, #e55a8a 100%);
+    }
+
+    .bar-chart li.yellow::after {
+        background: linear-gradient(90deg, #ffc107 0%, #e0a800 100%);
+    }
+
+    .bar-chart li.brown::after {
+        background: linear-gradient(90deg, #d4a574 0%, #b8935f 100%);
+    }
+
+    .bar-chart li.red::after {
+        background: linear-gradient(90deg, #dc3545 0%, #c82333 100%);
+    }
+    
+    /* En mobile, les hauteurs sont ignorées */
+    .bar-chart li.p-95,
+    .bar-chart li.p-90,
+    .bar-chart li.p-75,
+    .bar-chart li.p-40 {
+        height: auto !important;
     }
 
     .skills-chart-container {

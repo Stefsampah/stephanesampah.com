@@ -1,0 +1,12 @@
+Fix: Restauration complète du layout + corrections affichage et animations
+
+- Logo photo: ajouté dans HTML, visible en desktop (masqué en mobile)
+- Photo-fun: dimensions corrigées (max-width: 617px), texte visible à gauche
+- Snaps: visibles par défaut, 5 images en 1 ligne desktop, 2x2 mobile, animations restaurées
+- Pie-chart: centré entre web-project (gauche) et coder (droite) en desktop
+- Random-facts: disposition corrigée - texte à droite, image à gauche en desktop
+- Skills: barres verticales restaurées avec hauteurs différentes (95%, 90%, 75%, 40%)
+- Projects: layout restauré - 2 colonnes en desktop, 1 colonne en mobile
+- Animations: toutes les images ont maintenant des animations au scroll
+- Text-main: visible par défaut avec animation
+- Version CSS: v=16
