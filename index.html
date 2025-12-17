@@ -5,10 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Stéphane Sampah - Développeur Web">
     <title>Stéphane Sampah | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FIX OVERFLOW MOBILE - Injection directe pour garantir l'application -->
+    <style id="force-overflow-fix">
+        @media screen and (max-width: 768px) {
+            html, body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                position: relative !important;
+            }
+            
+            section.dark,
+            .dark,
+            section.dark.nopad-b,
+            .dark.nopad-b {
+                overflow-x: hidden !important;
+                overflow: hidden !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-top: 4rem !important;
+                margin-bottom: 4rem !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+                box-sizing: border-box !important;
+                position: relative !important;
+                left: 0 !important;
+                right: auto !important;
+                transform: none !important;
+            }
+            
+            .dark .row,
+            section.dark .row {
+                overflow-x: hidden !important;
+                overflow: hidden !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                box-sizing: border-box !important;
+            }
+            
+            .dark .col-12,
+            .dark .col-5,
+            .dark .col-7,
+            section.dark .col-12 {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+            
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                width: auto !important;
+            }
+            
+            /* Centrer et organiser les éléments - EXACTEMENT comme Adham Dannaway */
+            .pie-chart,
+            .col-12.pie-chart {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                text-align: center !important;
+                overflow: visible !important;
+            }
+            
+            /* .web-project et .coder - EXACTEMENT comme .designer et .coder d'Adham */
+            .pie-chart .web-project,
+            .pie-chart .coder,
+            .col-12.pie-chart .web-project,
+            .col-12.pie-chart .coder,
+            .web-project,
+            .coder {
+                display: block !important;
+                width: auto !important;
+                max-width: 100% !important;
+                margin: 0 auto 2.5rem auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+                position: relative !important;
+                text-align: center !important;
+                float: none !important;
+                clear: both !important;
+            }
+            
+            /* Titres h2 */
+            .pie-chart .web-project h2,
+            .pie-chart .coder h2,
+            .col-12.pie-chart .web-project h2,
+            .col-12.pie-chart .coder h2,
+            .web-project h2,
+            .coder h2 {
+                display: block !important;
+                width: auto !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto 1.5rem auto !important;
+                text-align: center !important;
+                font-size: 1.75rem !important;
+                font-weight: 600 !important;
+            }
+            
+            /* Listes .ul */
+            .pie-chart .web-project .ul,
+            .pie-chart .coder .ul,
+            .web-project .ul,
+            .coder .ul {
+                display: inline-block !important;
+                width: auto !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                text-align: left !important;
+            }
+            
+            /* Pie chart image - EN BAS après coder */
+            #img-pie {
+                display: block !important;
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                margin: 2.5rem auto 0 auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100% !important;
+                max-width: 300px !important;
+                height: auto !important;
+                clear: both !important;
+                float: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->

@@ -407,267 +407,312 @@ function initScrollAnimations() {
     }
 }
 
-// Initialize scroll animations on page load
-document.addEventListener('DOMContentLoaded', () => {
-    initScrollAnimations();
-    
-    // Inject dynamic style tag with maximum specificity
-    function injectMobileStyles() {
-        // Remove existing dynamic style if it exists
-        const existingStyle = document.getElementById('mobile-force-styles');
-        if (existingStyle) {
-            existingStyle.remove();
-        }
-        
-        const style = document.createElement('style');
-        style.id = 'mobile-force-styles';
-        style.textContent = `
-            @media screen and (max-width: 768px) {
-                /* Force ALL elements with maximum specificity */
-                html, body {
-                    overflow-x: hidden !important;
-                    width: 100% !important;
-                    max-width: 100vw !important;
-                }
-                
-                section.dark,
-                section.dark .row,
-                section.dark .row .col-12,
-                section.dark .row .col-12.pie-chart,
-                .dark .row .col-12.pie-chart {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    min-width: 0 !important;
-                    overflow-x: hidden !important;
-                    box-sizing: border-box !important;
-                    margin: 0 !important;
-                    padding-left: 0 !important;
-                    padding-right: 0 !important;
-                }
-                
-                section.dark .row .col-12.pie-chart .web-project,
-                section.dark .row .col-12.pie-chart .coder,
-                .col-12.pie-chart .web-project,
-                .col-12.pie-chart .coder,
-                .pie-chart .web-project,
-                .pie-chart .coder,
-                .web-project,
-                .coder {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    min-width: 0 !important;
-                    flex: 1 1 100% !important;
-                    margin: 0 !important;
-                    margin-left: 0 !important;
-                    margin-right: 0 !important;
-                    padding: 1rem !important;
-                    box-sizing: border-box !important;
-                }
-                
-                section.dark .row .col-12.pie-chart .web-project .ul,
-                section.dark .row .col-12.pie-chart .coder .ul,
-                .col-12.pie-chart .web-project .ul,
-                .col-12.pie-chart .coder .ul,
-                .pie-chart .web-project .ul,
-                .pie-chart .coder .ul,
-                .web-project .ul,
-                .coder .ul {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    min-width: 0 !important;
-                    box-sizing: border-box !important;
-                    padding: 0 !important;
-                    margin: 0 !important;
-                }
-                
-                section.dark .row .col-12.pie-chart .web-project .ul li,
-                section.dark .row .col-12.pie-chart .coder .ul li,
-                .col-12.pie-chart .web-project .ul li,
-                .col-12.pie-chart .coder .ul li,
-                .pie-chart .web-project .ul li,
-                .pie-chart .coder .ul li,
-                .web-project .ul li,
-                .coder .ul li,
-                li {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    min-width: 0 !important;
-                    box-sizing: border-box !important;
-                    word-wrap: break-word !important;
-                    overflow-wrap: break-word !important;
-                    display: block !important;
-                }
-                
-                .bar-chart,
-                .bar-chart li {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    min-width: 0 !important;
-                    box-sizing: border-box !important;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    // Force mobile responsive fix for pie-chart sections
-    function forceMobileResponsive() {
+// Mobile overflow detection and fix - DIAGNOSTIC COMPLET
+// Exécuter IMMÉDIATEMENT (pas besoin d'attendre DOMContentLoaded)
+function detectAndFixOverflow() {
         if (window.innerWidth <= 768) {
-            console.log('Force mobile responsive - window width:', window.innerWidth);
+            const viewportWidth = window.innerWidth;
+            const bodyWidth = document.body.scrollWidth;
             
-            // Inject dynamic styles first
-            injectMobileStyles();
+            // Force overflow hidden sur html et body
+            document.body.style.setProperty('overflow-x', 'hidden', 'important');
+            document.documentElement.style.setProperty('overflow-x', 'hidden', 'important');
+            document.body.style.setProperty('width', '100%', 'important');
+            document.body.style.setProperty('max-width', '100%', 'important');
             
-            // Force all list items to 100% width - CRITICAL FIX for 246px issue
-            const listItems = document.querySelectorAll('.web-project .ul li, .coder .ul li, .pie-chart .web-project .ul li, .pie-chart .coder .ul li, .col-12.pie-chart .web-project .ul li, .col-12.pie-chart .coder .ul li');
-            console.log('Found list items:', listItems.length);
-            listItems.forEach(li => {
-                li.style.setProperty('width', '100%', 'important');
-                li.style.setProperty('max-width', '100%', 'important');
-                li.style.setProperty('min-width', '0', 'important');
-                li.style.setProperty('box-sizing', 'border-box', 'important');
-                li.style.setProperty('word-wrap', 'break-word', 'important');
-                li.style.setProperty('overflow-wrap', 'break-word', 'important');
-                li.style.setProperty('display', 'block', 'important');
+            // Liste des éléments à vérifier
+            const elementsToCheck = document.querySelectorAll('*');
+            const overflowElements = [];
+            
+            elementsToCheck.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const scrollWidth = el.scrollWidth;
+                const clientWidth = el.clientWidth;
+                
+                // Détecter les éléments qui dépassent
+                if (scrollWidth > viewportWidth || rect.right > viewportWidth) {
+                    overflowElements.push({
+                        element: el,
+                        tag: el.tagName,
+                        class: el.className,
+                        scrollWidth: scrollWidth,
+                        clientWidth: clientWidth,
+                        right: rect.right,
+                        viewportWidth: viewportWidth
+                    });
+                    
+                    // Forcer la correction
+                    el.style.setProperty('overflow-x', 'hidden', 'important');
+                    el.style.setProperty('width', '100%', 'important');
+                    el.style.setProperty('max-width', '100%', 'important');
+                    el.style.setProperty('box-sizing', 'border-box', 'important');
+                }
             });
             
-            // Force bar-chart section to be responsive
-            const barCharts = document.querySelectorAll('.bar-chart');
-            barCharts.forEach(chart => {
-                chart.style.setProperty('width', '100%', 'important');
-                chart.style.setProperty('max-width', '100%', 'important');
-                chart.style.setProperty('box-sizing', 'border-box', 'important');
-                chart.style.setProperty('overflow-x', 'hidden', 'important');
+            // Forcer TOUTES les images à être responsive (même avec styles inline)
+            const allImages = document.querySelectorAll('img');
+            allImages.forEach(img => {
+                // Vérifier si l'image dépasse
+                const imgWidth = img.getBoundingClientRect().width;
+                const naturalWidth = img.naturalWidth || imgWidth;
+                
+                // Toujours forcer max-width: 100% sur mobile
+                img.style.setProperty('max-width', '100%', 'important');
+                img.style.setProperty('width', 'auto', 'important');
+                img.style.setProperty('height', 'auto', 'important');
+                img.style.setProperty('box-sizing', 'border-box', 'important');
+                
+                // Si l'image dépasse encore, forcer width: 100%
+                if (imgWidth > viewportWidth || naturalWidth > viewportWidth) {
+                    img.style.setProperty('width', '100%', 'important');
+                    console.warn('🖼️ Image corrigée:', img.src, 'width:', imgWidth, 'viewport:', viewportWidth);
+                }
             });
             
-            const barChartItems = document.querySelectorAll('.bar-chart li');
-            barChartItems.forEach(li => {
-                li.style.setProperty('width', '100%', 'important');
-                li.style.setProperty('max-width', '100%', 'important');
-                li.style.setProperty('min-width', '0', 'important');
-                li.style.setProperty('box-sizing', 'border-box', 'important');
-            });
-            
-            // Force lists to 100% width
-            const lists = document.querySelectorAll('.web-project .ul, .coder .ul, .pie-chart .web-project .ul, .pie-chart .coder .ul');
-            lists.forEach(ul => {
-                ul.style.setProperty('width', '100%', 'important');
-                ul.style.setProperty('max-width', '100%', 'important');
-                ul.style.setProperty('min-width', '0', 'important');
-                ul.style.setProperty('box-sizing', 'border-box', 'important');
-            });
-            
-            const webProjects = document.querySelectorAll('.web-project, .coder');
-            console.log('Found web-project/coder elements:', webProjects.length);
-            webProjects.forEach(el => {
-                el.style.setProperty('flex', '1 1 100%', 'important');
-                el.style.setProperty('min-width', '0', 'important');
-                el.style.setProperty('max-width', '100%', 'important');
+            // Forcer les sections spécifiques - PRIORITÉ SUR .dark
+            const darkSections = document.querySelectorAll('section.dark, .dark, section.dark.nopad-b, .dark.nopad-b');
+            darkSections.forEach(el => {
+                // Vérifier si l'élément dépasse
+                const rect = el.getBoundingClientRect();
+                const scrollWidth = el.scrollWidth;
+                
+                el.style.setProperty('overflow-x', 'hidden', 'important');
+                el.style.setProperty('overflow', 'hidden', 'important');
                 el.style.setProperty('width', '100%', 'important');
-                el.style.setProperty('margin', '0', 'important');
+                el.style.setProperty('max-width', '100%', 'important');
                 el.style.setProperty('margin-left', '0', 'important');
                 el.style.setProperty('margin-right', '0', 'important');
-                el.style.setProperty('padding', '1rem', 'important');
+                el.style.setProperty('box-sizing', 'border-box', 'important');
+                el.style.setProperty('position', 'relative', 'important');
+                el.style.setProperty('left', '0', 'important');
+                el.style.setProperty('right', 'auto', 'important');
+                el.style.setProperty('transform', 'none', 'important');
+                
+                // Forcer aussi sur TOUS les enfants (récursif sur les 3 premiers niveaux)
+                const forceMaxWidth = (element, depth = 0) => {
+                    if (depth > 3) return; // Limiter la profondeur
+                    Array.from(element.children).forEach(child => {
+                        child.style.setProperty('max-width', '100%', 'important');
+                        child.style.setProperty('box-sizing', 'border-box', 'important');
+                        forceMaxWidth(child, depth + 1);
+                    });
+                };
+                forceMaxWidth(el);
+                
+                // Log si l'élément dépassait
+                if (scrollWidth > viewportWidth || rect.right > viewportWidth) {
+                    console.log('🔧 Section .dark corrigée:', {
+                        scrollWidth: scrollWidth + 'px',
+                        right: rect.right.toFixed(0) + 'px',
+                        viewport: viewportWidth + 'px'
+                    });
+                }
+            });
+            
+            // FORCER l'empilement vertical style Adham Dannaway
+            const pieChart = document.querySelector('.pie-chart, .col-12.pie-chart');
+            if (pieChart) {
+                pieChart.style.setProperty('display', 'block', 'important');
+                pieChart.style.setProperty('width', '100%', 'important');
+                pieChart.style.setProperty('max-width', '100%', 'important');
+                pieChart.style.setProperty('padding', '0', 'important');
+                pieChart.style.setProperty('margin', '0 auto', 'important');
+                pieChart.style.setProperty('text-align', 'center', 'important');
+            }
+            
+            // Forcer .web-project et .coder - EXACTEMENT comme .designer d'Adham
+            const webProject = document.querySelector('.web-project');
+            const coder = document.querySelector('.coder');
+            
+            [webProject, coder].forEach(el => {
+                if (el) {
+                    el.style.setProperty('display', 'block', 'important');
+                    el.style.setProperty('width', 'auto', 'important');
+                    el.style.setProperty('max-width', '100%', 'important');
+                    el.style.setProperty('margin', '0 auto 2.5rem auto', 'important');
+                    el.style.setProperty('margin-left', 'auto', 'important');
+                    el.style.setProperty('margin-right', 'auto', 'important');
+                    el.style.setProperty('padding', '0', 'important');
+                    el.style.setProperty('text-align', 'center', 'important');
+                    el.style.setProperty('float', 'none', 'important');
+                    el.style.setProperty('clear', 'both', 'important');
+                    el.style.setProperty('position', 'relative', 'important');
+                    
+                    // Forcer les h2
+                    const h2 = el.querySelector('h2');
+                    if (h2) {
+                        h2.style.setProperty('display', 'block', 'important');
+                        h2.style.setProperty('width', 'auto', 'important');
+                        h2.style.setProperty('margin', '0 auto 1.5rem auto', 'important');
+                        h2.style.setProperty('text-align', 'center', 'important');
+                    }
+                    
+                    // Forcer les .ul
+                    const ul = el.querySelector('.ul');
+                    if (ul) {
+                        ul.style.setProperty('display', 'inline-block', 'important');
+                        ul.style.setProperty('width', 'auto', 'important');
+                        ul.style.setProperty('margin', '0 auto', 'important');
+                        ul.style.setProperty('text-align', 'left', 'important');
+                    }
+                }
+            });
+            
+            // Forcer #img-pie en bas
+            const imgPie = document.getElementById('img-pie');
+            if (imgPie) {
+                imgPie.style.setProperty('display', 'block', 'important');
+                imgPie.style.setProperty('position', 'relative', 'important');
+                imgPie.style.setProperty('top', 'auto', 'important');
+                imgPie.style.setProperty('left', 'auto', 'important');
+                imgPie.style.setProperty('transform', 'none', 'important');
+                imgPie.style.setProperty('margin', '2.5rem auto 0 auto', 'important');
+                imgPie.style.setProperty('margin-left', 'auto', 'important');
+                imgPie.style.setProperty('margin-right', 'auto', 'important');
+                imgPie.style.setProperty('width', '100%', 'important');
+                imgPie.style.setProperty('max-width', '300px', 'important');
+                imgPie.style.setProperty('clear', 'both', 'important');
+                imgPie.style.setProperty('float', 'none', 'important');
+                console.log('✅ #img-pie forcé en bas');
+            }
+            
+            // Log pour vérification
+            if (pieChart && webProject && coder && imgPie) {
+                console.log('✅ Layout mobile forcé (style Adham Dannaway):', {
+                    pieChart: {
+                        display: window.getComputedStyle(pieChart).display,
+                        width: window.getComputedStyle(pieChart).width
+                    },
+                    webProject: {
+                        display: window.getComputedStyle(webProject).display,
+                        width: window.getComputedStyle(webProject).width,
+                        margin: window.getComputedStyle(webProject).margin
+                    },
+                    coder: {
+                        display: window.getComputedStyle(coder).display,
+                        width: window.getComputedStyle(coder).width
+                    },
+                    imgPie: {
+                        display: window.getComputedStyle(imgPie).display,
+                        position: window.getComputedStyle(imgPie).position
+                    }
+                });
+            }
+            
+            // Autres éléments critiques
+            const criticalElements = document.querySelectorAll('.container, .row, .col-12, .pie-chart, .bar-chart, .web-project, .coder');
+            criticalElements.forEach(el => {
+                el.style.setProperty('overflow-x', 'hidden', 'important');
+                el.style.setProperty('width', '100%', 'important');
+                el.style.setProperty('max-width', '100%', 'important');
                 el.style.setProperty('box-sizing', 'border-box', 'important');
             });
             
-            // Force headings to 100% width
-            const headings = document.querySelectorAll('.web-project h2, .coder h2');
-            headings.forEach(h2 => {
-                h2.style.setProperty('width', '100%', 'important');
-                h2.style.setProperty('max-width', '100%', 'important');
-                h2.style.setProperty('box-sizing', 'border-box', 'important');
+            // Filtrer les éléments d'extensions (ne pas les compter)
+            const realOverflowElements = overflowElements.filter(item => {
+                // Ignorer les éléments d'extensions Chrome
+                return !item.element.classList.contains('terminal-object') &&
+                       !item.element.hasAttribute('data-v-') &&
+                       !item.element.closest('[data-v-]') &&
+                       !item.element.id?.includes('extension') &&
+                       !item.element.className?.includes('extension');
             });
             
-            // Force ALL pie-chart containers - target the actual container
-            const pieCharts = document.querySelectorAll('.pie-chart, .col-12.pie-chart, div.pie-chart');
-            console.log('Found pie-chart elements:', pieCharts.length);
-            pieCharts.forEach(pieChart => {
-                console.log('Applying styles to:', pieChart.className);
-                pieChart.style.setProperty('flex-direction', 'column', 'important');
-                pieChart.style.setProperty('align-items', 'stretch', 'important');
-                pieChart.style.setProperty('justify-content', 'flex-start', 'important');
-                pieChart.style.setProperty('width', '100%', 'important');
-                pieChart.style.setProperty('max-width', '100%', 'important');
-                pieChart.style.setProperty('min-width', '0', 'important');
-                pieChart.style.setProperty('padding', '1rem', 'important');
-                pieChart.style.setProperty('margin', '0', 'important');
-                pieChart.style.setProperty('box-sizing', 'border-box', 'important');
-                pieChart.style.setProperty('overflow-x', 'hidden', 'important');
-            });
-            
-            // Also force the parent row if it exists
-            const pieChartRows = document.querySelectorAll('.col-12.pie-chart');
-            pieChartRows.forEach(row => {
-                const parentRow = row.closest('.row');
-                if (parentRow) {
-                    parentRow.style.setProperty('width', '100%', 'important');
-                    parentRow.style.setProperty('max-width', '100%', 'important');
-                    parentRow.style.setProperty('overflow-x', 'hidden', 'important');
-                    parentRow.style.setProperty('box-sizing', 'border-box', 'important');
+            // Log pour diagnostic
+            if (bodyWidth > viewportWidth || realOverflowElements.length > 0) {
+                console.group('🔍 DIAGNOSTIC OVERFLOW MOBILE');
+                console.log('Viewport:', viewportWidth + 'px');
+                console.log('Body width:', bodyWidth + 'px');
+                console.log('Différence:', (bodyWidth - viewportWidth) + 'px');
+                console.log('Éléments problématiques (réels):', realOverflowElements.length);
+                
+                if (realOverflowElements.length > 0) {
+                    console.table(realOverflowElements.slice(0, 10).map(item => ({
+                        Tag: item.tag,
+                        Class: item.class || '(aucune)',
+                        ID: item.element.id || '(aucun)',
+                        ScrollWidth: item.scrollWidth + 'px',
+                        Right: item.right.toFixed(0) + 'px',
+                        Dépasse: (item.right - viewportWidth).toFixed(0) + 'px',
+                        StyleInline: item.element.getAttribute('style') || '(aucun)'
+                    })));
+                    
+                    // Afficher les éléments dans la console pour inspection
+                    console.log('📋 Éléments à inspecter:');
+                    realOverflowElements.slice(0, 5).forEach((item, idx) => {
+                        console.log(`${idx + 1}.`, item.element);
+                    });
+                } else if (bodyWidth > viewportWidth) {
+                    console.warn('⚠️ Overflow détecté mais aucun élément spécifique trouvé. Vérifiez:');
+                    console.log('- Les images avec largeurs fixes dans le CSS');
+                    console.log('- Les éléments avec position: absolute qui dépassent');
+                    console.log('- Les marges négatives');
                 }
-            });
+                console.groupEnd();
+            }
             
-            // Force all .dark sections to prevent overflow
-            const darkSections = document.querySelectorAll('.dark');
-            darkSections.forEach(section => {
-                section.style.setProperty('width', '100%', 'important');
-                section.style.setProperty('max-width', '100%', 'important');
-                section.style.setProperty('overflow-x', 'hidden', 'important');
-                section.style.setProperty('box-sizing', 'border-box', 'important');
-            });
+            // Diagnostic supplémentaire : vérifier les styles inline dans VOTRE code
+            const inlineStyleElements = Array.from(document.querySelectorAll('[style]'))
+                .filter(el => {
+                    // Ignorer les extensions
+                    return !el.classList.contains('terminal-object') &&
+                           !el.hasAttribute('data-v-') &&
+                           !el.closest('[data-v-]');
+                })
+                .filter(el => {
+                    const style = el.getAttribute('style') || '';
+                    // Chercher des largeurs fixes problématiques
+                    const widthMatch = style.match(/width:\s*(\d+)px/i);
+                    if (widthMatch && parseInt(widthMatch[1]) > 400) {
+                        return true;
+                    }
+                    return false;
+                });
             
-            // Force all .row and .col-12 to prevent overflow
-            const rows = document.querySelectorAll('.dark .row');
-            rows.forEach(row => {
-                row.style.setProperty('width', '100%', 'important');
-                row.style.setProperty('max-width', '100%', 'important');
-                row.style.setProperty('overflow-x', 'hidden', 'important');
-                row.style.setProperty('box-sizing', 'border-box', 'important');
-            });
-            
-            const col12s = document.querySelectorAll('.dark .col-12');
-            col12s.forEach(col => {
-                col.style.setProperty('width', '100%', 'important');
-                col.style.setProperty('max-width', '100%', 'important');
-                col.style.setProperty('overflow-x', 'hidden', 'important');
-                col.style.setProperty('box-sizing', 'border-box', 'important');
-            });
+            if (inlineStyleElements.length > 0) {
+                console.group('⚠️ STYLES INLINE PROBLÉMATIQUES (dans votre code)');
+                inlineStyleElements.forEach(el => {
+                    console.log('Élément:', el);
+                    console.log('Style:', el.getAttribute('style'));
+                    console.log('---');
+                });
+                console.groupEnd();
+            }
         }
     }
-    
-    // Run immediately and on load/resize
-    forceMobileResponsive();
-    window.addEventListener('resize', forceMobileResponsive);
-    window.addEventListener('load', forceMobileResponsive);
-    
-    // Also run after delays to ensure DOM is fully ready
-    setTimeout(forceMobileResponsive, 100);
-    setTimeout(forceMobileResponsive, 300);
-    setTimeout(forceMobileResponsive, 500);
-    setTimeout(forceMobileResponsive, 1000);
-    setTimeout(forceMobileResponsive, 2000);
-    
-    // Run on scroll to catch any lazy-loaded content
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(forceMobileResponsive, 100);
+}
+
+// Exécuter IMMÉDIATEMENT et à chaque événement
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        detectAndFixOverflow();
+        initScrollAnimations();
     });
-    
-    // Use MutationObserver to force styles when DOM changes
-    const observer = new MutationObserver(() => {
-        if (window.innerWidth <= 768) {
-            forceMobileResponsive();
-        }
-    });
-    
-    // Observe changes to the document body
+} else {
+    // DOM déjà chargé, exécuter immédiatement
+    detectAndFixOverflow();
+}
+
+window.addEventListener('resize', detectAndFixOverflow);
+window.addEventListener('load', detectAndFixOverflow);
+window.addEventListener('orientationchange', detectAndFixOverflow);
+
+// Use MutationObserver to catch DOM changes
+const observer = new MutationObserver(() => {
+    detectAndFixOverflow();
+});
+
+if (document.body) {
     observer.observe(document.body, {
         childList: true,
         subtree: true,
         attributes: true,
         attributeFilter: ['style', 'class']
     });
+}
+
+// Initialize scroll animations on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollAnimations();
 });
 
