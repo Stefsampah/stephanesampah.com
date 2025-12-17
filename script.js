@@ -309,7 +309,7 @@ function initScrollAnimations() {
     };
 
     // Animate text-main and img-main
-    const aboutMainObserver = new IntersectionObserver((entries) => {
+    const aboutIntroObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const textMain = document.getElementById('text-main');
@@ -322,28 +322,43 @@ function initScrollAnimations() {
                 }
                 
                 if (imgMain) {
-                    setTimeout(() => {
-                        imgMain.classList.add('animated');
-                    }, 300);
+                    const img = imgMain.querySelector('img.major');
+                    if (img) {
+                        if (img.complete) {
+                            img.classList.add('loaded');
+                        } else {
+                            img.addEventListener('load', () => {
+                                img.classList.add('loaded');
+                            });
+                        }
+                        setTimeout(() => {
+                            img.classList.add('animated');
+                        }, 300);
+                    }
                 }
                 
-                aboutMainObserver.unobserve(entry.target);
+                aboutIntroObserver.unobserve(entry.target);
             }
         });
     }, animationOptions);
 
-    const aboutMain = document.querySelector('.about-main');
-    if (aboutMain) {
-        aboutMainObserver.observe(aboutMain);
+    const aboutIntro = document.querySelector('.about-intro');
+    if (aboutIntro) {
+        aboutIntroObserver.observe(aboutIntro);
     }
 
-    // Animate snaps
+    // Animate snaps (supports both .snaps and .snaps-grid)
     const snapsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const snaps = document.getElementById('snaps');
                 if (snaps) {
-                    snaps.classList.add('animated');
+                    // Support both old class .snaps and new .snaps-grid
+                    if (snaps.classList.contains('snaps-grid')) {
+                        snaps.classList.add('animated');
+                    } else {
+                        snaps.classList.add('animated');
+                    }
                     
                     // Animate each snap item with delay
                     const snapItems = snaps.querySelectorAll('.snap-item');
@@ -370,6 +385,14 @@ function initScrollAnimations() {
             if (entry.isIntersecting) {
                 const imgPie = document.getElementById('img-pie');
                 if (imgPie) {
+                    // Vérifier si l'image est chargée
+                    if (imgPie.complete) {
+                        imgPie.classList.add('loaded');
+                    } else {
+                        imgPie.addEventListener('load', () => {
+                            imgPie.classList.add('loaded');
+                        });
+                    }
                     setTimeout(() => {
                         imgPie.classList.add('animated');
                     }, 300);
@@ -380,9 +403,15 @@ function initScrollAnimations() {
         });
     }, animationOptions);
 
-    const pieChartSection = document.querySelector('.pie-chart');
+    const pieChartSection = document.querySelector('.pie-chart, .col-12.pie-chart');
     if (pieChartSection) {
         pieChartObserver.observe(pieChartSection);
+    } else {
+        // Fallback: observer directement l'image
+        const imgPie = document.getElementById('img-pie');
+        if (imgPie) {
+            pieChartObserver.observe(imgPie);
+        }
     }
 
     // Animate random facts image
@@ -391,9 +420,19 @@ function initScrollAnimations() {
             if (entry.isIntersecting) {
                 const imgRandomFacts = document.getElementById('img-random-facts');
                 if (imgRandomFacts) {
-                    setTimeout(() => {
-                        imgRandomFacts.classList.add('animated');
-                    }, 200);
+                    const img = imgRandomFacts.querySelector('img.major');
+                    if (img) {
+                        if (img.complete) {
+                            img.classList.add('loaded');
+                        } else {
+                            img.addEventListener('load', () => {
+                                img.classList.add('loaded');
+                            });
+                        }
+                        setTimeout(() => {
+                            img.classList.add('animated');
+                        }, 200);
+                    }
                 }
                 
                 randomFactsObserver.unobserve(entry.target);
@@ -529,22 +568,29 @@ function detectAndFixOverflow() {
                     el.style.setProperty('display', 'block', 'important');
                     el.style.setProperty('width', 'auto', 'important');
                     el.style.setProperty('max-width', '100%', 'important');
+                    el.style.setProperty('min-width', 'auto', 'important');
                     el.style.setProperty('margin', '0 auto 2.5rem auto', 'important');
                     el.style.setProperty('margin-left', 'auto', 'important');
                     el.style.setProperty('margin-right', 'auto', 'important');
+                    el.style.setProperty('margin-top', '0', 'important');
                     el.style.setProperty('padding', '0', 'important');
                     el.style.setProperty('text-align', 'center', 'important');
                     el.style.setProperty('float', 'none', 'important');
                     el.style.setProperty('clear', 'both', 'important');
                     el.style.setProperty('position', 'relative', 'important');
+                    el.style.setProperty('flex', 'none', 'important');
+                    el.style.setProperty('align-self', 'auto', 'important');
+                    el.style.setProperty('box-sizing', 'border-box', 'important');
                     
                     // Forcer les h2
                     const h2 = el.querySelector('h2');
                     if (h2) {
                         h2.style.setProperty('display', 'block', 'important');
                         h2.style.setProperty('width', 'auto', 'important');
+                        h2.style.setProperty('max-width', '100%', 'important');
                         h2.style.setProperty('margin', '0 auto 1.5rem auto', 'important');
                         h2.style.setProperty('text-align', 'center', 'important');
+                        h2.style.setProperty('font-size', '1.75rem', 'important');
                     }
                     
                     // Forcer les .ul
@@ -552,6 +598,7 @@ function detectAndFixOverflow() {
                     if (ul) {
                         ul.style.setProperty('display', 'inline-block', 'important');
                         ul.style.setProperty('width', 'auto', 'important');
+                        ul.style.setProperty('max-width', '100%', 'important');
                         ul.style.setProperty('margin', '0 auto', 'important');
                         ul.style.setProperty('text-align', 'left', 'important');
                     }
@@ -565,14 +612,17 @@ function detectAndFixOverflow() {
                 imgPie.style.setProperty('position', 'relative', 'important');
                 imgPie.style.setProperty('top', 'auto', 'important');
                 imgPie.style.setProperty('left', 'auto', 'important');
+                imgPie.style.setProperty('right', 'auto', 'important');
                 imgPie.style.setProperty('transform', 'none', 'important');
                 imgPie.style.setProperty('margin', '2.5rem auto 0 auto', 'important');
                 imgPie.style.setProperty('margin-left', 'auto', 'important');
                 imgPie.style.setProperty('margin-right', 'auto', 'important');
                 imgPie.style.setProperty('width', '100%', 'important');
                 imgPie.style.setProperty('max-width', '300px', 'important');
+                imgPie.style.setProperty('height', 'auto', 'important');
                 imgPie.style.setProperty('clear', 'both', 'important');
                 imgPie.style.setProperty('float', 'none', 'important');
+                imgPie.style.setProperty('box-sizing', 'border-box', 'important');
                 console.log('✅ #img-pie forcé en bas');
             }
             
@@ -691,11 +741,21 @@ if (document.readyState === 'loading') {
 } else {
     // DOM déjà chargé, exécuter immédiatement
     detectAndFixOverflow();
+    initScrollAnimations();
 }
 
-window.addEventListener('resize', detectAndFixOverflow);
-window.addEventListener('load', detectAndFixOverflow);
-window.addEventListener('orientationchange', detectAndFixOverflow);
+window.addEventListener('resize', () => {
+    detectAndFixOverflow();
+    initScrollAnimations();
+});
+window.addEventListener('load', () => {
+    detectAndFixOverflow();
+    initScrollAnimations();
+});
+window.addEventListener('orientationchange', () => {
+    detectAndFixOverflow();
+    initScrollAnimations();
+});
 
 // Use MutationObserver to catch DOM changes
 const observer = new MutationObserver(() => {
@@ -711,8 +771,12 @@ if (document.body) {
     });
 }
 
-// Initialize scroll animations on page load
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize scroll animations on page load (déjà fait plus haut, mais garder pour compatibilité)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initScrollAnimations();
+    });
+} else {
     initScrollAnimations();
-});
+}
 

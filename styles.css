@@ -108,14 +108,38 @@
     /* Images spécifiques - FORCER responsive */
     #img-main img.major,
     #img-random-facts img.major,
-    #img-pie,
-    img.major,
-    .major {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        box-sizing: border-box !important;
-    }
+#img-pie,
+img.major,
+.major {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+}
+
+#img-pie {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: scale(0.9);
+}
+
+#img-pie.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#img-random-facts img.major {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(0);
+}
+
+#img-random-facts img.major.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
     
     .pie-chart-wrapper {
         width: 100% !important;
@@ -193,15 +217,23 @@
         display: block !important;
         width: auto !important;
         max-width: 100% !important;
+        min-width: auto !important;
         margin: 0 auto 2.5rem auto !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        margin-top: 0 !important;
         padding: 0 !important;
         box-sizing: border-box !important;
         position: relative !important;
         text-align: center !important;
         float: none !important;
         clear: both !important;
+        flex: none !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
+        flex-basis: auto !important;
+        align-self: auto !important;
+        z-index: auto !important;
     }
     
     /* Titres h2 */
@@ -753,16 +785,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#img-main.animated {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
 }
 
 #img-main img.major {
@@ -772,6 +794,14 @@ body {
     aspect-ratio: 617 / 482;
     display: block;
     object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(0);
+}
+
+#img-main img.major.animated {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .preload {
@@ -779,7 +809,34 @@ body {
     transition: opacity 0.3s;
 }
 
-/* Snaps Section - Adham Dannaway Style */
+/* About Title Main - Style Adham Dannaway */
+.about-title-main {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    text-align: left;
+}
+
+/* Snaps Grid - Style Adham Dannaway (2x2 grid) */
+.snaps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 400px;
+    margin: 3rem auto;
+    justify-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+.snaps-grid.animated {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Snaps Section - Adham Dannaway Style (fallback) */
 .snaps {
     display: flex;
     flex-wrap: wrap;
@@ -921,6 +978,7 @@ body {
         display: block !important;
         width: auto !important;
         max-width: 100% !important;
+        min-width: auto !important;
         margin: 0 auto 2.5rem auto !important;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -933,6 +991,12 @@ body {
         text-align: center !important;
         float: none !important;
         clear: both !important;
+        flex: none !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
+        flex-basis: auto !important;
+        align-self: auto !important;
+        z-index: auto !important;
     }
     
     /* Titres h2 - centrés comme Adham */
@@ -1331,7 +1395,7 @@ body {
 
 .bar-chart {
     list-style: none;
-    padding: 0;
+    padding: 4rem 0 3rem 0 !important;
     margin: 0;
     display: flex;
     gap: 1rem;
@@ -1342,6 +1406,7 @@ body {
     max-width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
+    overflow-y: visible !important;
 }
 
 .bar-chart li {
@@ -1418,25 +1483,29 @@ body {
 
 .bar-chart li .percent {
     position: absolute;
-    top: -2.5rem;
-    font-size: 1.5rem;
+    top: -3.5rem !important;
+    font-size: 1.75rem !important;
     font-weight: 700;
     color: var(--text-color);
+    white-space: nowrap !important;
+    z-index: 10;
 }
 
 .bar-chart li .percent span {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .bar-chart li .skill {
     position: absolute;
-    bottom: -2rem;
-    font-size: 0.85rem;
+    bottom: -2.5rem !important;
+    font-size: 0.9rem !important;
     color: var(--text-color);
     font-weight: 500;
     text-align: center;
-    line-height: 1.3;
+    line-height: 1.4;
     white-space: nowrap;
+    width: 100%;
+    padding: 0 0.5rem;
 }
 
 /* Projects Section */
@@ -1817,6 +1886,25 @@ body {
         aspect-ratio: auto;
     }
 
+    .about-title-main {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .snaps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    /* Si on a 5 images, on peut faire 3 colonnes sur mobile */
+    .snaps-grid .snap-item:nth-child(5) {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
     .snaps {
         gap: 0.75rem;
         justify-content: center;
@@ -1882,12 +1970,23 @@ body {
     .bar-chart {
         flex-direction: column;
         height: auto;
-        gap: 1.5rem;
-        padding: 1rem 0;
+        gap: 2rem;
+        padding: 3rem 0 2rem 0;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;
+        overflow-y: visible;
+    }
+    
+    .bar-chart li .percent {
+        top: -2.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .bar-chart li .skill {
+        bottom: -2rem;
+        font-size: 0.85rem;
     }
 
     .bar-chart li {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Stéphane Sampah - Développeur Web">
     <title>Stéphane Sampah | Portfolio</title>
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=7">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -98,15 +98,23 @@
                 display: block !important;
                 width: auto !important;
                 max-width: 100% !important;
+                min-width: auto !important;
                 margin: 0 auto 2.5rem auto !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
+                margin-top: 0 !important;
                 padding: 0 !important;
                 box-sizing: border-box !important;
                 position: relative !important;
                 text-align: center !important;
                 float: none !important;
                 clear: both !important;
+                flex: none !important;
+                flex-grow: 0 !important;
+                flex-shrink: 0 !important;
+                flex-basis: auto !important;
+                align-self: auto !important;
+                z-index: auto !important;
             }
             
             /* Titres h2 */
@@ -218,13 +226,16 @@
         </div>
     </section>
 
-    <!-- Section About -->
+    <!-- Section About - Structure Adham Dannaway -->
     <section id="about" class="section about-section">
         <div class="container">
-            <div class="about-main">
+            <!-- Titre principal -->
+            <h1 class="about-title-main" data-translate="about.titleMain">about.</h1>
+            
+            <!-- Introduction avec texte et photo principale -->
+            <div class="about-intro">
                 <div class="row">
                     <div id="text-main" class="col-5 text-main">
-                        <h1 class="about-title" data-translate="about.titleMain"></h1>
                         <p class="intro" data-translate="about.intro.main"></p>
                         <p class="description" data-translate="about.intro.description"></p>
                     </div>
@@ -236,48 +247,51 @@
                         </div>
                     </div>
                 </div>
-                <div id="snaps" class="row align-c snaps clearfix">
-                    <a id="snaps-1" href="#" class="snap-item">
-                        <img class="preload" src="images/img_2206.jpg" alt="Mini moi" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E👤%3C/text%3E%3C/svg%3E';">
-                    </a>
-                    <a id="snaps-2" href="#" class="snap-item">
-                        <img class="preload" src="images/location.jpg" alt="Mérignac / Bordeaux" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E📍%3C/text%3E%3C/svg%3E';">
-                    </a>
-                    <a id="snaps-3" href="#" class="snap-item">
-                        <img class="preload" src="images/mc-hammer.gif" alt="MC Hammer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🎵%3C/text%3E%3C/svg%3E';">
-                    </a>
-                    <a id="snaps-4" href="#" class="snap-item">
-                        <img class="preload" src="images/workspace.jpg" alt="Mon Mac" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E💻%3C/text%3E%3C/svg%3E';">
-                    </a>
-                    <a id="snaps-5" href="#" class="snap-item">
-                        <img class="preload" src="images/sharks.jpg" alt="Fan de requins" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🦈%3C/text%3E%3C/svg%3E';">
-                    </a>
-                </div>
             </div>
 
+            <!-- Mini photos (snaps) - 2x2 grid comme Adham -->
+            <div id="snaps" class="snaps-grid">
+                <a id="snaps-1" href="#" class="snap-item">
+                    <img class="preload" src="images/IMG_2206.jpg" alt="Mini moi" onerror="this.onerror=null; this.src='images/IMG_2206.png'; this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E👤%3C/text%3E%3C/svg%3E';">
+                </a>
+                <a id="snaps-2" href="#" class="snap-item">
+                    <img class="preload" src="images/location.jpg" alt="Mérignac / Bordeaux" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E📍%3C/text%3E%3C/svg%3E';">
+                </a>
+                <a id="snaps-3" href="#" class="snap-item">
+                    <img class="preload" src="images/mc-hammer.gif" alt="MC Hammer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🎵%3C/text%3E%3C/svg%3E';">
+                </a>
+                <a id="snaps-4" href="#" class="snap-item">
+                    <img class="preload" src="images/workspace.jpg" alt="Mon Mac" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E💻%3C/text%3E%3C/svg%3E';">
+                </a>
+                <a id="snaps-5" href="#" class="snap-item">
+                    <img class="preload" src="images/sharks.jpg" alt="Fan de requins" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🦈%3C/text%3E%3C/svg%3E';">
+                </a>
+            </div>
+
+            <!-- Section Part web project / Part coder avec pie chart - Structure Adham -->
             <section class="dark">
                 <div class="row">
                     <div class="col-12 pie-chart">
                         <div class="web-project">
-                            <h2 data-translate="about.webProject"></h2>
+                            <h2 data-translate="about.webProject">Part web project</h2>
                             <ul class="ul">
-                                <li data-translate="about.webProjectUiux"></li>
-                                <li data-translate="about.webProjectPersona"></li>
-                                <li data-translate="about.webProjectManagement"></li>
-                                <li data-translate="about.webProjectPop"></li>
+                                <li data-translate="about.webProjectUiux">UI/UX design</li>
+                                <li data-translate="about.webProjectPersona">persona / benchmark / Digital strategies</li>
+                                <li data-translate="about.webProjectManagement">Project management / e-commerce</li>
+                                <li data-translate="about.webProjectPop">"Making it pop"</li>
                             </ul>
                         </div>
                         <div class="coder">
-                            <h2 data-translate="about.coder"></h2>
+                            <h2 data-translate="about.coder">Part coder</h2>
                             <ul class="ul">
-                                <li data-translate="about.coderFrontend"></li>
-                                <li data-translate="about.coderHtmlcss"></li>
-                                <li data-translate="about.coderJs"></li>
-                                <li data-translate="about.coderSwearing"></li>
-                                <li data-translate="about.coderMusic"></li>
+                                <li data-translate="about.coderFrontend">Développement front-end</li>
+                                <li data-translate="about.coderHtmlcss">HTML / CSS</li>
+                                <li data-translate="about.coderJs">JavaScript / Ruby on Rails</li>
+                                <li data-translate="about.coderSwearing">Je peste contre mon ordinateur</li>
+                                <li data-translate="about.coderMusic">J'écoute de la musique</li>
                             </ul>
                         </div>
-                        <img id="img-pie" class="preload major" src="images/pie-chart-Photoroom.png" alt="part web project, part Front End Developer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img id="img-pie" class="preload major" src="images/pie-chart-removebg-preview.png" alt="part web project, part Front End Developer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div class="pie-chart-svg-fallback" style="display: none;">
                             <div class="pie-chart-wrapper">
                                 <svg class="pie-chart" viewBox="0 0 200 200">
@@ -290,11 +304,11 @@
                 </div>
             </section>
 
-
+            <!-- Section Random facts - Structure Adham -->
             <div class="about-random-facts">
                 <div class="row alt">
                     <div class="col-5 ten-things">
-                        <h2 data-translate="about.randomFacts.title"></h2>
+                        <h2 data-translate="about.randomFacts.title">Random facts</h2>
                         <ul class="ul">
                             <li data-translate="about.randomFacts.social"></li>
                             <li data-translate="about.randomFacts.apero"></li>
@@ -318,16 +332,17 @@
                 </div>
             </div>
 
+            <!-- Section My skills - Structure Adham (dernière section) -->
             <section id="bar-chart" class="dark nopad-b">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="align-r" data-translate="about.stats.title"></h2>
+                        <h2 class="align-r" data-translate="about.stats.title">My skills</h2>
                         <ul class="bar-chart">
                             <li class="axis">
-                                <div class="label" data-translate="about.stats.jedi"></div>
-                                <div class="label" data-translate="about.stats.ninja"></div>
-                                <div class="label" data-translate="about.stats.geek"></div>
-                                <div class="label" data-translate="about.stats.newbie"></div>
+                                <div class="label" data-translate="about.stats.jedi">Jedi</div>
+                                <div class="label" data-translate="about.stats.ninja">Ninja</div>
+                                <div class="label" data-translate="about.stats.geek">Geek</div>
+                                <div class="label" data-translate="about.stats.newbie">Newbie</div>
                             </li>
                             <li id="aqua" class="aqua p-95">
                                 <div class="percent">95<span>%</span></div>
@@ -479,7 +494,105 @@
     <script src="config.js?v=20251211"></script>
     <script src="translations.js?v=20251211"></script>
     <script src="language.js?v=20251211"></script>
-    <script src="script.js?v=20251211"></script>
+    <script src="script.js?v=20251213"></script>
+    <!-- Script de correction immédiate - FORCE TOUT -->
+    <script>
+        // Forcer les corrections immédiatement après chargement
+        (function() {
+            function forceAllCorrections() {
+                console.log('🔧 FORCEMENT DES CORRECTIONS...');
+                
+                // 1. Forcer pie-chart image - CORRIGER LE CHEMIN
+                const imgPie = document.getElementById('img-pie');
+                if (imgPie) {
+                    // Forcer le bon chemin
+                    if (imgPie.src.indexOf('pie-chart-removebg-preview') === -1) {
+                        imgPie.src = 'images/pie-chart-removebg-preview.png';
+                        console.log('✅ Chemin pie-chart corrigé');
+                    }
+                    // Forcer la visibilité
+                    imgPie.style.setProperty('display', 'block', 'important');
+                    imgPie.style.setProperty('visibility', 'visible', 'important');
+                    imgPie.style.setProperty('opacity', '1', 'important');
+                    imgPie.style.setProperty('width', '100%', 'important');
+                    imgPie.style.setProperty('max-width', '300px', 'important');
+                    imgPie.style.setProperty('height', 'auto', 'important');
+                    console.log('✅ #img-pie forcé visible');
+                }
+                
+                // 2. Forcer toutes les images à être visibles
+                const allMajorImages = document.querySelectorAll('img.major');
+                allMajorImages.forEach(img => {
+                    img.style.setProperty('visibility', 'visible', 'important');
+                    img.style.setProperty('opacity', '1', 'important');
+                });
+                console.log('✅ Toutes les images .major forcées visibles');
+                
+                // 3. Forcer text-main visible
+                const textMain = document.getElementById('text-main');
+                if (textMain) {
+                    textMain.style.setProperty('visibility', 'visible', 'important');
+                    textMain.style.setProperty('opacity', '1', 'important');
+                    textMain.style.setProperty('transform', 'translateX(0)', 'important');
+                }
+                
+                // 4. Forcer section skills padding
+                const barChart = document.querySelector('.bar-chart');
+                if (barChart) {
+                    barChart.style.setProperty('padding', '4rem 0 3rem 0', 'important');
+                    barChart.style.setProperty('overflow-y', 'visible', 'important');
+                    console.log('✅ .bar-chart padding corrigé');
+                }
+                
+                // 5. Forcer les pourcentages
+                document.querySelectorAll('.bar-chart li .percent').forEach((percent, idx) => {
+                    percent.style.setProperty('position', 'absolute', 'important');
+                    percent.style.setProperty('top', '-3.5rem', 'important');
+                    percent.style.setProperty('font-size', '1.75rem', 'important');
+                    percent.style.setProperty('white-space', 'nowrap', 'important');
+                    percent.style.setProperty('z-index', '10', 'important');
+                });
+                console.log('✅ Pourcentages corrigés');
+                
+                // 6. Forcer les skills
+                document.querySelectorAll('.bar-chart li .skill').forEach(skill => {
+                    skill.style.setProperty('position', 'absolute', 'important');
+                    skill.style.setProperty('bottom', '-2.5rem', 'important');
+                    skill.style.setProperty('font-size', '0.9rem', 'important');
+                });
+                console.log('✅ Skills corrigés');
+                
+                // 7. Forcer les snaps
+                const snaps = document.getElementById('snaps');
+                if (snaps) {
+                    snaps.style.setProperty('visibility', 'visible', 'important');
+                    snaps.style.setProperty('opacity', '1', 'important');
+                    const snapItems = snaps.querySelectorAll('.snap-item');
+                    snapItems.forEach(item => {
+                        item.style.setProperty('visibility', 'visible', 'important');
+                        item.style.setProperty('opacity', '1', 'important');
+                    });
+                    console.log('✅ Snaps forcés visibles');
+                }
+                
+            }
+            
+            // Exécuter immédiatement et plusieurs fois pour être sûr
+            forceAllCorrections();
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', forceAllCorrections);
+            }
+            
+            window.addEventListener('load', forceAllCorrections);
+            
+            // Exécuter aussi après des délais pour forcer après chargement complet
+            setTimeout(forceAllCorrections, 100);
+            setTimeout(forceAllCorrections, 500);
+            setTimeout(forceAllCorrections, 1000);
+            setTimeout(forceAllCorrections, 2000);
+        })();
+    </script>
 </body>
 </html>
 
