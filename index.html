@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Stéphane Sampah - Développeur Web">
     <title>Stéphane Sampah | Portfolio</title>
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=15">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -505,38 +505,26 @@
                     img.classList.add('loaded', 'animated');
                 });
                 
-                // 2b. Forcer img-random-facts visible
+                // 2b. Forcer img-random-facts visible (sans casser le layout)
                 const imgRandomFacts = document.getElementById('img-random-facts');
                 if (imgRandomFacts) {
                     imgRandomFacts.classList.add('animated');
-                    imgRandomFacts.style.setProperty('visibility', 'visible', 'important');
-                    imgRandomFacts.style.setProperty('opacity', '1', 'important');
-                    imgRandomFacts.style.setProperty('display', 'flex', 'important');
                     const img = imgRandomFacts.querySelector('img.major');
                     if (img) {
                         img.classList.add('loaded', 'animated');
-                        img.style.setProperty('visibility', 'visible', 'important');
-                        img.style.setProperty('opacity', '1', 'important');
-                        img.style.setProperty('display', 'block', 'important');
                     }
                 }
                 
-                // 2c. Forcer pie-chart plus grand
+                // 2c. Forcer pie-chart visible (sans casser le layout)
                 const imgPie = document.getElementById('img-pie');
                 if (imgPie) {
-                    imgPie.style.setProperty('max-width', '500px', 'important');
+                    imgPie.classList.add('loaded', 'animated');
                 }
                 
-                // 2d. Forcer snaps-grid visible en desktop
-                const snaps = document.getElementById('snaps');
-                if (snaps && window.innerWidth >= 830) {
-                    snaps.style.setProperty('grid-template-columns', 'repeat(5, 1fr)', 'important');
-                    snaps.style.setProperty('display', 'grid', 'important');
-                    const snapItems = snaps.querySelectorAll('.snap-item');
-                    snapItems.forEach(item => {
-                        item.style.setProperty('width', '150px', 'important');
-                        item.style.setProperty('height', '150px', 'important');
-                    });
+                // 2d. Forcer text-main visible
+                const textMain = document.getElementById('text-main');
+                if (textMain) {
+                    textMain.classList.add('animated');
                 }
                 
                 // 3. Text-main visible (via classes)
