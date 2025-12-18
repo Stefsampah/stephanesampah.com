@@ -94,3 +94,4 @@ Pour tester le responsive localement :
 4. Vous avez déjà le script `start-server.sh` prêt à l'emploi
 
 **Exception** : Si c'est juste une petite correction de texte, vous pouvez déployer directement.
+

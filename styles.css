@@ -96,6 +96,17 @@ body {
     display: flex;
     align-items: center;
     height: 92px;
+    flex-shrink: 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    align-items: center;
+    height: 92px;
+    margin: 0;
+    padding: 0;
 }
 
 .logo-link {
@@ -732,6 +743,16 @@ section.noise {
     }
 }
 
+/* Section padding unifié à 830px - Style Adham Dannaway */
+@media only screen and (min-width: 830px) {
+    section.light,
+    section.dark,
+    section.noise,
+    section.main {
+        padding: 9.6rem 4.3rem;
+    }
+}
+
 /* Section main - Style Adham Dannaway exact */
 section.main {
     background: none;
@@ -1045,6 +1066,7 @@ section.light {
     display: block;
     visibility: visible;
     opacity: 1;
+    top: 0px;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 0;
     margin-bottom: 0;
@@ -1066,8 +1088,11 @@ section.light {
         transform: translate(-50%, -50%);
         margin-top: 0;
         margin-bottom: 0;
+        visibility: visible;
+        opacity: 1;
     }
 }
+
 
 .pie-chart-svg-fallback {
     position: absolute;
@@ -1168,26 +1193,6 @@ section.light {
 
 .about-random-facts {
     margin-bottom: 4rem;
-}
-
-/* Pie-chart et ten-things - Style Adham Dannaway exact */
-.pie-chart,
-.ten-things {
-    text-align: center;
-}
-
-.ten-things {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.pie-chart .designer,
-.ten-things .designer,
-.pie-chart .coder,
-.ten-things .coder {
-    float: none !important;
-    margin-bottom: 4rem !important;
 }
 
 .ten-things h2 {
@@ -1299,11 +1304,6 @@ section.light {
     color: var(--bg-color);
     border-left-color: var(--accent-color);
     transform: translateX(5px);
-}
-
-/* Bar Chart Section - Adham Dannaway Style */
-.nopad-b {
-    padding-bottom: 0;
 }
 
 .align-r {

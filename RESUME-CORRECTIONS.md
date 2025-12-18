@@ -61,3 +61,4 @@ Toutes les corrections sont en place. Le layout devrait être restauré comme av
 - Skills avec barres verticales en desktop
 - Projects en 2 colonnes en desktop
 - Animations fonctionnelles
+
