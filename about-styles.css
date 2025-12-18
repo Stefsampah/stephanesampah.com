@@ -261,12 +261,12 @@ section.light.nopad-b {
     .pie-chart,
     .col-12.pie-chart {
         position: relative;
-        min-height: 500px;
+        min-height: 400px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 2rem 0;
+        padding: 1rem 0;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -301,10 +301,10 @@ section.light.nopad-b {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, calc(-50% - 20px));
         width: auto;
-        max-width: 400px;
-        max-height: 400px;
+        max-width: 600px;
+        max-height: 600px;
         height: auto;
         z-index: 1;
         display: block;
@@ -541,4 +541,5 @@ section.light.nopad-b {
     font-size: 1rem;
     line-height: 1.6;
 }
+
 

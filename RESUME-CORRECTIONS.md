@@ -62,3 +62,4 @@ Toutes les corrections sont en place. Le layout devrait être restauré comme av
 - Projects en 2 colonnes en desktop
 - Animations fonctionnelles
 
+

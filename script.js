@@ -74,6 +74,13 @@ window.addEventListener('scroll', () => {
     if (navbar) {
         navbar.style.backgroundColor = '#000';
         navbar.style.boxShadow = currentScroll > 50 ? '0 2px 20px rgba(0, 0, 0, 0.3)' : 'none';
+        
+        // Animate navbar on scroll
+        if (currentScroll > 10) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
     
     lastScroll = currentScroll;
@@ -83,6 +90,10 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     if (navbar) {
         navbar.style.backgroundColor = '#000';
+        // Animate navbar on load
+        setTimeout(() => {
+            navbar.classList.add('animated');
+        }, 100);
     }
 });
 
@@ -332,7 +343,7 @@ function initScrollAnimations() {
         });
     }, animationOptions);
 
-    const aboutMain = document.querySelector('.about-main');
+    const aboutMain = document.querySelector('section.main');
     if (aboutMain) {
         aboutMainObserver.observe(aboutMain);
     }
@@ -370,6 +381,11 @@ function initScrollAnimations() {
             if (entry.isIntersecting) {
                 const imgPie = document.getElementById('img-pie');
                 if (imgPie) {
+                    // Remove animated class if already present
+                    imgPie.classList.remove('animated');
+                    // Force reflow
+                    void imgPie.offsetWidth;
+                    // Add animated class after a short delay
                     setTimeout(() => {
                         imgPie.classList.add('animated');
                     }, 300);
@@ -378,11 +394,35 @@ function initScrollAnimations() {
                 pieChartObserver.unobserve(entry.target);
             }
         });
-    }, animationOptions);
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
-    const pieChartSection = document.querySelector('.pie-chart');
+    // Observe the section.dark container
+    const pieChartSection = document.querySelector('section.dark');
     if (pieChartSection) {
         pieChartObserver.observe(pieChartSection);
+        
+        // Check if section is already visible on load (after a delay to ensure DOM is ready)
+        setTimeout(() => {
+            const rect = pieChartSection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                const imgPie = document.getElementById('img-pie');
+                if (imgPie && !imgPie.classList.contains('animated')) {
+                    setTimeout(() => {
+                        imgPie.classList.add('animated');
+                    }, 500);
+                }
+            }
+        }, 100);
+    } else {
+        // Fallback: observe the col-12.pie-chart
+        const pieChartCol = document.querySelector('.col-12.pie-chart');
+        if (pieChartCol) {
+            pieChartObserver.observe(pieChartCol);
+        }
     }
 
     // Animate random facts image
@@ -401,7 +441,7 @@ function initScrollAnimations() {
         });
     }, animationOptions);
 
-    const randomFactsSection = document.querySelector('.about-random-facts');
+    const randomFactsSection = document.querySelector('section.light.nopad-b') || document.querySelector('.about-random-facts');
     if (randomFactsSection) {
         randomFactsObserver.observe(randomFactsSection);
     }

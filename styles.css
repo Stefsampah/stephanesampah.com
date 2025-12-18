@@ -79,7 +79,14 @@ body {
     background-color: #000 !important;
     z-index: 1000;
     transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.navbar.animated,
+.navbar.scrolled {
     opacity: 1;
+    transform: translateY(0);
 }
 
 .nav-container {
@@ -130,6 +137,8 @@ body {
     display: block;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    position: relative;
+    top: 30px;
 }
 
 .logo-link:hover .logo-photo {
@@ -290,12 +299,24 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 2rem;
+    transform: none;
+    will-change: auto;
 }
 
 .greeting {
     font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--text-light);
+    font-weight: 500;
+    color: #666666 !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-rendering: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    transform: none !important;
+    will-change: auto;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
 }
 
 .name {
@@ -394,6 +415,47 @@ body {
     align-items: center;
 }
 
+/* Row - Style Adham Dannaway : flex sur desktop, float à partir de 1024px */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+/* Desktop: garder les colonnes côte à côte */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .row {
+        flex-direction: row;
+    }
+    
+    section.main .row {
+        flex-direction: row;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
+    
+    section.main .col-5 {
+        flex: 0 0 40%;
+        max-width: 40%;
+        padding-right: 2rem;
+        box-sizing: border-box;
+    }
+    
+    section.main .col-7 {
+        flex: 0 0 60%;
+        max-width: 60%;
+        padding-left: 2rem;
+        box-sizing: border-box;
+    }
+    
+    /* Snaps row : toujours en ligne horizontale */
+    .row.snaps {
+        flex-direction: row !important;
+        display: flex !important;
+    }
+}
+
 @media (max-width: 768px) {
     .row {
         margin: 0;
@@ -432,12 +494,71 @@ body {
     flex: 0 0 41.66667%;
     max-width: 41.66667%;
     padding: 0 1rem;
+    overflow: visible;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .col-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+        overflow: visible;
+    }
 }
 
 .col-7 {
     flex: 0 0 58.33333%;
     max-width: 58.33333%;
     padding: 0 1rem;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .col-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+}
+
+/* Desktop: colonnes avec float - Style Adham Dannaway exact */
+@media only screen and (min-width: 1024px) {
+    section.main .row {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    section.main .row::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    section.main [class^="col-"] {
+        float: left;
+        list-style: none;
+        position: relative;
+        box-sizing: border-box;
+    }
+    
+    section.main .col-5 {
+        width: 38%;
+        margin-right: 4%;
+        padding-right: 2rem;
+    }
+    
+    section.main .col-7 {
+        width: 58%;
+        margin-right: 0;
+        padding-left: 2rem;
+    }
+    
+    .col-5 {
+        width: 39.42307692%;
+    }
+    
+    section.main [class^="col-"]:last-child,
+    section.main .row.alt [class^="col-"]:last-child {
+        margin: 0;
+    }
 }
 
 .col-12 {
@@ -473,19 +594,87 @@ body {
     margin-bottom: 4rem;
 }
 
-.about-title {
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
+/* H1 et H2 - Style Adham Dannaway exact */
+h1, .h1, h2, .h2 {
+    margin: 0;
+    color: #333333;
+    text-rendering: optimizeLegibility;
+    font-weight: normal;
+    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+h1, .h1 {
+    margin-bottom: 0.8rem;
+    font-size: 80px;
+    font-size: 8rem;
     line-height: 1.1;
+    letter-spacing: -0.06em;
+}
+
+@media only screen and (min-width: 428px) {
+    h1, .h1 {
+        font-size: 96px;
+        font-size: 9.6rem;
+    }
+}
+
+@media only screen and (min-width: 830px) {
+    h1, .h1 {
+        font-size: 102px;
+        font-size: 10.2rem;
+    }
+}
+
+/* .about-title = h1 exact - Style Adham Dannaway */
+.about-title,
+h1.about-title {
+    margin: 0;
+    color: #333333;
+    text-rendering: optimizeLegibility;
+    font-weight: normal;
+    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    margin-bottom: 0.8rem;
+    font-size: 80px;
+    font-size: 8rem;
+    line-height: 1.1;
+    letter-spacing: -0.06em;
+}
+
+@media only screen and (min-width: 428px) {
+    .about-title {
+        font-size: 96px;
+        font-size: 9.6rem;
+    }
+}
+
+@media only screen and (min-width: 830px) {
+    .about-title {
+        font-size: 102px;
+        font-size: 10.2rem;
+    }
 }
 
 .text-main {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 1024px) {
+    .text-main,
+    .text-middle {
+        padding-top: 3.2rem;
+    }
+    
+    #text-main {
+        width: 410px;
+        height: 370px;
+        max-width: 410px;
+        max-height: 370px;
+        box-sizing: border-box;
+    }
 }
 
 /* Paragraphes - Style Adham Dannaway */
@@ -496,41 +685,65 @@ p {
     font-size: 2rem;
 }
 
+@media only screen and (min-width: 1024px) {
+    p {
+        font-size: 18px;
+        font-size: 1.8rem;
+    }
+}
+
 .intro {
-    font-size: 20px;
-    font-size: 2rem;
+    font-size: 22px;
+    font-size: 2.2rem;
     font-weight: 400;
-    color: #333333;
+    color: #757575 !important;
     margin-bottom: 2.4rem;
-    line-height: 1.5;
+    line-height: 1.3;
+}
+
+p.intro {
+    font-size: 22px;
+    font-size: 2.2rem;
+    color: #757575 !important;
+    line-height: 1.3;
+    margin-bottom: 2.4rem;
 }
 
 .description {
     font-size: 20px;
     font-size: 2rem;
     font-weight: 400;
-    color: #333333;
+    color: #333333 !important;
     line-height: 1.5;
     margin-bottom: 2.4rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    .description {
+        font-size: 18px;
+        font-size: 1.8rem;
+    }
 }
 
 /* Mobile: Styles texte - Style Adham Dannaway */
 @media (max-width: 768px) {
     .about-title {
         font-size: 2.5rem;
-        margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
     }
     
     .intro {
         font-size: 1rem;
         font-weight: 400;
-        line-height: 1.6;
+    line-height: 1.6;
         margin-bottom: 1.5rem;
-    }
-    
-    .description {
+        color: #757575 !important;
+}
+
+.description {
         font-size: 1rem;
         line-height: 1.6;
+        color: #333333 !important;
     }
     
     #text-main {
@@ -539,7 +752,19 @@ p {
         transform: translateX(0) !important;
     }
     
+    #text-main.animated {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+    
     #img-main {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+    
+    #img-main.animated {
         visibility: visible !important;
         opacity: 1 !important;
         transform: translateX(0) !important;
@@ -563,11 +788,23 @@ img {
 img.major {
     margin-top: 4rem;
     margin-bottom: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 100%;
+    position: relative;
     height: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+    img.major {
+        margin: 0;
+    }
+    
+    #img-main img.major {
+        width: 600px;
+        height: 460px;
+        max-width: 600px;
+        max-height: 460px;
+        object-fit: cover;
+    }
 }
 
 .major {
@@ -582,10 +819,11 @@ img.major {
 }
 
 #text-main {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 
 #text-main.animated {
@@ -598,12 +836,13 @@ img.major {
     display: flex;
     align-items: center;
     justify-content: center;
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
     margin: 0 auto;
+    position: relative;
 }
 
 #img-main.animated {
@@ -618,14 +857,21 @@ img.major {
 }
 
 #img-main img.major {
-    width: 617px;
     max-width: 100%;
+    position: relative;
     height: auto;
     display: block;
+}
+
+/* Desktop: dimensions fixes pour l'image principale */
+@media only screen and (min-width: 1024px) {
+    #img-main img.major {
+        width: 600px;
+        height: 460px;
+        max-width: 600px;
+        max-height: 460px;
     object-fit: cover;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    }
 }
 
 .preload {
@@ -636,9 +882,10 @@ img.major {
 /* Snaps Section - Style Adham Dannaway exact */
 .snaps {
     border-top: #dddddd 1px solid;
-    padding-top: 4.8rem;
+    padding-top: 3rem;
     margin: auto;
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -648,6 +895,17 @@ img.major {
     transition: visibility 0.3s, opacity 0.3s;
     width: 100%;
     max-width: 100%;
+}
+
+/* Desktop: snaps en ligne horizontale */
+@media screen and (min-width: 769px) {
+    .snaps {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .snaps.animated {
@@ -687,6 +945,15 @@ img.major {
     display: block;
 }
 
+/* Content Detail - Style Adham Dannaway exact */
+#content-detail {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 /* About Parts Section - Adham Dannaway Style exact */
 section.dark {
     -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
@@ -698,13 +965,13 @@ section.dark,
 section.noise {
     background: #fafafa;
     border-bottom: #dddddd solid 1px;
-    padding: 6.4rem 3.2rem;
+    padding: 4rem 3.2rem;
 }
 
 .dark {
     background: #fafafa;
     border-bottom: #dddddd solid 1px;
-    padding: 6.4rem 3.2rem;
+    padding: 4rem 3.2rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -713,33 +980,33 @@ section.noise {
 @media only screen and (min-width: 428px) {
     section.dark,
     section.noise {
-        padding: 8rem 4.3rem;
+        padding: 5rem 4.3rem;
     }
     
     .dark {
-        padding: 8rem 4.3rem;
+        padding: 5rem 4.3rem;
     }
 }
 
 @media only screen and (min-width: 830px) {
     section.dark,
     section.noise {
-        padding: 9.6rem 4.3rem;
+        padding: 6rem 4.3rem;
     }
     
     .dark {
-        padding: 9.6rem 4.3rem;
+        padding: 6rem 4.3rem;
     }
 }
 
 @media only screen and (min-width: 1024px) {
     section.dark,
     section.noise {
-        padding: 6.4rem 4.3rem;
+        padding: 4.8rem 4.3rem;
     }
     
     .dark {
-        padding: 6.4rem 4.3rem;
+        padding: 4.8rem 4.3rem;
     }
 }
 
@@ -747,9 +1014,12 @@ section.noise {
 @media only screen and (min-width: 830px) {
     section.light,
     section.dark,
-    section.noise,
+    section.noise {
+        padding: 6rem 4.3rem;
+    }
+    
     section.main {
-        padding: 9.6rem 4.3rem;
+        padding: 6rem 4.3rem;
     }
 }
 
@@ -760,26 +1030,26 @@ section.main {
     border-bottom: #dddddd solid 1px;
     overflow: hidden;
     border-top: #ffffff solid 1px;
-    padding: 6.4rem 3.2rem;
+    padding: 4rem 3.2rem;
     box-sizing: border-box;
 }
 
 /* Breakpoints pour section.main */
 @media only screen and (min-width: 428px) {
     section.main {
-        padding: 8rem 4.3rem;
+        padding: 5rem 4.3rem;
     }
 }
 
 @media only screen and (min-width: 830px) {
     section.main {
-        padding: 9.6rem 4.3rem;
+        padding: 6rem 4.3rem;
     }
 }
 
 @media only screen and (min-width: 1024px) {
     section.main {
-        padding: 6.4rem 4.3rem;
+        padding: 4.8rem 4.3rem;
     }
 }
 
@@ -788,26 +1058,26 @@ section.light {
     background: #ffffff;
     border-top: #ffffff solid 1px;
     border-bottom: #dddddd solid 1px;
-    padding: 6.4rem 3.2rem;
+    padding: 4rem 3.2rem;
     box-sizing: border-box;
 }
 
 /* Breakpoints pour section.light */
 @media only screen and (min-width: 428px) {
     section.light {
-        padding: 8rem 4.3rem;
+        padding: 5rem 4.3rem;
     }
 }
 
 @media only screen and (min-width: 830px) {
     section.light {
-        padding: 9.6rem 4.3rem;
+        padding: 6rem 4.3rem;
     }
 }
 
 @media only screen and (min-width: 1024px) {
     section.light {
-        padding: 6.4rem 4.3rem;
+        padding: 4.8rem 4.3rem;
     }
 }
 
@@ -882,16 +1152,29 @@ section.light {
     }
 }
 
-/* Desktop only - pie-chart layout */
+/* Desktop only - pie-chart layout - Style Adham Dannaway exact */
 @media screen and (min-width: 769px) {
-    .pie-chart {
+    .col-12.pie-chart {
         position: relative;
-        min-height: 600px;
+        min-height: 400px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 2rem 0;
+        padding: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .pie-chart {
+        position: relative;
+        min-height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1rem 0;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -914,20 +1197,46 @@ section.light {
     }
 }
 
-/* Desktop only - web-project and coder flex layout */
+/* Desktop only - web-project/designer and coder flex layout - Style Adham Dannaway exact */
 @media screen and (min-width: 769px) {
-    .web-project,
-    .coder {
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .designer,
+    .col-12.pie-chart .coder,
+    .pie-chart .web-project,
+    .pie-chart .designer,
+    .pie-chart .coder {
         position: relative;
         z-index: 2;
-        flex: 0 0 calc(50% - 200px);
+        flex: 0 0 calc(50% - 180px);
         min-width: 200px;
-        max-width: 300px;
+        max-width: 280px;
         margin-top: 0;
         align-self: flex-start;
         word-wrap: break-word;
         overflow-wrap: break-word;
         box-sizing: border-box;
+    }
+    
+    .web-project,
+    .designer,
+    .coder {
+        position: relative;
+        z-index: 2;
+        flex: 0 0 calc(50% - 180px);
+        min-width: 200px;
+        max-width: 280px;
+        margin-top: 0;
+        align-self: flex-start;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .designer,
+    .pie-chart .web-project,
+    .pie-chart .designer {
+        margin-left: 0;
     }
 }
 
@@ -1007,14 +1316,9 @@ section.light {
     }
 }
 
-/* Desktop only - web-project margin */
-@media screen and (min-width: 769px) {
-    .web-project {
-        margin-left: 40px;
-    }
-}
 
 .web-project h2,
+.designer h2,
 .coder h2 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -1023,6 +1327,11 @@ section.light {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
+}
+
+/* Web-project = designer dans notre structure */
+.web-project {
+    /* Hérite des styles de .designer */
 }
 
 .ul {
@@ -1052,44 +1361,81 @@ section.light {
 }
 
 /* Image pie-chart - Style Adham Dannaway exact */
-#img-pie {
+#img-pie,
+#img-0 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, calc(-50% - 20px + 30px));
     width: auto;
     height: auto;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 600px;
+    max-height: 600px;
     z-index: 1;
     object-fit: contain;
     display: block;
-    visibility: visible;
-    opacity: 1;
-    top: 0px;
+    visibility: hidden;
+    opacity: 0;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 0;
     margin-bottom: 0;
 }
 
-#img-pie.animated {
+#img-pie.animated,
+#img-0.animated {
     visibility: visible;
     opacity: 1;
-    transform: translate(-50%, -50%);
-    top: 50%;
+    transform: translate(-50%, calc(-50% - 20px));
 }
 
 /* Desktop: position absolue centrée - Style Adham Dannaway */
 @media screen and (min-width: 769px) {
-    #img-pie {
+    .col-12.pie-chart #img-pie,
+    .col-12.pie-chart #img-0,
+    .pie-chart #img-pie,
+    .pie-chart #img-0 {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        margin-top: 0;
-        margin-bottom: 0;
+        transform: translate(-50%, calc(-50% - 20px + 30px));
+        max-width: 600px;
+        max-height: 600px;
+        margin: 0;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .col-12.pie-chart #img-pie.animated,
+    .col-12.pie-chart #img-0.animated,
+    .pie-chart #img-pie.animated,
+    .pie-chart #img-0.animated {
         visibility: visible;
         opacity: 1;
+        transform: translate(-50%, calc(-50% - 20px));
+    }
+    
+    #img-pie,
+    #img-0 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% - 20px + 30px));
+        max-width: 600px;
+        max-height: 600px;
+        margin: 0;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #img-pie.animated,
+    #img-0.animated {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, calc(-50% - 20px));
     }
 }
 
@@ -1257,20 +1603,28 @@ section.light {
 #img-random-facts {
     visibility: hidden;
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #img-random-facts.animated {
     visibility: visible;
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 #img-random-facts img.major {
-    width: 590px;
-    height: 470px;
-    object-fit: cover;
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .placeholder-icon {
@@ -1806,14 +2160,17 @@ section.light {
         line-height: 1.5;
         margin-bottom: 2.4rem;
         text-align: left;
+        color: #333333 !important;
     }
 
     .intro {
         font-size: 1.25rem;
+        color: #757575 !important;
     }
 
     .description {
         font-size: 1rem;
+        color: #333333 !important;
     }
 
     #img-main img.major {
@@ -1824,10 +2181,11 @@ section.light {
 
     /* Snaps en grid 2x2 - Style Adham Dannaway mobile */
     .snaps {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
         gap: 0.75rem !important;
-        justify-items: center;
+        justify-content: center;
         align-items: center;
         margin-top: 2rem;
     }
@@ -2243,7 +2601,15 @@ section.light {
     }
 
     .greeting {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        color: #666666 !important;
+        font-weight: 500;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-rendering: auto;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
     }
 
     .home-subtitle {
