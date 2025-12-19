@@ -88,7 +88,7 @@ section.main {
 }
 
 #text-main h1 {
-    font-size: 0.75rem;
+    font-size: 2.5rem;
     font-weight: normal;
     margin-bottom: 0.8rem;
     color: #333333;
@@ -98,6 +98,16 @@ section.main {
     overflow-wrap: break-word;
     letter-spacing: -0.02em;
     font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+/* Desktop - tailles ajustées */
+@media only screen and (min-width: 769px) {
+    #text-main h1,
+    #text-main .about-title {
+        font-size: 6rem !important;
+        letter-spacing: -0.06em !important;
+        margin-bottom: 0.6rem !important;
+    }
 }
 
 /* Mobile: règles spécifiques pour #text-main */
@@ -114,7 +124,7 @@ section.main {
     }
     
     #text-main h1 {
-        font-size: 0.75rem;
+        font-size: 2.5rem;
         line-height: 1.1;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -124,7 +134,7 @@ section.main {
 }
 
 .intro {
-    font-size: 0.5rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #757575;
     margin-bottom: 1.5rem;
@@ -134,7 +144,7 @@ section.main {
 }
 
 .description {
-    font-size: 0.5rem;
+    font-size: 1rem;
     color: #333333;
     line-height: 1.5;
     margin-bottom: 1.5rem;
@@ -142,10 +152,45 @@ section.main {
     overflow-wrap: break-word;
 }
 
+/* Desktop - tailles ajustées */
+@media only screen and (min-width: 769px) {
+    .intro,
+    #text-main .intro,
+    #text-main p.intro {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 2rem !important;
+        color: #757575 !important;
+    }
+    
+    .description,
+    #text-main .description {
+        font-size: 1.2rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 2rem !important;
+        color: #333333 !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .description,
+    #text-main .description {
+        font-size: 1.2rem !important;
+    }
+    
+    /* Ajustement #text-main pour contenir tout le texte */
+    #text-main {
+        min-height: 300px !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+}
+
 /* Mobile: règles spécifiques pour intro et description - Style Adham Dannaway */
 @media (max-width: 768px) {
     .intro {
-        font-size: 0.5rem;
+        font-size: 1rem;
         line-height: 1.5;
         margin-bottom: 1.5rem;
         color: #757575 !important;
@@ -154,7 +199,7 @@ section.main {
     }
     
     .description {
-        font-size: 0.5rem;
+        font-size: 1rem;
         line-height: 1.5;
         margin-bottom: 1.5rem;
         color: #333333 !important;
@@ -685,7 +730,45 @@ section.light.nopad-b {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
-    text-align: center;
+}
+
+/* Mobile: centrer web-project et coder */
+@media (max-width: 768px) {
+    .web-project,
+    .coder,
+    .pie-chart .web-project,
+    .pie-chart .coder,
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder {
+        text-align: center !important;
+    }
+    
+    .web-project h2,
+    .coder h2,
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2,
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2 {
+        text-align: center !important;
+    }
+    
+    .web-project .ul,
+    .coder .ul,
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul,
+    .col-12.pie-chart .web-project .ul,
+    .col-12.pie-chart .coder .ul {
+        text-align: center !important;
+    }
+    
+    .web-project .ul li,
+    .coder .ul li,
+    .pie-chart .web-project .ul li,
+    .pie-chart .coder .ul li,
+    .col-12.pie-chart .web-project .ul li,
+    .col-12.pie-chart .coder .ul li {
+        text-align: center !important;
+    }
 }
 
 .web-project .ul,

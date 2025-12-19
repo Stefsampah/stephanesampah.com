@@ -709,5 +709,40 @@ document.addEventListener('DOMContentLoaded', () => {
         attributes: true,
         attributeFilter: ['style', 'class']
     });
+    
+    // Synchroniser la hauteur de l'image avec le texte sur desktop
+    function syncImageHeight() {
+        if (window.innerWidth >= 1024) {
+            const textMain = document.getElementById('text-main');
+            const imgMain = document.getElementById('img-main');
+            
+            if (textMain && imgMain) {
+                const textHeight = textMain.offsetHeight;
+                if (textHeight > 0) {
+                    imgMain.style.height = (textHeight + 20) + 'px';
+                }
+            }
+        } else {
+            const imgMain = document.getElementById('img-main');
+            if (imgMain) {
+                imgMain.style.height = '';
+            }
+        }
+    }
+    
+    // Appeler au chargement et au redimensionnement
+    syncImageHeight();
+    window.addEventListener('resize', syncImageHeight);
+    
+    // Observer les changements de taille du texte
+    if (window.innerWidth >= 1024) {
+        const textMain = document.getElementById('text-main');
+        if (textMain) {
+            const resizeObserver = new ResizeObserver(() => {
+                syncImageHeight();
+            });
+            resizeObserver.observe(textMain);
+        }
+    }
 });
 

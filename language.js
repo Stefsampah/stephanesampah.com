@@ -47,6 +47,11 @@ function updateSections(lang) {
     document.querySelectorAll('[data-translate="about.subtitle"]').forEach(el => { el.textContent = about.subtitle || ''; });
     document.querySelectorAll('[data-translate="about.intro.main"]').forEach(el => { el.textContent = about.intro?.main || ''; });
     document.querySelectorAll('[data-translate="about.intro.description"]').forEach(el => { el.textContent = about.intro?.description || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list1"]').forEach(el => { el.textContent = about.intro?.list1 || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list2"]').forEach(el => { el.textContent = about.intro?.list2 || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list3"]').forEach(el => { el.textContent = about.intro?.list3 || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list4"]').forEach(el => { el.textContent = about.intro?.list4 || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list5"]').forEach(el => { el.textContent = about.intro?.list5 || ''; });
     document.querySelectorAll('[data-translate="about.photo.fun"]').forEach(el => { el.textContent = about.photo?.fun || ''; });
 
     // About tags
@@ -241,6 +246,21 @@ function applyTranslations() {
     });
     document.querySelectorAll('[data-translate="about.intro.description"]').forEach(el => {
         el.textContent = t('about.intro.description');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list1"]').forEach(el => {
+        el.textContent = t('about.intro.list1');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list2"]').forEach(el => {
+        el.textContent = t('about.intro.list2');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list3"]').forEach(el => {
+        el.textContent = t('about.intro.list3');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list4"]').forEach(el => {
+        el.textContent = t('about.intro.list4');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list5"]').forEach(el => {
+        el.textContent = t('about.intro.list5');
     });
     document.querySelectorAll('[data-translate="about.photo.fun"]').forEach(el => {
         el.textContent = t('about.photo.fun');
