@@ -1,17 +1,14 @@
-feat: mise à jour contenu About et ajustements visuels
+feat: Intégration FormSubmit et ajustements finaux
 
-- Remplacement des textes de la section "À propos" avec nouvelle liste descriptive
-- Mise à jour des "Faits divers" avec nouveaux textes personnalisés
-- Ajustement alignement image/text : décalage de 60px pour aligner avec "retourneur de dancefloors"
-- Augmentation hauteur image de 20px pour meilleure proportion
-- Correction alignement desktop : image reste à droite du texte (flex-direction: row)
-- Synchronisation hauteur image/texte via JavaScript sur desktop
-- Ajout styles pour nouvelle liste dans section About
+- Ajout de FormSubmit pour le formulaire de contact (remplacement mailto)
+- Mise à jour des liens LinkedIn et GitHub sur toutes les pages
+- Remplacement de Twitter par Facebook
+- Ajustement taille police : .project-description et .footer-text en 1.1rem
+- Message de succès animé après envoi du formulaire
 
 Fichiers modifiés:
-- translations.js: nouveaux textes FR/EN
-- index.html: structure liste About, cache CSS
-- language.js: traductions pour nouveaux éléments
-- styles.css: alignement, hauteurs, styles liste
-- script.js: synchronisation hauteur image/texte
-- about-styles.css: harmonisation styles
+- index.html: FormSubmit + liens sociaux
+- script.js: Gestion FormSubmit avec message de succès
+- styles.css: Taille police 1.1rem pour project-description et footer-text
+- config.js: URLs LinkedIn/GitHub + Facebook au lieu de Twitter
+- project-1.html, project-2.html, project-3.html, project-4.html: Liens sociaux mis à jour

@@ -2278,6 +2278,7 @@ section.light {
 .footer-text p {
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.7;
+    font-size: 1.1rem;
 }
 
 .footer-social {
@@ -3001,7 +3002,7 @@ section.light {
     }
 
     .project-description {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
     }
 
     .about-subtitle {
