@@ -5,15 +5,277 @@
     box-sizing: border-box;
 }
 
+/* SOLUTION OVERFLOW MOBILE - Style Adham Dannaway (simple et efficace) */
 @media screen and (max-width: 768px) {
-    * {
-        max-width: 100vw;
-    }
-    
-    body, html {
+    /* Empêche le scroll horizontal - PRIORITÉ MAXIMALE */
+    html, body {
         overflow-x: hidden !important;
         width: 100% !important;
-        max-width: 100vw !important;
+        max-width: 100% !important;
+        position: relative !important;
+    }
+    
+    /* Toutes les images doivent être responsive */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
+    }
+    
+    /* Container responsive */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Sections dark - CORRECTION OVERFLOW */
+    section.dark,
+    .dark,
+    section.dark.nopad-b,
+    .dark.nopad-b {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 4rem !important;
+        margin-bottom: 4rem !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+        overflow-x: hidden !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+    }
+    
+    /* Forcer overflow sur tous les enfants de .dark */
+    .dark *,
+    section.dark * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Rows sans marges négatives */
+    .row {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Colonnes */
+    .col-12,
+    .col-5,
+    .col-7 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Pie-chart et bar-chart */
+    .pie-chart,
+    .col-12.pie-chart,
+    .bar-chart {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .bar-chart li {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Images spécifiques - FORCER responsive */
+    #img-main img.major,
+    #img-random-facts img.major,
+    #img-pie,
+    img.major,
+    .major {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+    }
+    
+    .pie-chart-wrapper {
+        width: 100% !important;
+        max-width: 250px !important;
+        height: auto !important;
+        aspect-ratio: 1 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Forcer tous les éléments position:absolute à ne pas dépasser */
+    [style*="position: absolute"],
+    [style*="position:absolute"] {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* PROTECTION FINALE : Tous les éléments dans .dark */
+    .dark *,
+    section.dark * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Forcer overflow sur tous les conteneurs */
+    .dark .row,
+    .dark .container,
+    section.dark .row,
+    section.dark .container {
+        overflow-x: hidden !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Protection supplémentaire pour .dark .row .col-12 */
+    .dark .row .col-12,
+    section.dark .row .col-12,
+    .dark .row .col-12.pie-chart,
+    section.dark .row .col-12.pie-chart {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+        overflow: visible !important;
+    }
+    
+    /* Centrer et organiser les éléments - EXACTEMENT comme Adham Dannaway */
+    .pie-chart,
+    .col-12.pie-chart {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        overflow: visible !important;
+    }
+    
+    /* .web-project et .coder - EXACTEMENT comme .designer et .coder d'Adham */
+    .pie-chart .web-project,
+    .pie-chart .coder,
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder,
+    .web-project,
+    .coder {
+        display: block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        margin: 0 auto 2.5rem auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        text-align: center !important;
+        float: none !important;
+        clear: both !important;
+    }
+    
+    /* Titres h2 */
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2,
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2,
+    .web-project h2,
+    .coder h2 {
+        display: block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto 1.5rem auto !important;
+        text-align: center !important;
+        font-size: 1.75rem !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Listes .ul */
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul,
+    .web-project .ul,
+    .coder .ul {
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        text-align: left !important;
+    }
+    
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2,
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2 {
+        text-align: center !important;
+        font-size: 1.75rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul {
+        display: inline-block !important;
+        text-align: left !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        width: auto !important;
+    }
+    
+            /* Pie chart image - EN BAS après coder (style Adham Dannaway) */
+            #img-pie {
+                display: block !important;
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                margin: 2.5rem auto 0 auto !important;
+                width: 100% !important;
+                max-width: 300px !important;
+                height: auto !important;
+                order: 3 !important;
+                z-index: 1 !important;
+                clear: both !important;
+                float: none !important;
+            }
+    
+    [style*="position: absolute"],
+    [style*="position:absolute"] {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 
@@ -34,21 +296,18 @@ html {
     scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    font-family: "proxima nova light", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-    background-color: transparent;
-    font-size: 18px;
-    font-size: 1.8rem;
-    color: #333333;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--bg-color);
     line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
 }
 
@@ -56,19 +315,17 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    box-sizing: border-box;
     width: 100%;
+    box-sizing: border-box;
 }
 
-/* Centrer le contenu dans les sections */
-.about-section .container {
-    text-align: left;
-}
-
-.about-main {
-    text-align: left;
-    max-width: 100%;
-    margin: 0 auto;
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        overflow-x: hidden !important;
+    }
 }
 
 /* Navigation */
@@ -79,14 +336,7 @@ body {
     background-color: #000 !important;
     z-index: 1000;
     transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-.navbar.animated,
-.navbar.scrolled {
     opacity: 1;
-    transform: translateY(0);
 }
 
 .nav-container {
@@ -103,17 +353,6 @@ body {
     display: flex;
     align-items: center;
     height: 92px;
-    flex-shrink: 0;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 0;
-    align-items: center;
-    height: 92px;
-    margin: 0;
-    padding: 0;
 }
 
 .logo-link {
@@ -137,8 +376,6 @@ body {
     display: block;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-    position: relative;
-    top: 30px;
 }
 
 .logo-link:hover .logo-photo {
@@ -233,16 +470,6 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
-    z-index: 1001;
-}
-
-/* Afficher le bouton menu en mobile */
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: flex !important;
-        position: relative;
-        z-index: 1001;
-    }
 }
 
 .bar {
@@ -299,24 +526,12 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 2rem;
-    transform: none;
-    will-change: auto;
 }
 
 .greeting {
     font-size: 1.5rem;
-    font-weight: 500;
-    color: #666666 !important;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-rendering: auto;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto;
-    line-height: 1.5;
-    letter-spacing: 0.01em;
-    transform: none !important;
-    will-change: auto;
-    backface-visibility: visible;
-    -webkit-backface-visibility: visible;
+    font-weight: 300;
+    color: var(--text-light);
 }
 
 .name {
@@ -403,102 +618,31 @@ body {
     background-color: var(--bg-color);
 }
 
-/* Grid System - Style Adham Dannaway exact */
+/* Grid System - Adham Dannaway Style */
 .row {
-    max-width: 68rem;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Row - Style Adham Dannaway : flex sur desktop, float à partir de 1024px */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-}
-
-/* Desktop: garder les colonnes côte à côte */
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-    .row {
-        flex-direction: row;
-    }
-    
-    section.main .row {
-        flex-direction: row !important;
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        align-items: flex-start;
-    }
-    
-    section.main .col-5 {
-        flex: 0 0 40% !important;
-        max-width: 40% !important;
-        width: 40% !important;
-        padding-right: 2rem;
-        box-sizing: border-box;
-        order: 0 !important;
-    }
-    
-    section.main .col-7 {
-        flex: 0 0 60% !important;
-        max-width: 60% !important;
-        width: 60% !important;
-        padding-left: 2rem;
-        box-sizing: border-box;
-        order: 0 !important;
-    }
-    
-    /* Snaps row : toujours en ligne horizontale */
-    .row.snaps {
-        flex-direction: row !important;
-        display: flex !important;
-    }
 }
 
 @media (max-width: 768px) {
     .row {
         margin: 0;
         padding: 0;
-        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
-    /* Exception: les snaps doivent rester en row pour 2 colonnes */
-    .row.snaps,
-    #snaps,
-    .snaps {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-    }
-    
-    /* Mobile: Image d'abord, texte en dessous */
-    .about-main .row:first-child {
-        flex-direction: column;
-    }
-    
-    .about-main .row:first-child .col-7 {
-        order: 1;
-        flex: 1 1 100% !important;
-        min-width: 0px !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin: 0px !important;
-        padding: 0 !important;
-        margin-bottom: 2rem;
-    }
-    
-    .about-main .row:first-child .col-5 {
-        order: 2;
-        flex: 1 1 100% !important;
-        min-width: 0px !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin: 0px !important;
-        padding: 0 !important;
+    .dark .row {
+        margin: 0;
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
 
@@ -506,102 +650,14 @@ body {
     flex: 0 0 41.66667%;
     max-width: 41.66667%;
     padding: 0 1rem;
-    overflow: visible;
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-    .col-5 {
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-        overflow: visible;
-    }
+    box-sizing: border-box;
 }
 
 .col-7 {
     flex: 0 0 58.33333%;
     max-width: 58.33333%;
     padding: 0 1rem;
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-    .col-7 {
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-    }
-}
-
-/* Desktop: colonnes avec float - Style Adham Dannaway exact */
-@media only screen and (min-width: 1024px) {
-    section.main .row {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: stretch;
-        width: 100%;
-        overflow: hidden;
-        flex-wrap: nowrap !important;
-    }
-    
-    section.main [class^="col-"] {
-        position: relative;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    section.main .col-5 {
-        width: 38% !important;
-        max-width: 38% !important;
-        flex: 0 0 38% !important;
-        margin-right: 4%;
-        padding-right: 2rem;
-        order: 0 !important;
-    }
-    
-    section.main .col-7 {
-        width: 58% !important;
-        max-width: 58% !important;
-        flex: 0 0 58% !important;
-        margin-right: 0;
-        padding-left: 2rem;
-        order: 0 !important;
-    }
-    
-    .col-5 {
-        width: 39.42307692%;
-    }
-    
-    section.main [class^="col-"]:last-child,
-    section.main .row.alt [class^="col-"]:last-child {
-        margin: 0;
-    }
-    
-    /* Surcharger align-c pour aligner en haut au lieu de centrer */
-    section.main .col-7.align-c {
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-    }
-    
-    section.main #img-main.align-c {
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-    }
-    
-    /* #img-main prend toute la hauteur disponible */
-    #img-main {
-        height: 100%;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-    }
-    
-    /* Image prend toute la hauteur avec object-fit: cover - alignée avec "retourneur de dancefloors" */
-    #img-main img.major {
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        object-fit: cover;
-        object-position: center;
-        margin-top: 60px;
-    }
+    box-sizing: border-box;
 }
 
 .col-12 {
@@ -613,9 +669,15 @@ body {
 }
 
 @media (max-width: 768px) {
+    .col-5,
+    .col-7,
     .col-12 {
-        padding: 0;
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 1rem;
         margin: 0;
+        box-sizing: border-box;
     }
 }
 
@@ -623,16 +685,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center !important;
-}
-
-/* Desktop: surcharger align-c pour #img-main - aligner en haut */
-@media only screen and (min-width: 1024px) {
-    section.main .col-7.align-c,
-    section.main #img-main.align-c {
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-    }
 }
 
 .clearfix::after {
@@ -646,384 +698,33 @@ body {
     margin-bottom: 4rem;
 }
 
-/* H1 et H2 - Style Adham Dannaway exact */
-h1, .h1, h2, .h2 {
-    margin: 0;
-    color: #333333;
-    text-rendering: optimizeLegibility;
-    font-weight: normal;
-    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-}
-
-h1, .h1 {
-    margin-bottom: 0.8rem;
-    font-size: 80px;
-    font-size: 8rem;
-    line-height: 1.1;
-    letter-spacing: -0.06em;
-}
-
-@media only screen and (min-width: 428px) {
-    h1, .h1 {
-        font-size: 96px;
-        font-size: 9.6rem;
-    }
-}
-
-@media only screen and (min-width: 830px) {
-    h1, .h1 {
-        font-size: 102px;
-        font-size: 10.2rem;
-    }
-}
-
-/* .about-title = h1 exact - Style Adham Dannaway */
-/* Mobile first - taille de base pour mobile */
-.about-title,
-h1.about-title {
-    margin: 0;
-    color: #333333;
-    text-rendering: optimizeLegibility;
-    font-weight: normal;
-    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-    margin-bottom: 0.8rem;
-    font-size: 2.5rem;
-    line-height: 1.1;
+.about-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 2rem;
     letter-spacing: -0.02em;
-}
-
-/* Desktop - tailles ajustées */
-@media only screen and (min-width: 769px) {
-    .about-title,
-    h1.about-title,
-    #text-main .about-title,
-    #text-main h1.about-title {
-        font-size: 6rem !important;
-        letter-spacing: -0.06em !important;
-        line-height: 1.1 !important;
-        margin-bottom: 0.6rem !important;
-    }
+    line-height: 1.1;
 }
 
 .text-main {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-sizing: border-box;
 }
 
-/* Desktop: #text-main prend toute la hauteur disponible */
-@media only screen and (min-width: 1024px) {
-    .text-main,
-    #text-main {
-        height: auto;
-        align-self: flex-start;
-    }
-    
-    /* Calculer la hauteur pour correspondre à l'image */
-    section.main .row {
-        align-items: flex-start;
-    }
-    
-}
-
-@media only screen and (min-width: 1024px) {
-    .text-main,
-    .text-middle {
-        padding-top: 3.2rem;
-    }
-    
-    #text-main {
-        width: 410px;
-        height: auto;
-        min-height: 300px;
-        max-width: 410px;
-        max-height: none;
-        box-sizing: border-box;
-        overflow: visible;
-    }
-    
-    /* Faire correspondre la hauteur de #text-main à celle de #img-main */
-    section.main .row {
-        align-items: flex-start;
-    }
-    
-    section.main .col-5,
-    section.main .col-7 {
-        align-items: flex-start;
-    }
-}
-
-/* Paragraphes - Style Adham Dannaway */
-p {
-    margin-bottom: 2.4rem;
-    line-height: 1.5;
-    font-size: 20px;
-    font-size: 2rem;
-}
-
-@media only screen and (min-width: 1024px) {
-    p {
-        font-size: 18px;
-        font-size: 1.8rem;
-    }
-}
-
-/* Mobile first - tailles de base pour mobile */
 .intro {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #757575 !important;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
     margin-bottom: 1.5rem;
-    line-height: 1.5;
-}
-
-p.intro {
-    font-size: 1rem;
-    color: #757575 !important;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .description {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #333333 !important;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-}
-
-.about-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
-}
-
-.about-list li {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #333333 !important;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-    padding-left: 0;
-}
-
-/* Desktop - tailles ajustées */
-@media only screen and (min-width: 769px) {
-    .intro,
-    p.intro,
-    #text-main .intro,
-    #text-main p.intro {
-        font-size: 2rem !important;
-        line-height: 1.3 !important;
-        margin-bottom: 2rem !important;
-        color: #757575 !important;
-        font-weight: 400 !important;
-    }
-    
-    .description,
-    #text-main .description {
-        font-size: 1.2rem !important;
-        line-height: 1.5 !important;
-        margin-bottom: 2rem !important;
-        color: #333333 !important;
-        font-weight: 400 !important;
-    }
-    
-    .about-list li {
-        font-size: 1.2rem !important;
-        line-height: 1.5 !important;
-        color: #333333 !important;
-        font-weight: 400 !important;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    .description,
-    #text-main .description {
-        font-size: 1.2rem !important;
-    }
-    
-    /* Ajustement hauteur #text-main pour contenir tout le texte */
-    #text-main {
-        min-height: 300px !important;
-        height: auto !important;
-        max-height: none !important;
-    }
-}
-
-/* Mobile: Styles texte - Style Adham Dannaway */
-@media (max-width: 768px) {
-    /* Section main - Style Adham Dannaway mobile */
-    section.main {
-        padding: 6.4rem 3.2rem !important;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    /* Row dans section main - Style Adham Dannaway */
-    section.main .row {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    /* Exception: les snaps doivent rester en row pour 2 colonnes */
-    section.main .row.snaps,
-    section.main #snaps,
-    section.main .snaps {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-    }
-    
-    /* Ordre mobile: Image d'abord (order: 1), texte ensuite (order: 2) - Style Adham Dannaway */
-    section.main .row:first-child #img-main,
-    section.main .row:first-child .col-7 {
-        order: 1 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 1 1 100% !important;
-        padding: 0 !important;
-        margin: 0 0 2.4rem 0 !important;
-        box-sizing: border-box;
-    }
-    
-    section.main .row:first-child #text-main,
-    section.main .row:first-child .col-5 {
-        order: 2 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 1 1 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box;
-    }
-    
-    /* Forcer les tailles mobiles avec !important pour surcharger les règles desktop */
-    .about-title {
-        font-size: 2.5rem !important;
-        margin-bottom: 0.8rem;
-        line-height: 1.1;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        letter-spacing: -0.02em !important;
-    }
-    
-    .intro {
-        font-size: 1rem !important;
-        font-weight: 400;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-        color: #757575 !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .description {
-        font-size: 1rem !important;
-        line-height: 1.5;
-        color: #333333 !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        margin-bottom: 1.5rem;
-    }
-    
-    /* #text-main - Style Adham Dannaway mobile */
-    #text-main {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        position: relative;
-    }
-    
-    #text-main.animated {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-    }
-    
-    /* text-main class - Style Adham Dannaway */
-    .text-main {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        position: relative;
-    }
-    
-    /* #img-main - Style Adham Dannaway mobile */
-    #img-main {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 0 2.4rem 0 !important;
-        box-sizing: border-box;
-    }
-    
-    #img-main.animated {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-    }
-    
-    #img-main img.major {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 !important;
-        display: block;
-    }
-}
-
-/* Images - Style Adham Dannaway */
-img {
-    max-width: 100%;
-    position: relative;
-    margin-bottom: 4rem;
-    height: auto;
-}
-
-img.major {
-    margin-top: 4rem;
-    margin-bottom: 0;
-    max-width: 100%;
-    position: relative;
-    height: auto;
-}
-
-@media only screen and (min-width: 1024px) {
-    img.major {
-        margin: 0;
-    }
-    
-    #img-main img.major {
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.8;
 }
 
 .major {
@@ -1033,16 +734,13 @@ img.major {
     border-radius: 8px;
     max-width: 100%;
     object-fit: cover;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #text-main {
     visibility: hidden;
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(-50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
 }
 
 #text-main.animated {
@@ -1057,26 +755,8 @@ img.major {
     justify-content: center;
     visibility: hidden;
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: center;
-    margin: 0 auto;
-    position: relative;
-}
-
-/* Desktop: #img-main prend la même hauteur que #text-main */
-@media only screen and (min-width: 1024px) {
-    #img-main {
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-        height: 100%;
-    }
-    
-    /* Surcharger align-c sur desktop */
-    #img-main.align-c {
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-    }
 }
 
 #img-main.animated {
@@ -1086,26 +766,12 @@ img.major {
 }
 
 #img-main img.major {
-    visibility: visible;
-    opacity: 1;
-}
-
-#img-main img.major {
-    max-width: 100%;
-    position: relative;
+    width: 100%;
+    max-width: 617px;
     height: auto;
+    aspect-ratio: 617 / 482;
     display: block;
-}
-
-/* Desktop: dimensions fixes pour l'image principale */
-@media only screen and (min-width: 1024px) {
-    #img-main img.major {
-        width: 600px;
-        height: 460px;
-        max-width: 600px;
-        max-height: 460px;
     object-fit: cover;
-    }
 }
 
 .preload {
@@ -1113,33 +779,17 @@ img.major {
     transition: opacity 0.3s;
 }
 
-/* Snaps Section - Style Adham Dannaway exact */
+/* Snaps Section - Adham Dannaway Style */
 .snaps {
-    border-top: #dddddd 1px solid;
-    padding-top: 3rem;
-    margin: auto;
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    flex-wrap: wrap;
-    visibility: visible;
-    opacity: 1;
+    margin-top: 3rem;
+    visibility: hidden;
+    opacity: 0;
     transition: visibility 0.3s, opacity 0.3s;
-    width: 100%;
-    max-width: 100%;
-}
-
-/* Desktop: snaps en ligne horizontale */
-@media screen and (min-width: 769px) {
-    .snaps {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
 .snaps.animated {
@@ -1155,51 +805,11 @@ img.major {
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Mobile: snaps en 2 colonnes (2-2-1) - Style Adham Dannaway */
-@media screen and (max-width: 768px) {
-    /* Forcer row pour les snaps */
-    .row.snaps,
-    #snaps.row,
-    .snaps {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        display: flex !important;
-    }
-    
-    .snaps .snap-item,
-    #snaps .snap-item,
-    .row.snaps .snap-item,
-    .snap-item {
-        width: calc(50% - 0.375rem) !important;
-        max-width: calc(50% - 0.375rem) !important;
-        flex: 0 0 calc(50% - 0.375rem) !important;
-        height: auto !important;
-        aspect-ratio: 1 !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-    }
-    
-    .snaps,
-    #snaps,
-    .row.snaps {
-        gap: 0.75rem !important;
-        justify-content: center !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        flex-wrap: wrap !important;
-    }
-    
-    .snap-item img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        display: block !important;
-    }
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    flex-shrink: 0;
 }
 
 .snap-item.animated {
@@ -1221,412 +831,202 @@ img.major {
     display: block;
 }
 
-/* Content Detail - Style Adham Dannaway exact */
-#content-detail {
+/* About Parts Section - Adham Dannaway Style */
+.dark {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+    margin: 4rem 0;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow: hidden;
     box-sizing: border-box;
     position: relative;
-    opacity: 1;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* About Parts Section - Adham Dannaway Style exact */
-section.dark {
-    -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
-}
-
-section.dark,
-section.noise {
-    background: #fafafa;
-    border-bottom: #dddddd solid 1px;
-    padding: 4rem 3.2rem;
-}
-
-.dark {
-    background: #fafafa;
-    border-bottom: #dddddd solid 1px;
-    padding: 4rem 3.2rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Breakpoints pour section.dark et section.noise - Style Adham Dannaway */
-@media only screen and (min-width: 428px) {
-    section.dark,
-    section.noise {
-        padding: 5rem 4.3rem;
-    }
-    
-    .dark {
-        padding: 5rem 4.3rem;
-    }
-}
-
-@media only screen and (min-width: 830px) {
-    section.dark,
-    section.noise {
-        padding: 6rem 4.3rem;
-    }
-    
-    .dark {
-        padding: 6rem 4.3rem;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    section.dark,
-    section.noise {
-        padding: 4.8rem 4.3rem;
-    }
-    
-    .dark {
-        padding: 4.8rem 4.3rem;
-    }
-}
-
-/* Section padding unifié à 830px - Style Adham Dannaway */
-@media only screen and (min-width: 830px) {
-    section.light,
-    section.dark,
-    section.noise {
-        padding: 6rem 4.3rem;
-    }
-    
-    section.main {
-        padding: 6rem 4.3rem;
-    }
-}
-
-/* Section main - Style Adham Dannaway exact */
-section.main {
-    background: none;
-    border: none;
-    border-bottom: #dddddd solid 1px;
-    overflow: hidden;
-    border-top: #ffffff solid 1px;
-    padding: 4rem 3.2rem;
-    box-sizing: border-box;
-}
-
-/* Breakpoints pour section.main */
-@media only screen and (min-width: 428px) {
-    section.main {
-        padding: 5rem 4.3rem;
-    }
-}
-
-@media only screen and (min-width: 830px) {
-    section.main {
-        padding: 6rem 4.3rem;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    section.main {
-        padding: 4.8rem 4.3rem;
-    }
-}
-
-/* Section light - Style Adham Dannaway exact */
-section.light {
-    background: #ffffff;
-    border-top: #ffffff solid 1px;
-    border-bottom: #dddddd solid 1px;
-    padding: 4rem 3.2rem;
-    box-sizing: border-box;
-}
-
-/* Breakpoints pour section.light */
-@media only screen and (min-width: 428px) {
-    section.light {
-        padding: 5rem 4.3rem;
-    }
-}
-
-@media only screen and (min-width: 830px) {
-    section.light {
-        padding: 6rem 4.3rem;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    section.light {
-        padding: 4.8rem 4.3rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .dark {
-        width: 100% !important;
-        max-width: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-    }
 }
 
 .dark .row {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-@media screen and (max-width: 768px) {
-    .dark .row {
-        max-width: 100% !important;
-        padding: 0 1rem !important;
-        margin: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-    
-    .dark .row .col-12 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-}
+/* Cette section est maintenant dans le bloc principal @media (lignes 9-120) avec !important */
 
-@media (max-width: 768px) {
-    .dark {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    .dark .row {
-        padding: 0 1rem;
-        overflow-x: hidden;
-        max-width: 100%;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .col-12 {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    
-    .col-12.pie-chart {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        overflow-x: hidden !important;
-    }
-}
-
-/* Desktop only - pie-chart layout - Style Adham Dannaway exact */
+/* Pie-chart layout - Desktop */
 @media screen and (min-width: 769px) {
-    .col-12.pie-chart {
-        position: relative;
-        min-height: 400px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 1rem 0;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .pie-chart {
-        position: relative;
-        min-height: 400px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 1rem 0;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-}
-
-@media screen and (max-width: 768px) {
     .pie-chart,
     .col-12.pie-chart {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: flex-start !important;
-        min-height: auto !important;
-        gap: 1.5rem !important;
-        padding: 1rem !important;
+        position: relative;
+        min-height: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 2rem 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .pie-chart .web-project,
+    .pie-chart .coder,
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder,
+    .web-project,
+    .coder {
+        position: relative;
+        z-index: 2;
+        flex: 0 0 calc(50% - 200px);
+        min-width: 200px;
+        max-width: 300px;
+        margin-top: 0;
+        align-self: flex-start;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
+    .pie-chart .web-project,
+    .col-12.pie-chart .web-project,
+    .web-project {
+        margin-left: 40px;
+    }
+}
+
+/* Pie-chart layout - Mobile - EXACTEMENT comme Adham Dannaway */
+@media screen and (max-width: 768px) {
+    /* Container principal - style Adham Dannaway (simple block) */
+    .pie-chart,
+    .col-12.pie-chart {
+        display: block !important;
         width: 100% !important;
         max-width: 100% !important;
-        overflow-x: hidden !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
         box-sizing: border-box !important;
-        margin: 0 !important;
-        display: flex !important;
+        text-align: center !important;
+        overflow: visible !important;
     }
     
-    /* Ordre des éléments: web-project (1), coder (2), img-pie (3) */
+    /* .web-project et .coder - EXACTEMENT comme .designer et .coder d'Adham */
     .pie-chart .web-project,
-    .col-12.pie-chart .web-project {
-        order: 1 !important;
-    }
-    
     .pie-chart .coder,
-    .col-12.pie-chart .coder {
-        order: 2 !important;
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder,
+    .web-project,
+    .coder {
+        display: block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        margin: 0 auto 2.5rem auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        text-align: center !important;
+        float: none !important;
+        clear: both !important;
     }
     
-    /* Image pie-chart après le texte coder */
-    .pie-chart #img-pie,
-    .col-12.pie-chart #img-pie,
+    /* Titres h2 - centrés comme Adham */
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2,
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2,
+    .web-project h2,
+    .coder h2 {
+        display: block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto 1.5rem auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        font-size: 1.75rem !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Listes .ul - centrées avec texte aligné à gauche (style Adham) */
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul,
+    .col-12.pie-chart .web-project .ul,
+    .col-12.pie-chart .coder .ul,
+    .web-project .ul,
+    .coder .ul {
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+        list-style: none !important;
+    }
+    
+    /* Items de liste */
+    .pie-chart .web-project .ul li,
+    .pie-chart .coder .ul li,
+    .col-12.pie-chart .web-project .ul li,
+    .col-12.pie-chart .coder .ul li,
+    .web-project .ul li,
+    .coder .ul li {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0.5rem 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    /* Pie chart image - EN BAS après coder (style Adham Dannaway) */
     #img-pie {
-        order: 3 !important;
+        display: block !important;
         position: relative !important;
         top: auto !important;
         left: auto !important;
         transform: none !important;
-        margin: 2rem auto 0 auto !important;
+        margin: 2.5rem auto 0 auto !important;
         width: 100% !important;
         max-width: 300px !important;
         height: auto !important;
-        z-index: auto !important;
+        order: 3 !important;
+        z-index: 1 !important;
+        clear: both !important;
+        float: none !important;
+    }
+    
+    .pie-chart-svg-fallback {
         display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-}
-
-/* Desktop only - web-project/designer and coder flex layout - Style Adham Dannaway exact */
-@media screen and (min-width: 769px) {
-    .col-12.pie-chart .web-project,
-    .col-12.pie-chart .designer,
-    .col-12.pie-chart .coder,
-    .pie-chart .web-project,
-    .pie-chart .designer,
-    .pie-chart .coder {
-        position: relative;
-        z-index: 2;
-        flex: 0 0 calc(50% - 180px);
-        min-width: 200px;
-        max-width: 280px;
-        margin-top: 0;
-        align-self: flex-start;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        box-sizing: border-box;
-    }
-    
-    .web-project,
-    .designer,
-    .coder {
-        position: relative;
-        z-index: 2;
-        flex: 0 0 calc(50% - 180px);
-        min-width: 200px;
-        max-width: 280px;
-        margin-top: 0;
-        align-self: flex-start;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        box-sizing: border-box;
-    }
-    
-    .col-12.pie-chart .web-project,
-    .col-12.pie-chart .designer,
-    .pie-chart .web-project,
-    .pie-chart .designer {
-        margin-left: 0;
-    }
-}
-
-/* Force mobile responsive - override all desktop rules */
-@media screen and (max-width: 768px) {
-    .web-project,
-    .coder {
-        flex: 1 1 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 1rem !important;
-        box-sizing: border-box !important;
-        align-self: stretch !important;
-    }
-    
-    .web-project {
-        margin-left: 0 !important;
-    }
-}
-
-/* Mobile override - must be after desktop rules */
-@media screen and (max-width: 768px) {
-    .col-12.pie-chart .web-project,
-    .col-12.pie-chart .coder,
-    .pie-chart .web-project,
-    .pie-chart .coder {
-        flex: 1 1 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-top: 0 !important;
-        padding: 1rem 0.5rem !important;
-        box-sizing: border-box !important;
-        align-self: stretch !important;
         position: relative !important;
-    }
-    
-    .col-12.pie-chart .web-project h2,
-    .col-12.pie-chart .coder h2,
-    .pie-chart .web-project h2,
-    .pie-chart .coder h2 {
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 2.5rem auto 0 auto !important;
+        order: 3 !important;
         width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        max-width: 300px !important;
+        height: auto !important;
         box-sizing: border-box !important;
-        overflow-wrap: break-word !important;
-        word-wrap: break-word !important;
-    }
-    
-    .col-12.pie-chart .web-project .ul,
-    .col-12.pie-chart .coder .ul,
-    .pie-chart .web-project .ul,
-    .pie-chart .coder .ul {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-    }
-    
-    .col-12.pie-chart .web-project .ul li,
-    .col-12.pie-chart .coder .ul li,
-    .pie-chart .web-project .ul li,
-    .pie-chart .coder .ul li {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        padding: 0.5rem 0 !important;
+        clear: both !important;
+        float: none !important;
     }
 }
-
 
 .web-project h2,
-.designer h2,
 .coder h2 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -1635,10 +1035,16 @@ section.light {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
+    text-align: center;
 }
 
-/* Web-project = designer dans notre structure */
-/* .web-project hérite des styles de .designer */
+@media screen and (max-width: 768px) {
+    .web-project h2,
+    .coder h2 {
+        text-align: center;
+        font-size: 1.75rem;
+    }
+}
 
 .ul {
     list-style: none;
@@ -1666,91 +1072,49 @@ section.light {
     color: var(--text-color);
 }
 
-/* Image pie-chart - Style Adham Dannaway exact */
-#img-pie,
-#img-0 {
+#img-pie {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, calc(-50% - 20px + 30px));
-    width: auto;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
     height: auto;
-    max-width: 600px;
-    max-height: 600px;
     z-index: 1;
     object-fit: contain;
-    display: block;
+    pointer-events: none;
     visibility: hidden;
     opacity: 0;
+    transform: translate(-50%, calc(-50% + 30px));
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-top: 0;
-    margin-bottom: 0;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    box-sizing: border-box;
 }
 
-#img-pie.animated,
-#img-0.animated {
+#img-pie.animated {
     visibility: visible;
     opacity: 1;
-    transform: translate(-50%, calc(-50% - 20px));
+    transform: translate(-50%, -50%);
 }
 
-/* Desktop: position absolue centrée - Style Adham Dannaway */
-@media screen and (min-width: 769px) {
-    .col-12.pie-chart #img-pie,
-    .col-12.pie-chart #img-0,
-    .pie-chart #img-pie,
-    .pie-chart #img-0 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, calc(-50% - 20px + 30px));
-        max-width: 600px;
-        max-height: 600px;
-        margin: 0;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 1;
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .col-12.pie-chart #img-pie.animated,
-    .col-12.pie-chart #img-0.animated,
-    .pie-chart #img-pie.animated,
-    .pie-chart #img-0.animated {
-        visibility: visible;
-        opacity: 1;
-        transform: translate(-50%, calc(-50% - 20px));
-    }
-    
-    #img-pie,
-    #img-0 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, calc(-50% - 20px + 30px));
-        max-width: 600px;
-        max-height: 600px;
-        margin: 0;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 1;
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    #img-pie.animated,
-    #img-0.animated {
-        visibility: visible;
-        opacity: 1;
-        transform: translate(-50%, calc(-50% - 20px));
-    }
+.pie-chart-svg-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    visibility: visible;
+    opacity: 1;
 }
-
-
 
 .pie-chart-wrapper {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1;
 }
 
 .pie-chart-wrapper svg.pie-chart {
@@ -1837,6 +1201,12 @@ section.light {
     margin-bottom: 4rem;
 }
 
+.ten-things {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .ten-things h2 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -1899,28 +1269,22 @@ section.light {
 #img-random-facts {
     visibility: hidden;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #img-random-facts.animated {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 #img-random-facts img.major {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-    max-width: 100%;
-    width: auto;
+    width: 100%;
+    max-width: 590px;
     height: auto;
-    object-fit: contain;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    aspect-ratio: 590 / 470;
+    object-fit: cover;
 }
 
 .placeholder-icon {
@@ -1956,6 +1320,11 @@ section.light {
     transform: translateX(5px);
 }
 
+/* Bar Chart Section - Adham Dannaway Style */
+.nopad-b {
+    padding-bottom: 0;
+}
+
 .align-r {
     text-align: right;
 }
@@ -1972,6 +1341,7 @@ section.light {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .bar-chart li {
@@ -1982,6 +1352,8 @@ section.light {
     align-items: center;
     justify-content: flex-end;
     height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .bar-chart li.axis {
@@ -2325,7 +1697,6 @@ section.light {
     .nav-container {
         padding: 1rem 1.5rem;
         min-height: auto;
-        position: relative;
     }
     
     .nav-logo {
@@ -2334,20 +1705,6 @@ section.light {
     
     .lang-switcher {
         height: auto;
-    }
-
-    .nav-toggle {
-        display: flex !important;
-        position: relative;
-        z-index: 1001;
-        cursor: pointer;
-    }
-    
-    .nav-toggle .bar {
-        background-color: #fff;
-        width: 25px;
-        height: 3px;
-        transition: var(--transition);
     }
 
     .nav-menu {
@@ -2363,7 +1720,6 @@ section.light {
         padding: 2rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         gap: 0;
-        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -2430,272 +1786,70 @@ section.light {
 
     .col-5,
     .col-7 {
-        flex: 1 1 100% !important;
-        min-width: 0px !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin: 0px !important;
-        padding: 0 !important;
+        flex: 0 0 100%;
+        max-width: 100%;
         margin-bottom: 2rem;
-        box-sizing: border-box;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
     }
 
     .about-title {
-        font-size: 2.5rem !important;
-        text-align: left;
-        line-height: 1.1;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        margin-bottom: 0.8rem;
-        letter-spacing: -0.02em !important;
+        font-size: 2.5rem;
     }
-    
-    .text-main {
-        text-align: left;
-        max-width: 100% !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-    }
-    
+
     .intro {
-        font-size: 1rem !important;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-        text-align: left;
-        color: #757575 !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        font-size: 1.25rem;
     }
 
     .description {
-        font-size: 1rem !important;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-        text-align: left;
-        color: #333333 !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    /* #text-main spécifique pour éviter débordements */
-    #text-main {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        margin-bottom: 2rem !important;
-        box-sizing: border-box;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
+        font-size: 1rem;
     }
 
     #img-main img.major {
         width: 100%;
         max-width: 100%;
         height: auto;
-    }
-
-    /* Snaps en grid 2x2 - Style Adham Dannaway mobile - règles déjà définies plus haut */
-
-    .col-12.pie-chart,
-    .pie-chart {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        min-height: auto !important;
-        gap: 1.5rem !important;
-        padding: 1rem 0.5rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-        justify-content: flex-start !important;
-        margin: 0 !important;
-        display: flex !important;
+        aspect-ratio: auto;
     }
     
-    /* Ordre flexbox: web-project (1), coder (2), img-pie (3) */
-    .col-12.pie-chart .web-project,
-    .pie-chart .web-project,
-    .web-project {
-        order: 1 !important;
-    }
-    
-    .col-12.pie-chart .coder,
-    .pie-chart .coder,
-    .coder {
-        order: 2 !important;
+    #img-random-facts img.major {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: auto;
     }
 
-    .col-12.pie-chart .web-project,
-    .col-12.pie-chart .coder,
-    .pie-chart .web-project,
-    .pie-chart .coder,
-    .web-project,
-    .coder {
-        flex: 1 1 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-top: 0 !important;
-        margin-bottom: 1.5rem !important;
-        padding: 1rem 0.5rem !important;
-        box-sizing: border-box !important;
-        align-self: stretch !important;
-        position: relative !important;
-        float: none !important;
+    .snaps {
+        gap: 0.75rem;
+        justify-content: center;
+        padding: 0 1rem;
     }
-    
-    /* Image pie-chart après le texte coder */
-    .col-12.pie-chart #img-pie,
-    .pie-chart #img-pie,
-    #img-pie {
-        order: 3 !important;
+
+    .snap-item {
+        width: 120px;
+        height: 120px;
+    }
+
+
+    #img-pie,
+    .pie-chart-svg-fallback {
         position: relative !important;
         top: auto !important;
         left: auto !important;
         transform: none !important;
+        margin: 2rem auto !important;
+        order: 3 !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .pie-chart-wrapper {
         margin: 0 auto !important;
         width: 100% !important;
-        max-width: 300px !important;
+        max-width: 250px !important;
         height: auto !important;
-        z-index: auto !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .col-12.pie-chart .web-project h2,
-    .col-12.pie-chart .coder h2,
-    .pie-chart .web-project h2,
-    .pie-chart .coder h2,
-    .web-project h2,
-    .coder h2 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        aspect-ratio: 1 !important;
         box-sizing: border-box !important;
-        overflow-wrap: break-word !important;
-        word-wrap: break-word !important;
-        text-align: center !important;
-    }
-    
-    .col-12.pie-chart .web-project .ul,
-    .col-12.pie-chart .coder .ul,
-    .pie-chart .web-project .ul,
-    .pie-chart .coder .ul,
-    .web-project .ul,
-    .coder .ul {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        text-align: center !important;
-    }
-    
-    .col-12.pie-chart .web-project .ul li,
-    .col-12.pie-chart .coder .ul li,
-    .pie-chart .web-project .ul li,
-    .pie-chart .coder .ul li,
-    .web-project .ul li,
-    .coder .ul li {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        padding: 0.5rem 0 !important;
-        text-align: center !important;
-    }
-
-    .web-project h2,
-    .coder h2 {
-        font-size: 1.5rem !important;
-        margin-bottom: 1.5rem !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        text-align: center !important;
-    }
-
-    .web-project .ul,
-    .coder .ul {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-        list-style: none !important;
-        text-align: center !important;
-    }
-
-    .web-project .ul li,
-    .coder .ul li {
-        font-size: 0.95rem !important;
-        padding: 0.5rem 0 !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        hyphens: auto !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-        display: block !important;
-        text-align: center !important;
-    }
-
-    /* Ordre des éléments dans pie-chart sur mobile: web-project, coder, img-pie */
-    .pie-chart .web-project,
-    .col-12.pie-chart .web-project {
-        order: 1 !important;
-    }
-    
-    .pie-chart .coder,
-    .col-12.pie-chart .coder {
-        order: 2 !important;
-    }
-    
-    #img-pie {
-        order: 3 !important;
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin: 2rem auto 0 auto !important;
-        width: 100% !important;
-        max-width: 300px !important;
-        height: auto !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        z-index: auto !important;
-    }
-
-    .pie-chart-wrapper {
-        margin: 0 auto;
-    }
-
-    .pie-chart-wrapper {
-        width: 250px;
-        height: 250px;
     }
 
     .pie-chart-center {
@@ -2709,16 +1863,6 @@ section.light {
 
     .row.alt {
         flex-direction: column;
-    }
-    
-    .row.alt .col-5,
-    .row.alt .col-7 {
-        flex: 1 1 100% !important;
-        min-width: 0px !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin: 0px !important;
-        padding: 0 !important;
     }
 
     .ten-things {
@@ -2736,52 +1880,66 @@ section.light {
     }
 
     .bar-chart {
-        flex-direction: column !important;
-        height: auto !important;
-        gap: 1.5rem !important;
-        padding: 1rem 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
+        flex-direction: column;
+        height: auto;
+        gap: 1.5rem;
+        padding: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .bar-chart li {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
     }
 
     .bar-chart li.axis {
-        flex: 0 0 100% !important;
-        flex-direction: row !important;
-        justify-content: space-around !important;
-        padding-right: 0 !important;
-        margin-bottom: 1rem !important;
-        order: -1 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+        flex: 0 0 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-right: 0;
+        margin-bottom: 1rem;
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        height: auto;
     }
 
     .bar-chart li:not(.axis) {
-        flex: 0 0 100% !important;
-        min-width: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 60px !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 1rem !important;
-        border-radius: 4px !important;
-        box-sizing: border-box !important;
+        flex: 0 0 100%;
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 60px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-radius: 4px;
+        box-sizing: border-box;
     }
 
     .bar-chart li .percent {
         position: static;
         top: auto;
         margin-right: 1rem;
+        font-size: 1.2rem;
+        white-space: nowrap;
     }
 
     .bar-chart li .skill {
         position: static;
         bottom: auto;
         margin-left: 1rem;
+        font-size: 0.85rem;
+        text-align: left;
+        flex: 1;
+        white-space: normal;
     }
 
     .skills-chart-container {
@@ -2852,75 +2010,9 @@ section.light {
         gap: 1.5rem;
     }
 
-    .dark {
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        margin-right: calc(-50vw + 50%);
-        padding: 3rem 1rem;
-    }
-
-    .dark .row {
-        padding: 0 1rem;
-    }
-
-    .bar-chart {
-        flex-direction: column;
-        height: auto;
-        gap: 1.5rem;
-        padding: 1rem 0;
-    }
-
-    .bar-chart li.axis {
-        flex: 0 0 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        padding-right: 0;
-        margin-bottom: 1rem;
-        order: -1;
-        height: auto;
-    }
-
-    .bar-chart li:not(.axis) {
-        flex: 0 0 100%;
-        min-width: 100%;
-        height: 60px !important;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-        border-radius: 4px;
-        width: 100%;
-    }
-
-    .bar-chart li .percent {
-        position: static;
-        top: auto;
-        margin-right: 1rem;
-        font-size: 1.2rem;
-        white-space: nowrap;
-    }
-
-    .bar-chart li .skill {
-        position: static;
-        bottom: auto;
-        margin-left: 1rem;
-        font-size: 0.85rem;
-        text-align: left;
-        flex: 1;
-    }
 
     .row.alt {
         flex-direction: column;
-    }
-    
-    .row.alt .col-5,
-    .row.alt .col-7 {
-        flex: 1 1 100% !important;
-        min-width: 0px !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin: 0px !important;
-        padding: 0 !important;
     }
 
     .ten-things {
@@ -2965,15 +2057,7 @@ section.light {
     }
 
     .greeting {
-        font-size: 1.1rem;
-        color: #666666 !important;
-        font-weight: 500;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        text-rendering: auto;
-        -webkit-font-smoothing: subpixel-antialiased;
-        -moz-osx-font-smoothing: auto;
-        line-height: 1.5;
-        letter-spacing: 0.01em;
+        font-size: 1.2rem;
     }
 
     .home-subtitle {
@@ -3049,226 +2133,4 @@ html {
     scroll-padding-top: 80px;
 }
 
-/* ULTIMATE MOBILE FIX - Force 100% width on all list items to fix 246px issue */
-@media screen and (max-width: 768px) {
-    /* Prevent ALL horizontal overflow */
-    body, html {
-        overflow-x: hidden !important;
-        width: 100% !important;
-        max-width: 100vw !important;
-    }
-    
-    /* Force all .dark sections */
-    .dark {
-        width: 100% !important;
-        max-width: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-    }
-    
-    .dark .row,
-    .dark .row .col-12 {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Target ALL possible selectors to override 246px width */
-    .dark .row .col-12.pie-chart .web-project .ul li,
-    .dark .row .col-12.pie-chart .coder .ul li,
-    section.dark .row .col-12.pie-chart .web-project .ul li,
-    section.dark .row .col-12.pie-chart .coder .ul li,
-    .col-12.pie-chart .web-project .ul li,
-    .col-12.pie-chart .coder .ul li,
-    .pie-chart .web-project .ul li,
-    .pie-chart .coder .ul li,
-    .web-project .ul li,
-    .coder .ul li,
-    li[data-translate*="webProject"],
-    li[data-translate*="coder"] {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-    }
-    
-    /* Also force parent containers */
-    .web-project .ul,
-    .coder .ul {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
-    }
-    
-    .web-project,
-    .coder {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-    }
-    
-    /* Fix bar-chart section */
-    .bar-chart,
-    .bar-chart li {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
-    }
-}
-
-/* FINAL MOBILE FIX - Force responsive for pie-chart sections */
-@media screen and (max-width: 768px) {
-    /* Force all containers to 100% width and prevent overflow */
-    .dark {
-        width: 100% !important;
-        max-width: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-    }
-    
-    .dark .row {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 1rem !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-    
-    .dark .row .col-12 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-    
-    .dark .row .col-12.pie-chart {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Force pie-chart to column layout */
-    .pie-chart {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: flex-start !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 1rem !important;
-        margin: 0 !important;
-        gap: 1.5rem !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-    
-    /* Force web-project and coder to full width - ALL POSSIBLE SELECTORS */
-    .web-project,
-    .coder,
-    .pie-chart .web-project,
-    .pie-chart .coder,
-    .col-12.pie-chart .web-project,
-    .col-12.pie-chart .coder,
-    .dark .row .col-12.pie-chart .web-project,
-    .dark .row .col-12.pie-chart .coder,
-    section.dark .row .col-12.pie-chart .web-project,
-    section.dark .row .col-12.pie-chart .coder {
-        flex: 1 1 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        margin: 0 !important;
-        margin-bottom: 4rem !important;
-        padding: 1rem !important;
-        box-sizing: border-box !important;
-        align-self: stretch !important;
-        position: relative !important;
-        float: none !important;
-    }
-    
-    .web-project {
-        margin-left: 0 !important;
-    }
-    
-    /* Force headings to full width */
-    .web-project h2,
-    .coder h2,
-    .pie-chart .web-project h2,
-    .pie-chart .coder h2,
-    .col-12.pie-chart .web-project h2,
-    .col-12.pie-chart .coder h2 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 0 1.5rem 0 !important;
-        box-sizing: border-box !important;
-        overflow-wrap: break-word !important;
-        word-wrap: break-word !important;
-    }
-    
-    /* Force lists to full width */
-    .web-project .ul,
-    .coder .ul,
-    .pie-chart .web-project .ul,
-    .pie-chart .coder .ul,
-    .col-12.pie-chart .web-project .ul,
-    .col-12.pie-chart .coder .ul {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Force list items to full width */
-    .web-project .ul li,
-    .coder .ul li,
-    .pie-chart .web-project .ul li,
-    .pie-chart .coder .ul li,
-    .col-12.pie-chart .web-project .ul li,
-    .col-12.pie-chart .coder .ul li {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        padding: 0.5rem 0 !important;
-        margin: 0 !important;
-        display: block !important;
-    }
-    
-    /* Force web-project and coder containers - override any calculated width */
-    .web-project,
-    .coder {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-    }
-    
-    .web-project .ul,
-    .coder .ul {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-    }
-}
 
