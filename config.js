@@ -19,9 +19,8 @@ const personalConfig = {
     // RÉSEAUX SOCIAUX
     // ============================================
     social: {
-        linkedin: "#",  // Remplacez par votre URL LinkedIn
-        github: "#",    // Remplacez par votre URL GitHub
-        twitter: "#",   // Remplacez par votre URL Twitter
+        linkedin: "https://www.linkedin.com/in/stephanesampah/",
+        github: "https://github.com/Stefsampah",
         instagram: "#", // Remplacez par votre URL Instagram (optionnel)
         youtube: "#",   // Remplacez par votre URL YouTube (optionnel)
         devto: "#"      // Remplacez par votre URL Dev.to (optionnel)
