@@ -1,0 +1,790 @@
+/* About Section Styles - Style Adham Dannaway exact */
+/* Ce fichier contient UNIQUEMENT les styles pour la section about */
+
+/* Content About */
+.content.about {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Section main - Style Adham Dannaway exact */
+.content.about .main,
+section.main {
+    background: none;
+    border: none;
+    border-bottom: #dddddd solid 1px;
+    overflow: hidden;
+    border-top: #ffffff solid 1px;
+    padding: 6.4rem 3.2rem;
+    box-sizing: border-box;
+}
+
+/* Breakpoints pour section.main */
+/* Mobile first - Style Adham Dannaway */
+@media (max-width: 767px) {
+    .content.about .main,
+    section.main {
+        padding: 6.4rem 3.2rem !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (min-width: 428px) {
+    .content.about .main,
+    section.main {
+        padding: 8rem 4.3rem;
+    }
+}
+
+@media only screen and (min-width: 830px) {
+    .content.about .main,
+    section.main {
+        padding: 9.6rem 4.3rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .content.about .main,
+    section.main {
+        padding: 6.4rem 4.3rem;
+    }
+}
+
+/* Row dans main */
+.content.about .main .row {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* Mobile: règles spécifiques pour row */
+@media (max-width: 768px) {
+    .content.about .main .row,
+    section.main .row {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+}
+
+/* Text main */
+#text-main {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+#text-main h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 0.8rem;
+    color: #333333;
+    text-align: left;
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    letter-spacing: -0.02em;
+    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+/* Desktop - tailles ajustées */
+@media only screen and (min-width: 769px) {
+    #text-main h1,
+    #text-main .about-title {
+        font-size: 6rem !important;
+        letter-spacing: -0.06em !important;
+        margin-bottom: 0.6rem !important;
+    }
+}
+
+/* Mobile: règles spécifiques pour #text-main */
+@media (max-width: 768px) {
+    #text-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    
+    #text-main h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        margin-bottom: 0.8rem;
+        letter-spacing: -0.02em;
+    }
+}
+
+.intro {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #757575;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.description {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Desktop - tailles ajustées */
+@media only screen and (min-width: 769px) {
+    .intro,
+    #text-main .intro,
+    #text-main p.intro {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 2rem !important;
+        color: #757575 !important;
+    }
+    
+    .description,
+    #text-main .description {
+        font-size: 1.2rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 2rem !important;
+        color: #333333 !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .description,
+    #text-main .description {
+        font-size: 1.2rem !important;
+    }
+    
+    /* Ajustement #text-main pour contenir tout le texte */
+    #text-main {
+        min-height: 300px !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+}
+
+/* Mobile: règles spécifiques pour intro et description - Style Adham Dannaway */
+@media (max-width: 768px) {
+    .intro {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        color: #757575 !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .description {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        color: #333333 !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* Image main */
+#img-main {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#img-main img.major {
+    width: 100%;
+    max-width: 617px;
+    height: auto;
+    display: block !important;
+    object-fit: cover;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Snaps */
+.snaps {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transition: visibility 0.3s, opacity 0.3s;
+    clear: both;
+}
+
+.snap-item {
+    display: block !important;
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0);
+    position: relative;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.snap-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Desktop: 5-6 images en une ligne */
+@media screen and (min-width: 769px) {
+    .snaps {
+        gap: 0.75rem;
+        justify-content: center;
+    }
+    
+    .snap-item {
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+    }
+}
+
+/* Mobile: 2 colonnes - 2 images par ligne - Style Adham Dannaway */
+@media screen and (max-width: 768px) {
+    .snaps,
+    #snaps,
+    .row.snaps {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        display: flex !important;
+        gap: 0.75rem !important;
+        justify-content: center !important;
+        align-items: center !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .snap-item,
+    .snaps .snap-item,
+    #snaps .snap-item {
+        width: calc(50% - 0.375rem) !important;
+        max-width: calc(50% - 0.375rem) !important;
+        aspect-ratio: 1 !important;
+        flex: 0 0 calc(50% - 0.375rem) !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    
+    /* S'assurer que les images ne débordent pas */
+    .snap-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+}
+
+/* Content detail */
+#content-detail {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Dark section */
+.dark,
+section.dark {
+    background-color: #f8f9fa;
+    overflow: hidden;
+    border-top: #ffffff solid 1px;
+    padding: 6.4rem 3.2rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.dark.nopad-b,
+section.dark.nopad-b {
+    padding-bottom: 2rem;
+}
+
+/* Breakpoints pour section.dark - Style Adham Dannaway */
+@media (max-width: 767px) {
+    .dark,
+    section.dark {
+        padding: 6.4rem 3.2rem !important;
+    }
+}
+
+@media only screen and (min-width: 428px) {
+    .dark,
+    section.dark {
+        padding: 8rem 4.3rem;
+    }
+}
+
+@media only screen and (min-width: 830px) {
+    .dark,
+    section.dark {
+        padding: 9.6rem 4.3rem;
+    }
+}
+
+.dark .row,
+section.dark .row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Light section */
+.light,
+section.light {
+    background-color: #ffffff;
+    overflow: hidden;
+    border-top: #ffffff solid 1px;
+    padding: 6.4rem 3.2rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.light.nopad-b,
+section.light.nopad-b {
+    padding-bottom: 2rem;
+}
+
+/* Breakpoints pour section.light - Style Adham Dannaway */
+@media (max-width: 767px) {
+    .light,
+    section.light {
+        padding: 6.4rem 3.2rem !important;
+    }
+}
+
+@media only screen and (min-width: 428px) {
+    .light,
+    section.light {
+        padding: 8rem 4.3rem;
+    }
+}
+
+@media only screen and (min-width: 830px) {
+    .light,
+    section.light {
+        padding: 9.6rem 4.3rem;
+    }
+}
+
+.light .row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Pie chart section - Mobile: ordre web-project, coder, img-pie */
+@media screen and (max-width: 768px) {
+    .pie-chart,
+    .col-12.pie-chart {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1.5rem !important;
+        padding: 1rem 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .pie-chart .web-project,
+    .col-12.pie-chart .web-project {
+        order: 1;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .pie-chart .coder,
+    .col-12.pie-chart .coder {
+        order: 2;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Image pie-chart positionnée après le texte coder */
+    #img-pie {
+        order: 3;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 2rem auto 0 auto !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        height: auto !important;
+        z-index: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Pie chart section - Desktop */
+@media screen and (min-width: 769px) {
+    .pie-chart,
+    .col-12.pie-chart {
+        position: relative;
+        min-height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .pie-chart .web-project,
+    .pie-chart .coder,
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder,
+    .web-project,
+    .coder {
+        position: relative;
+        z-index: 2;
+        flex: 0 0 calc(50% - 180px);
+        min-width: 200px;
+        max-width: 280px;
+        margin-top: 0;
+        align-self: flex-start;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
+    .pie-chart .web-project,
+    .col-12.pie-chart .web-project,
+    .web-project {
+        margin-left: 0;
+    }
+    
+    /* Image pie-chart centrée */
+    #img-pie {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% - 20px));
+        width: auto;
+        max-width: 600px;
+        max-height: 600px;
+        height: auto;
+        z-index: 1;
+        display: block;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Ten things / Random facts */
+.ten-things h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333333;
+}
+
+.ten-things .ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ten-things .ul li {
+    padding: 0.5rem 0;
+    color: #666666;
+    font-size: 1rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ten-things .ul li:last-child {
+    border-bottom: none;
+}
+
+#img-random-facts {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#img-random-facts img.major {
+    width: 100%;
+    max-width: 590px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Random facts - Desktop: texte à droite, image à gauche */
+@media only screen and (min-width: 769px) {
+    .light .row.alt,
+    .about-random-facts .row.alt {
+        flex-direction: row !important;
+    }
+    
+    .light .row.alt .col-5,
+    .about-random-facts .row.alt .col-5 {
+        order: 2 !important;
+    }
+    
+    .light .row.alt .col-7,
+    .about-random-facts .row.alt .col-7 {
+        order: 1 !important;
+    }
+}
+
+/* Bar chart */
+.align-r {
+    text-align: right;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333333;
+}
+
+.bar-chart {
+    list-style: none;
+    padding: 4rem 0 3rem 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    height: 300px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-y: visible;
+}
+
+.bar-chart li {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.bar-chart li.axis {
+    flex: 0 0 60px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: 1rem;
+}
+
+.bar-chart li.axis .label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bar-chart li:not(.axis) {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out, height 0.8s ease-out;
+    border-radius: 4px 4px 0 0;
+    min-width: 60px;
+    position: relative;
+    overflow: visible;
+}
+
+.bar-chart li:not(.axis).animated {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bar-chart li.aqua {
+    background: linear-gradient(180deg, #17a2b8 0%, #138496 100%);
+}
+
+.bar-chart li.pink {
+    background: linear-gradient(180deg, #ff6b9d 0%, #e55a8a 100%);
+}
+
+.bar-chart li.yellow {
+    background: linear-gradient(180deg, #ffc107 0%, #e0a800 100%);
+}
+
+.bar-chart li.brown {
+    background: linear-gradient(180deg, #d4a574 0%, #b8935f 100%);
+}
+
+.bar-chart li.red {
+    background: linear-gradient(180deg, #dc3545 0%, #c82333 100%);
+}
+
+.bar-chart li.p-95.animated {
+    height: 95% !important;
+}
+
+.bar-chart li.p-90.animated {
+    height: 90% !important;
+}
+
+.bar-chart li.p-75.animated {
+    height: 75% !important;
+}
+
+.bar-chart li.p-40.animated {
+    height: 40% !important;
+}
+
+.bar-chart li .percent {
+    position: absolute;
+    top: -2.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333333;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.8s ease-out 0.2s;
+}
+
+.bar-chart li.animated .percent {
+    opacity: 1;
+}
+
+.bar-chart li .percent span {
+    font-size: 1.2rem;
+}
+
+.bar-chart li .skill {
+    position: absolute;
+    bottom: -2rem;
+    font-size: 0.85rem;
+    color: #333333;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.3;
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 0.5rem;
+    opacity: 0;
+    transition: opacity 0.8s ease-out 0.4s;
+}
+
+.bar-chart li.animated .skill {
+    opacity: 1;
+}
+
+/* Web project / Coder */
+.web-project h2,
+.coder h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333333;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* Mobile: centrer web-project et coder */
+@media (max-width: 768px) {
+    .web-project,
+    .coder,
+    .pie-chart .web-project,
+    .pie-chart .coder,
+    .col-12.pie-chart .web-project,
+    .col-12.pie-chart .coder {
+        text-align: center !important;
+    }
+    
+    .web-project h2,
+    .coder h2,
+    .pie-chart .web-project h2,
+    .pie-chart .coder h2,
+    .col-12.pie-chart .web-project h2,
+    .col-12.pie-chart .coder h2 {
+        text-align: center !important;
+    }
+    
+    .web-project .ul,
+    .coder .ul,
+    .pie-chart .web-project .ul,
+    .pie-chart .coder .ul,
+    .col-12.pie-chart .web-project .ul,
+    .col-12.pie-chart .coder .ul {
+        text-align: center !important;
+    }
+    
+    .web-project .ul li,
+    .coder .ul li,
+    .pie-chart .web-project .ul li,
+    .pie-chart .coder .ul li,
+    .col-12.pie-chart .web-project .ul li,
+    .col-12.pie-chart .coder .ul li {
+        text-align: center !important;
+    }
+}
+
+.web-project .ul,
+.coder .ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.web-project .ul li,
+.coder .ul li {
+    padding: 0.5rem 0;
+    color: #666666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+

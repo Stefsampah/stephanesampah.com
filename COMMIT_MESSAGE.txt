@@ -1,0 +1,14 @@
+feat: Intégration FormSubmit et ajustements finaux
+
+- Ajout de FormSubmit pour le formulaire de contact (remplacement mailto)
+- Mise à jour des liens LinkedIn et GitHub sur toutes les pages
+- Remplacement de Twitter par Facebook
+- Ajustement taille police : .project-description et .footer-text en 1.1rem
+- Message de succès animé après envoi du formulaire
+
+Fichiers modifiés:
+- index.html: FormSubmit + liens sociaux
+- script.js: Gestion FormSubmit avec message de succès
+- styles.css: Taille police 1.1rem pour project-description et footer-text
+- config.js: URLs LinkedIn/GitHub + Facebook au lieu de Twitter
+- project-1.html, project-2.html, project-3.html, project-4.html: Liens sociaux mis à jour
