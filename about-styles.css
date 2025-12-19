@@ -22,6 +22,16 @@ section.main {
 }
 
 /* Breakpoints pour section.main */
+/* Mobile first - Style Adham Dannaway */
+@media (max-width: 767px) {
+    .content.about .main,
+    section.main {
+        padding: 6.4rem 3.2rem !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+}
+
 @media only screen and (min-width: 428px) {
     .content.about .main,
     section.main {
@@ -50,6 +60,22 @@ section.main {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* Mobile: règles spécifiques pour row */
+@media (max-width: 768px) {
+    .content.about .main .row,
+    section.main .row {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
 }
 
 /* Text main */
@@ -58,29 +84,83 @@ section.main {
     opacity: 1 !important;
     transform: translateX(0) !important;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
 }
 
 #text-main h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin-bottom: 0.8rem;
     color: #333333;
     text-align: left;
-    line-height: 1.2;
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    letter-spacing: -0.02em;
+    font-family: "proxima nova bold", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+/* Mobile: règles spécifiques pour #text-main */
+@media (max-width: 768px) {
+    #text-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    
+    #text-main h1 {
+        font-size: 0.75rem;
+        line-height: 1.1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        margin-bottom: 0.8rem;
+        letter-spacing: -0.02em;
+    }
 }
 
 .intro {
-    font-size: 1rem;
+    font-size: 0.5rem;
     font-weight: 400;
-    color: #333333;
+    color: #757575;
     margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .description {
-    font-size: 1rem;
-    color: #666666;
-    line-height: 1.6;
+    font-size: 0.5rem;
+    color: #333333;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Mobile: règles spécifiques pour intro et description - Style Adham Dannaway */
+@media (max-width: 768px) {
+    .intro {
+        font-size: 0.5rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        color: #757575 !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .description {
+        font-size: 0.5rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        color: #333333 !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
 }
 
 /* Image main */
@@ -155,17 +235,38 @@ section.main {
     }
 }
 
-/* Mobile: 2 colonnes */
+/* Mobile: 2 colonnes - 2 images par ligne - Style Adham Dannaway */
 @media screen and (max-width: 768px) {
-    .snaps {
-        gap: 0.5rem;
-        justify-content: center;
+    .snaps,
+    #snaps,
+    .row.snaps {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        display: flex !important;
+        gap: 0.75rem !important;
+        justify-content: center !important;
+        align-items: center !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     
-    .snap-item {
-        width: calc(50% - 0.25rem);
-        max-width: 150px;
-        aspect-ratio: 1;
+    .snap-item,
+    .snaps .snap-item,
+    #snaps .snap-item {
+        width: calc(50% - 0.375rem) !important;
+        max-width: calc(50% - 0.375rem) !important;
+        aspect-ratio: 1 !important;
+        flex: 0 0 calc(50% - 0.375rem) !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    
+    /* S'assurer que les images ne débordent pas */
+    .snap-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
     }
 }
 
@@ -191,7 +292,14 @@ section.dark.nopad-b {
     padding-bottom: 2rem;
 }
 
-/* Breakpoints pour section.dark */
+/* Breakpoints pour section.dark - Style Adham Dannaway */
+@media (max-width: 767px) {
+    .dark,
+    section.dark {
+        padding: 6.4rem 3.2rem !important;
+    }
+}
+
 @media only screen and (min-width: 428px) {
     .dark,
     section.dark {
@@ -232,7 +340,14 @@ section.light.nopad-b {
     padding-bottom: 2rem;
 }
 
-/* Breakpoints pour section.light */
+/* Breakpoints pour section.light - Style Adham Dannaway */
+@media (max-width: 767px) {
+    .light,
+    section.light {
+        padding: 6.4rem 3.2rem !important;
+    }
+}
+
 @media only screen and (min-width: 428px) {
     .light,
     section.light {
@@ -254,6 +369,52 @@ section.light.nopad-b {
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+
+/* Pie chart section - Mobile: ordre web-project, coder, img-pie */
+@media screen and (max-width: 768px) {
+    .pie-chart,
+    .col-12.pie-chart {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1.5rem !important;
+        padding: 1rem 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .pie-chart .web-project,
+    .col-12.pie-chart .web-project {
+        order: 1;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .pie-chart .coder,
+    .col-12.pie-chart .coder {
+        order: 2;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Image pie-chart positionnée après le texte coder */
+    #img-pie {
+        order: 3;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 2rem auto 0 auto !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        height: auto !important;
+        z-index: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
 }
 
 /* Pie chart section - Desktop */
@@ -541,5 +702,6 @@ section.light.nopad-b {
     font-size: 1rem;
     line-height: 1.6;
 }
+
 
 
