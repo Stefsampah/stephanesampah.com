@@ -2835,6 +2835,7 @@ section.light {
 
 .project-card-image-phone {
     width: 100%;
+    margin-bottom: 5px;
     height: 250px;
     object-fit: contain;
     object-position: center;
