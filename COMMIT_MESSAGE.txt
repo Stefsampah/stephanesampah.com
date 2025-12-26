@@ -1,11 +1,16 @@
-feat: Intégration FormSubmit et ajustements typographiques
+feat: Intégration FormSubmit, ajustements typographiques et corrections pages projets
 
 - Intégration de FormSubmit pour le formulaire de contact (envoi vers stefsampah@hotmail.com)
 - Ajout de la gestion du message de succès après soumission du formulaire
 - Réduction de la taille de police : .project-description et .footer-text p en 1.1rem
-- Mise à jour du cache CSS (v=123)
+- Ajout margin-bottom: 5px pour .project-card-image-phone
+- Remplacement du texte "Stéphane Sampah" par l'image logo dans toutes les pages project-*.html
+- Suppression des textes en anglais hardcodés dans les menus et footers des pages projets
+- Ajout de config.js dans toutes les pages de projets pour les traductions
+- Utilisation de data-translate pour tous les textes (footer, navigation)
 
 Fichiers modifiés:
 - index.html: configuration FormSubmit dans le formulaire
 - script.js: gestion de la soumission FormSubmit et message de succès
-- styles.css: ajustement font-size pour project-description et footer-text
+- styles.css: ajustement font-size et margin-bottom pour images projets
+- project-1.html, project-2.html, project-3.html, project-4.html: logo image, traductions, scripts
