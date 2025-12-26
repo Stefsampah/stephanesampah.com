@@ -151,37 +151,97 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handler
+// Form submission handler with FormSubmit
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+        // Don't prevent default - let FormSubmit handle the submission
+        // But show a loading state
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton ? submitButton.textContent : '';
+        
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Envoi en cours...';
+            submitButton.style.opacity = '0.7';
+            submitButton.style.cursor = 'not-allowed';
+        }
 
-        // Get form values
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+        // Set the redirect URL to current page with success parameter
+        const nextInput = contactForm.querySelector('input[name="_next"]');
+        if (nextInput) {
+            const currentUrl = window.location.href.split('?')[0];
+            nextInput.value = currentUrl + '?success=true';
+        }
 
-        // Create mailto link with form data
-        const subject = encodeURIComponent(`Contact depuis stephanesampah.com - ${name}`);
-        const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:stefsampah@hotmail.com?subject=${subject}&body=${body}`;
-
-        // Open email client
-        window.location.href = mailtoLink;
-
-        // Show success message
-        setTimeout(() => {
-            alert('Merci pour votre message ! Votre client email devrait s\'ouvrir. Si ce n\'est pas le cas, envoyez votre message à stefsampah@hotmail.com');
-        }, 500);
-
-        // Reset form after a delay
-        setTimeout(() => {
-            contactForm.reset();
-        }, 1000);
+        // The form will submit normally to FormSubmit
+        // After submission, FormSubmit will redirect to the _next URL
+        // We'll handle the success message on page load
     });
 }
+
+// Show success message if redirected from form submission
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        `;
+        successMessage.textContent = 'Message envoyé avec succès ! Merci pour votre contact.';
+        document.body.appendChild(successMessage);
+
+        // Remove success parameter from URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+
+        // Remove message after 5 seconds
+        setTimeout(() => {
+            successMessage.style.animation = 'slideOut 0.3s ease-out';
+            setTimeout(() => {
+                successMessage.remove();
+            }, 300);
+        }, 5000);
+
+        // Add CSS animations
+        if (!document.getElementById('form-success-styles')) {
+            const style = document.createElement('style');
+            style.id = 'form-success-styles';
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+});
 
 // Set current year in footer
 const currentYear = new Date().getYear() + 1900;

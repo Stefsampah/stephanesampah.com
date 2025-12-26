@@ -1,17 +1,11 @@
-feat: mise à jour contenu About et ajustements visuels
+feat: Intégration FormSubmit et ajustements typographiques
 
-- Remplacement des textes de la section "À propos" avec nouvelle liste descriptive
-- Mise à jour des "Faits divers" avec nouveaux textes personnalisés
-- Ajustement alignement image/text : décalage de 60px pour aligner avec "retourneur de dancefloors"
-- Augmentation hauteur image de 20px pour meilleure proportion
-- Correction alignement desktop : image reste à droite du texte (flex-direction: row)
-- Synchronisation hauteur image/texte via JavaScript sur desktop
-- Ajout styles pour nouvelle liste dans section About
+- Intégration de FormSubmit pour le formulaire de contact (envoi vers stefsampah@hotmail.com)
+- Ajout de la gestion du message de succès après soumission du formulaire
+- Réduction de la taille de police : .project-description et .footer-text p en 1.1rem
+- Mise à jour du cache CSS (v=123)
 
 Fichiers modifiés:
-- translations.js: nouveaux textes FR/EN
-- index.html: structure liste About, cache CSS
-- language.js: traductions pour nouveaux éléments
-- styles.css: alignement, hauteurs, styles liste
-- script.js: synchronisation hauteur image/texte
-- about-styles.css: harmonisation styles
+- index.html: configuration FormSubmit dans le formulaire
+- script.js: gestion de la soumission FormSubmit et message de succès
+- styles.css: ajustement font-size pour project-description et footer-text

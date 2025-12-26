@@ -2174,6 +2174,7 @@ section.light {
     line-height: 1.7;
     margin-bottom: 1.5rem;
     flex: 1;
+    font-size: 1.1rem;
 }
 
 .project-links {
@@ -2278,6 +2279,7 @@ section.light {
 .footer-text p {
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.7;
+    font-size: 1.1rem;
 }
 
 .footer-social {
