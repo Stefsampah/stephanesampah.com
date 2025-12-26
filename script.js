@@ -428,11 +428,6 @@ function initScrollAnimations() {
     const aboutIntro = document.querySelector('.about-intro');
     if (aboutIntro) {
         aboutIntroObserver.observe(aboutIntro);
-=======
-    const aboutMain = document.querySelector('section.main');
-    if (aboutMain) {
-        aboutMainObserver.observe(aboutMain);
->>>>>>> final-version
     }
 
     // Animate snaps (supports both .snaps and .snaps-grid)
@@ -482,13 +477,6 @@ function initScrollAnimations() {
                             imgPie.classList.add('loaded');
                         });
                     }
-=======
-                    // Remove animated class if already present
-                    imgPie.classList.remove('animated');
-                    // Force reflow
-                    void imgPie.offsetWidth;
-                    // Add animated class after a short delay
->>>>>>> final-version
                     setTimeout(() => {
                         imgPie.classList.add('animated');
                     }, 300);
@@ -511,31 +499,6 @@ function initScrollAnimations() {
         const imgPie = document.getElementById('img-pie');
         if (imgPie) {
             pieChartObserver.observe(imgPie);
-=======
-    // Observe the section.dark container
-    const pieChartSection = document.querySelector('section.dark');
-    if (pieChartSection) {
-        pieChartObserver.observe(pieChartSection);
-        
-        // Check if section is already visible on load (after a delay to ensure DOM is ready)
-        setTimeout(() => {
-            const rect = pieChartSection.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            if (isVisible) {
-                const imgPie = document.getElementById('img-pie');
-                if (imgPie && !imgPie.classList.contains('animated')) {
-                    setTimeout(() => {
-                        imgPie.classList.add('animated');
-                    }, 500);
-                }
-            }
-        }, 100);
-    } else {
-        // Fallback: observe the col-12.pie-chart
-        const pieChartCol = document.querySelector('.col-12.pie-chart');
-        if (pieChartCol) {
-            pieChartObserver.observe(pieChartCol);
->>>>>>> final-version
         }
     }
 
@@ -905,42 +868,4 @@ if (document.readyState === 'loading') {
 } else {
     initScrollAnimations();
 }
-=======
-    
-    // Synchroniser la hauteur de l'image avec le texte sur desktop
-    function syncImageHeight() {
-        if (window.innerWidth >= 1024) {
-            const textMain = document.getElementById('text-main');
-            const imgMain = document.getElementById('img-main');
-            
-            if (textMain && imgMain) {
-                const textHeight = textMain.offsetHeight;
-                if (textHeight > 0) {
-                    imgMain.style.height = (textHeight + 20) + 'px';
-                }
-            }
-        } else {
-            const imgMain = document.getElementById('img-main');
-            if (imgMain) {
-                imgMain.style.height = '';
-            }
-        }
-    }
-    
-    // Appeler au chargement et au redimensionnement
-    syncImageHeight();
-    window.addEventListener('resize', syncImageHeight);
-    
-    // Observer les changements de taille du texte
-    if (window.innerWidth >= 1024) {
-        const textMain = document.getElementById('text-main');
-        if (textMain) {
-            const resizeObserver = new ResizeObserver(() => {
-                syncImageHeight();
-            });
-            resizeObserver.observe(textMain);
-        }
-    }
-});
->>>>>>> final-version
 
