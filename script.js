@@ -151,35 +151,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handler
+// Form submission handler - FormSubmit handles submission automatically
+// We just add a success message if redirected back with success parameter
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Get form values
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-
-        // Create mailto link with form data
-        const subject = encodeURIComponent(`Contact depuis stephanesampah.com - ${name}`);
-        const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:stefsampah@hotmail.com?subject=${subject}&body=${body}`;
-
-        // Open email client
-        window.location.href = mailtoLink;
-
+    // Check if form was submitted successfully (redirected back)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
         // Show success message
         setTimeout(() => {
-            alert('Merci pour votre message ! Votre client email devrait s\'ouvrir. Si ce n\'est pas le cas, envoyez votre message à stefsampah@hotmail.com');
-        }, 500);
-
-        // Reset form after a delay
-        setTimeout(() => {
-            contactForm.reset();
-        }, 1000);
+            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+            // Clean URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }, 100);
+    }
+    
+    // Optional: Add loading state on submit
+    contactForm.addEventListener('submit', () => {
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        if (submitButton) {
+            submitButton.textContent = 'Envoi en cours...';
+            submitButton.disabled = true;
+        }
     });
 }
 
