@@ -4,200 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Stéphane Sampah - Développeur Web">
-    <title>Stéphane Sampah | Portfolio - v124</title>
-    <link rel="stylesheet" href="styles.css?v=124">
+    <title>Stéphane Sampah | Portfolio</title>
+    <link rel="stylesheet" href="styles.css?v=122">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FIX OVERFLOW MOBILE - Injection directe pour garantir l'application -->
-    <style id="force-overflow-fix">
-        @media screen and (max-width: 768px) {
-            html, body {
-                overflow-x: hidden !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                position: relative !important;
-            }
-            
-            section.dark,
-            .dark,
-            section.dark.nopad-b,
-            .dark.nopad-b {
-                overflow-x: hidden !important;
-                overflow: hidden !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                margin-top: 4rem !important;
-                margin-bottom: 4rem !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                padding-top: 3rem !important;
-                padding-bottom: 3rem !important;
-                box-sizing: border-box !important;
-                position: relative !important;
-                left: 0 !important;
-                right: auto !important;
-                transform: none !important;
-            }
-            
-            .dark .row,
-            section.dark .row {
-                overflow-x: hidden !important;
-                overflow: hidden !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                box-sizing: border-box !important;
-            }
-            
-            .dark .col-12,
-            .dark .col-5,
-            .dark .col-7,
-            section.dark .col-12 {
-                width: 100% !important;
-                max-width: 100% !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                box-sizing: border-box !important;
-                overflow-x: hidden !important;
-            }
-            
-            img {
-                max-width: 100% !important;
-                height: auto !important;
-                width: auto !important;
-            }
-            
-            /* Centrer et organiser les éléments - EXACTEMENT comme Adham Dannaway */
-            .pie-chart,
-            .col-12.pie-chart {
-                display: block !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 auto !important;
-                box-sizing: border-box !important;
-                text-align: center !important;
-                overflow: visible !important;
-            }
-            
-            /* .web-project et .coder - EXACTEMENT comme .designer et .coder d'Adham */
-            .pie-chart .web-project,
-            .pie-chart .coder,
-            .col-12.pie-chart .web-project,
-            .col-12.pie-chart .coder,
-            .web-project,
-            .coder {
-                display: block !important;
-                width: auto !important;
-                max-width: 100% !important;
-                min-width: auto !important;
-                margin: 0 auto 2.5rem auto !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                margin-top: 0 !important;
-                padding: 0 !important;
-                box-sizing: border-box !important;
-                position: relative !important;
-                text-align: center !important;
-                float: none !important;
-                clear: both !important;
-                flex: none !important;
-                flex-grow: 0 !important;
-                flex-shrink: 0 !important;
-                flex-basis: auto !important;
-                align-self: auto !important;
-                z-index: auto !important;
-            }
-            
-            /* Titres h2 */
-            .pie-chart .web-project h2,
-            .pie-chart .coder h2,
-            .col-12.pie-chart .web-project h2,
-            .col-12.pie-chart .coder h2,
-            .web-project h2,
-            .coder h2 {
-                display: block !important;
-                width: auto !important;
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 auto 1.5rem auto !important;
-                text-align: center !important;
-                font-size: 1.75rem !important;
-                font-weight: 600 !important;
-            }
-            
-            /* Listes .ul */
-            .pie-chart .web-project .ul,
-            .pie-chart .coder .ul,
-            .web-project .ul,
-            .coder .ul {
-                display: inline-block !important;
-                width: auto !important;
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 auto !important;
-                text-align: left !important;
-            }
-            
-            /* Pie chart image - EN BAS après coder */
-            #img-pie {
-                display: block !important;
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                margin: 2.5rem auto 0 auto !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                width: 100% !important;
-                max-width: 300px !important;
-                height: auto !important;
-                clear: both !important;
-                float: none !important;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation - Style Adham Dannaway -->
+    <!-- Navigation -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html#home" class="logo-link" id="logo">
+                <a href="index.html#home" class="logo-link">
                     <img src="images/photo_logo.jpg" alt="Stéphane Sampah" class="logo-photo">
                 </a>
             </div>
-            <div class="icon-nav" id="icon-nav">navigation</div>
-            <nav>
-                <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html#home" class="nav-link" data-translate="nav.home"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#about" class="nav-link" data-translate="nav.about"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#projects" class="nav-link" data-translate="nav.projects"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#contact" class="nav-link" data-translate="nav.contact"></a>
-                    </li>
-                    <li class="nav-item lang-switcher">
-                        <div class="language-selector">
-                            <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
-                            <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link" data-translate="nav.home"></a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link" data-translate="nav.about"></a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#projects" class="nav-link" data-translate="nav.projects"></a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link" data-translate="nav.contact"></a>
+                </li>
+                <li class="nav-item lang-switcher">
+                    <div class="language-selector">
+                        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+                        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </header>
 
@@ -222,16 +68,11 @@
         </div>
     </section>
 
-    <!-- Section About - Structure Adham Dannaway -->
-    <section id="about" class="section about-section">
-        <div class="container">
-            <!-- Titre principal -->
-            <h1 class="about-title-main" data-translate="about.titleMain">about.</h1>
-            
-            <!-- Introduction avec texte et photo principale -->
-            <div class="about-intro">
+    <!-- Section About - Structure Adham Dannaway exacte -->
+    <section class="main">
                 <div class="row">
                     <div id="text-main" class="col-5 text-main">
+                        <h1 class="about-title" data-translate="about.titleMain"></h1>
                         <p class="intro" data-translate="about.intro.main"></p>
                         <p class="description" data-translate="about.intro.description"></p>
                         <ul class="about-list">
@@ -250,60 +91,57 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                <div id="snaps" class="row align-c snaps clearfix">
+                    <a id="snaps-1" href="#" class="snap-item">
+                        <img class="preload" src="images/img_2206.jpg" alt="Mini moi" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E👤%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-2" href="#" class="snap-item">
+                        <img class="preload" src="images/location.jpg" alt="Mérignac / Bordeaux" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E📍%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-3" href="#" class="snap-item">
+                        <img class="preload" src="images/mc-hammer.gif" alt="MC Hammer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🎵%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-4" href="#" class="snap-item">
+                        <img class="preload" src="images/workspace.jpg" alt="Mon Mac" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E💻%3C/text%3E%3C/svg%3E';">
+                    </a>
+                    <a id="snaps-5" href="#" class="snap-item">
+                        <img class="preload" src="images/sharks.jpg" alt="Fan de requins" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🦈%3C/text%3E%3C/svg%3E';">
+                    </a>
+                </div>
+    </section>
 
-            <!-- Mini photos (snaps) - 2x2 grid comme Adham -->
-            <div id="snaps" class="snaps-grid">
-                <a id="snaps-1" href="#" class="snap-item">
-                    <img class="preload" src="images/IMG_2206.jpg" alt="Mini moi" onerror="this.onerror=null; this.src='images/IMG_2206.png'; this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E👤%3C/text%3E%3C/svg%3E';">
-                </a>
-                <a id="snaps-2" href="#" class="snap-item">
-                    <img class="preload" src="images/location.jpg" alt="Mérignac / Bordeaux" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E📍%3C/text%3E%3C/svg%3E';">
-                </a>
-                <a id="snaps-3" href="#" class="snap-item">
-                    <img class="preload" src="images/mc-hammer.gif" alt="MC Hammer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🎵%3C/text%3E%3C/svg%3E';">
-                </a>
-                <a id="snaps-4" href="#" class="snap-item">
-                    <img class="preload" src="images/workspace.jpg" alt="Mon Mac" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E💻%3C/text%3E%3C/svg%3E';">
-                </a>
-                <a id="snaps-5" href="#" class="snap-item">
-                    <img class="preload" src="images/sharks.jpg" alt="Fan de requins" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22Arial%22 font-size=%2214%22%3E🦈%3C/text%3E%3C/svg%3E';">
-                </a>
-            </div>
-
-            <!-- Section Part web project / Part coder avec pie chart - Structure Adham -->
+    <div id="content-detail" style="opacity: 1; top: 0px;">
             <section class="dark">
                 <div class="row">
                     <div class="col-12 pie-chart">
                         <div class="web-project">
-                            <h2 data-translate="about.webProject">Part web project</h2>
+                            <h2 data-translate="about.webProject"></h2>
                             <ul class="ul">
-                                <li data-translate="about.webProjectUiux">UI/UX design</li>
-                                <li data-translate="about.webProjectPersona">persona / benchmark / Digital strategies</li>
-                                <li data-translate="about.webProjectManagement">Project management / e-commerce</li>
-                                <li data-translate="about.webProjectPop">"Making it pop"</li>
+                                <li data-translate="about.webProjectUiux"></li>
+                                <li data-translate="about.webProjectPersona"></li>
+                                <li data-translate="about.webProjectManagement"></li>
+                                <li data-translate="about.webProjectPop"></li>
                             </ul>
                         </div>
                         <div class="coder">
-                            <h2 data-translate="about.coder">Part coder</h2>
+                            <h2 data-translate="about.coder"></h2>
                             <ul class="ul">
-                                <li data-translate="about.coderFrontend">Développement front-end</li>
-                                <li data-translate="about.coderHtmlcss">HTML / CSS</li>
-                                <li data-translate="about.coderJs">JavaScript / Ruby on Rails</li>
-                                <li data-translate="about.coderSwearing">Je peste contre mon ordinateur</li>
-                                <li data-translate="about.coderMusic">J'écoute de la musique</li>
+                                <li data-translate="about.coderFrontend"></li>
+                                <li data-translate="about.coderHtmlcss"></li>
+                                <li data-translate="about.coderJs"></li>
+                                <li data-translate="about.coderSwearing"></li>
+                                <li data-translate="about.coderMusic"></li>
                             </ul>
                         </div>
-                        <img id="img-pie" class="preload major" src="images/pie-chart-removebg-preview.png" alt="part web project, part Front End Developer">
+                        <img id="img-pie" class="preload major" src="images/pie-chart-Photoroom.png" alt="part web project, part Front End Developer">
                     </div>
                 </div>
             </section>
 
-            <!-- Section Random facts - Structure Adham -->
-            <div class="about-random-facts">
+    <section class="light nopad-b">
                 <div class="row alt">
                     <div class="col-5 ten-things">
-                        <h2 data-translate="about.randomFacts.title">Random facts</h2>
+                        <h2 data-translate="about.randomFacts.title"></h2>
                         <ul class="ul">
                             <li data-translate="about.randomFacts.social"></li>
                             <li data-translate="about.randomFacts.apero"></li>
@@ -325,17 +163,16 @@
                 </div>
     </section>
 
-            <!-- Section My skills - Structure Adham (dernière section) -->
             <section id="bar-chart" class="dark nopad-b">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="align-r" data-translate="about.stats.title">My skills</h2>
+                        <h2 class="align-r" data-translate="about.stats.title"></h2>
                         <ul class="bar-chart">
                             <li class="axis">
-                                <div class="label" data-translate="about.stats.jedi">Jedi</div>
-                                <div class="label" data-translate="about.stats.ninja">Ninja</div>
-                                <div class="label" data-translate="about.stats.geek">Geek</div>
-                                <div class="label" data-translate="about.stats.newbie">Newbie</div>
+                                <div class="label" data-translate="about.stats.jedi"></div>
+                                <div class="label" data-translate="about.stats.ninja"></div>
+                                <div class="label" data-translate="about.stats.geek"></div>
+                                <div class="label" data-translate="about.stats.newbie"></div>
                             </li>
                             <li id="aqua" class="aqua p-95">
                                 <div class="percent">95<span>%</span></div>
@@ -488,79 +325,7 @@
     <script src="config.js?v=20251211"></script>
     <script src="translations.js?v=20251211"></script>
     <script src="language.js?v=20251211"></script>
-    <script src="script.js?v=20251214"></script>
-    <!-- Script de correction immédiate - FORCE TOUT -->
-    <script>
-        // Forcer les corrections immédiatement après chargement
-        (function() {
-            function forceAllCorrections() {
-                console.log('🔧 FORCEMENT DES CORRECTIONS...');
-                
-                // 1. Corriger pie-chart image
-                const imgPie = document.getElementById('img-pie');
-                if (imgPie && imgPie.src.indexOf('pie-chart-removebg-preview') === -1) {
-                    imgPie.src = 'images/pie-chart-removebg-preview.png';
-                }
-                if (imgPie) {
-                    imgPie.classList.add('loaded', 'animated');
-                }
-                
-                // 2. Images visibles (via classes)
-                document.querySelectorAll('img.major').forEach(img => {
-                    img.classList.add('loaded', 'animated');
-                });
-                
-                // 2b. Forcer img-random-facts visible (sans casser le layout)
-                const imgRandomFacts = document.getElementById('img-random-facts');
-                if (imgRandomFacts) {
-                    imgRandomFacts.classList.add('animated');
-                    const img = imgRandomFacts.querySelector('img.major');
-                    if (img) {
-                        img.classList.add('loaded', 'animated');
-                    }
-                }
-                
-                // 2c. Forcer pie-chart visible (sans casser le layout)
-                const imgPie = document.getElementById('img-pie');
-                if (imgPie) {
-                    imgPie.classList.add('loaded', 'animated');
-                }
-                
-                // 2d. Forcer text-main visible avec animation
-                const textMain = document.getElementById('text-main');
-                if (textMain) {
-                    textMain.classList.add('animated');
-                }
-                
-                // 2e. Forcer img-main visible avec animation
-                const imgMain = document.getElementById('img-main');
-                if (imgMain) {
-                    const img = imgMain.querySelector('img.major');
-                    if (img) {
-                        img.classList.add('loaded', 'animated');
-                    }
-                }
-                
-                // 7. Snaps visibles (via classes)
-                const snaps = document.getElementById('snaps');
-                if (snaps) {
-                    snaps.classList.add('animated');
-                    snaps.querySelectorAll('.snap-item').forEach((item, idx) => {
-                        setTimeout(() => {
-                            item.classList.add('animated');
-                        }, idx * 100 + 200);
-                    });
-                }
-                
-            }
-            
-            forceAllCorrections();
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', forceAllCorrections);
-            }
-            window.addEventListener('load', forceAllCorrections);
-        })();
-    </script>
+    <script src="script.js?v=20251211"></script>
 </body>
 </html>
 
