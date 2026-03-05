@@ -170,16 +170,25 @@
             tools: ["Ruby on Rails", "Bootstrap", "JavaScript", "Import Maps", "Devise", "StimulusJS"]
         };
         
-        // Get translations based on current language
+        // Get translations based on current language (ES5 compatible)
         function getProjectTranslations() {
             const lang = typeof currentLanguage !== 'undefined' ? currentLanguage : (localStorage.getItem('preferredLanguage') || 'en');
             const projectKey = projectData.projectKey || 'autonome';
             
-            if (typeof translations !== 'undefined' && translations[lang] && translations[lang].project && translations[lang].project[projectKey]) {
+            if (typeof translations !== 'undefined' &&
+                translations[lang] &&
+                translations[lang].project &&
+                translations[lang].project[projectKey]) {
                 return translations[lang].project[projectKey];
             }
             // Fallback to English
-            return translations?.en?.project?.[projectKey] || {};
+            if (typeof translations !== 'undefined' &&
+                translations.en &&
+                translations.en.project &&
+                translations.en.project[projectKey]) {
+                return translations.en.project[projectKey];
+            }
+            return {};
         }
         
         // Initialize project data with translations
@@ -188,8 +197,8 @@
             projectData.title = projectTranslations.title || "AutonoMe";
             projectData.subtitle = projectTranslations.subtitle || "";
             projectData.overview = `
-                <p>${projectTranslations.overview?.p1 || ""}</p>
-                <p>${projectTranslations.overview?.p2 || ""}</p>
+                <p>${(projectTranslations.overview && projectTranslations.overview.p1) || ""}</p>
+                <p>${(projectTranslations.overview && projectTranslations.overview.p2) || ""}</p>
             `;
             projectData.features = projectTranslations.features || {};
             

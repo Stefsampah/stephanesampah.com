@@ -176,11 +176,21 @@ function initializeProjectPage(projectData) {
                 // Check if it's a YouTube URL
                 let embedUrl = '';
                 if (videoUrl.includes('youtube.com/watch?v=')) {
-                    const videoId = videoUrl.split('v=')[1]?.split('&')[0];
-                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                    const parts = videoUrl.split('v=');
+                    const videoId = parts.length > 1 ? parts[1].split('&')[0] : '';
+                    if (videoId) {
+                        embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                    } else {
+                        embedUrl = videoUrl;
+                    }
                 } else if (videoUrl.includes('youtu.be/')) {
-                    const videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
-                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                    const shortParts = videoUrl.split('youtu.be/');
+                    const shortId = shortParts.length > 1 ? shortParts[1].split('?')[0] : '';
+                    if (shortId) {
+                        embedUrl = `https://www.youtube.com/embed/${shortId}`;
+                    } else {
+                        embedUrl = videoUrl;
+                    }
                 } else if (videoUrl.includes('youtube.com/embed/')) {
                     embedUrl = videoUrl;
                 } else if (videoUrl.includes('loom.com')) {
