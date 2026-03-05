@@ -15,11 +15,10 @@
         position: relative !important;
     }
     
-    /* Toutes les images doivent être responsive */
+    /* Toutes les images doivent être responsive (sans casser les largeurs spécifiques comme le logo) */
     img {
         max-width: 100% !important;
         height: auto !important;
-        width: auto !important;
     }
     
     /* Container responsive */
@@ -1877,23 +1876,6 @@ body {
         width: 100%;
         max-width: 100%;
         height: auto;
-    }
-    
-    /* Forcer l'affichage des éléments About sur mobile pour éviter les disparitions liées aux animations */
-    #text-main,
-    #img-main,
-    #img-main img.major,
-    #snaps,
-    .snaps,
-    .snap-item,
-    #img-pie,
-    #img-random-facts,
-    #img-random-facts img.major,
-    .about-random-facts,
-    .ten-things {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: none !important;
     }
     
     .bar-chart {
