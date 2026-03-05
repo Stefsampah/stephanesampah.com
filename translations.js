@@ -22,13 +22,8 @@ const translations = {
             titleMain: "About",
             subtitle: "Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology",
             intro: {
-                main: "I'm Stéphane, 51 years old, a tech addict and music lover",
-                description: "When I'm not coding or fine-tuning a digital strategy, you can find me:",
-                list1: "in mini-me version on photos,",
-                list2: "in my city of Mérignac,",
-                list3: "dancing like MC Hammer,",
-                list4: "behind my desk,",
-                list5: "watching Jaws"
+                main: "I'm Stéphane, 51 years old, a tech addict and music lover. A dancefloor rover from the '80s and '90s (MC Hammer, get out of my body 😅) and a self-confessed music game addict.",
+                description: "When I'm not coding, you can find me testing apps, listening to music, or putting the world to rights over a pizza."
             },
             photo: {
                 fun: "Fun photo"
@@ -235,13 +230,8 @@ const translations = {
             titleMain: "À propos",
             subtitle: "Ici vous trouverez plus d'informations sur moi, ce que je fais, et mes compétences actuelles principalement en termes de programmation et technologie",
             intro: {
-                main: "Je suis Stéphane, 51 ans, tech addict & music lover",
-                description: "Quand je ne code pas ou ne peaufine pas une stratégie digitale, tu peux me croiser :",
-                list1: "en version mini-moi sur les photos,",
-                list2: "dans ma ville de Mérignac,",
-                list3: "en train de guincher comme MC Hammer,",
-                list4: "derrière mon bureau,",
-                list5: "à mater Les Dents de la Mer"
+                main: "Je suis Stéphane, 51 ans, tech addict & music lover. Retourneur de dancefloors entre 80 et 90 (MC Hammer sort de ce corps 😅) et music game addict assumé.",
+                description: "Quand je ne code pas, tu peux me trouver en train de tester des apps, écouter du son, ou refaire le monde autour d'une pizza."
             },
             photo: {
                 fun: "Photo fun"
@@ -283,14 +273,16 @@ const translations = {
                 title: "Faits divers 🤓",
                 visual: "Faits divers visuel",
                 placeholder: "Placeholder d'image",
-                social: "Pas du tout accro aux réseaux sociaux, mais accro aux idées qui bougent.",
-                apero: "Mon moment zen ? L'apéro.",
-                la: "Mon rêve ? Vivre à Los Angeles, entre soleil et créativité.",
-                nba: "🏀 Fan de NBA (le game m'inspire autant que le terrain)",
-                eat: "🚀 Passionné de start‑ups et d'innovation",
-                design: "✍️ J'aime créer des choses, tester, construire, raconter",
-                create: "☕ Je carbure au café (beaucoup de café)",
-                mentor: "🎶 Daniel Ek rocks ✨ (oui, c'est lui à gauche)"
+                social: "Pas du tout accro aux réseaux sociaux",
+                apero: "L'apéro est mon moment zen",
+                la: "Je rêve de vivre à Los Angeles",
+                nba: "Fan de la NBA",
+                eat: "J'adore manger (mais pas cuisiner)",
+                design: "Passionné de design",
+                create: "J'aime créer des choses",
+                mentor: "Daniel Ek est mon mentor",
+                coffee: "Je bois beaucoup de café",
+                daniel: "Daniel Ek rocks ✨"
             },
             stats: {
                 title: "Mes skills ⚡",
