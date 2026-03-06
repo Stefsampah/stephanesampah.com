@@ -336,20 +336,25 @@
         margin-left: auto !important;
         margin-right: auto !important;
     }
+    /* Snaps mobile : grille 2x2 puis 1 en bas (5 items) */
     #snaps {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
         gap: 0.75rem !important;
+        justify-items: center !important;
+        max-width: 100% !important;
     }
     #snaps .snap-item {
-        flex: 0 0 calc(50% - 0.5rem) !important;
-        max-width: calc(50% - 0.5rem) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 !important;
         box-sizing: border-box !important;
     }
     #snaps .snap-item:last-child {
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
+        grid-column: 1 / -1 !important;
+        max-width: 200px !important;
+        justify-self: center !important;
     }
     #img-random-facts {
         display: flex !important;
@@ -829,13 +834,15 @@ body {
 }
 
 #text-main {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #text-main.animated {
+    visibility: visible;
+    opacity: 1;
     transform: translateX(0);
 }
 
@@ -843,13 +850,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #img-main.animated {
+    visibility: visible;
+    opacity: 1;
     transform: translateX(0);
 }
 
@@ -875,12 +884,13 @@ body {
     align-items: center;
     gap: 1rem;
     margin-top: 3rem;
-    visibility: visible;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     transition: visibility 0.3s, opacity 0.3s;
 }
 
 .snaps.animated {
+    visibility: visible;
     opacity: 1;
 }
 
@@ -892,14 +902,16 @@ body {
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
     position: relative;
     flex-shrink: 0;
 }
 
 .snap-item.animated {
+    visibility: visible;
+    opacity: 1;
     transform: translateY(0);
 }
 
@@ -919,8 +931,8 @@ body {
 /* About Parts Section - Adham Dannaway Style */
 .dark {
     background-color: #f8f9fa;
-    padding: 4rem 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
@@ -1161,15 +1173,15 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, calc(-50% + 30px));
     width: 100%;
     max-width: 800px;
     height: auto;
     z-index: 1;
     object-fit: contain;
     pointer-events: none;
-    visibility: visible;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
@@ -1177,6 +1189,8 @@ body {
 }
 
 #img-pie.animated {
+    visibility: visible;
+    opacity: 1;
     transform: translate(-50%, -50%);
 }
 
@@ -1349,13 +1363,15 @@ body {
 }
 
 #img-random-facts {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #img-random-facts.animated {
+    visibility: visible;
+    opacity: 1;
     transform: translateX(0);
 }
 
