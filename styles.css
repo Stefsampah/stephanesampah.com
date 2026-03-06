@@ -315,6 +315,56 @@
         visibility: visible !important;
         opacity: 1 !important;
     }
+    
+    /* Layout mobile : centrage About, photo fun, snaps 2x2+1, random, espacement home */
+    .about-section .about-title,
+    .about-section .intro,
+    .about-section .description,
+    #text-main {
+        text-align: center !important;
+    }
+    .about-main .row {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    #img-main {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    #img-main img.major {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    #snaps {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 0.75rem !important;
+    }
+    #snaps .snap-item {
+        flex: 0 0 calc(50% - 0.5rem) !important;
+        max-width: calc(50% - 0.5rem) !important;
+        box-sizing: border-box !important;
+    }
+    #snaps .snap-item:last-child {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    #img-random-facts {
+        display: flex !important;
+        justify-content: center !important;
+    }
+    #img-random-facts img.major {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .home-buttons {
+        margin-bottom: 1.5rem !important;
+    }
+    .home-content .social-links {
+        margin-top: 0.5rem !important;
+    }
 }
 
 :root {

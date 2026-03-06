@@ -1,23 +1,41 @@
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
+// Mobile Navigation Toggle (délégation + click + touchend pour mobile)
+function toggleMobileMenu() {
+    var navMenu = document.getElementById('nav-menu');
+    var navToggle = document.getElementById('nav-toggle');
+    if (navMenu && navToggle) {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     }
+}
 
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    // Délégation sur document : marche même si le bouton est recouvert
+    document.body.addEventListener('click', function(e) {
+        if (e.target && e.target.closest && e.target.closest('#nav-toggle')) {
+            e.preventDefault();
+            toggleMobileMenu();
+        }
+    });
+    document.body.addEventListener('touchend', function(e) {
+        if (e.target && e.target.closest && e.target.closest('#nav-toggle')) {
+            e.preventDefault();
+            toggleMobileMenu();
+        }
+    }, { passive: false });
+
+    // Fermer le menu au clic sur un lien
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function() {
+            var navMenu = document.getElementById('nav-menu');
+            var navToggle = document.getElementById('nav-toggle');
             if (navMenu) navMenu.classList.remove('active');
             if (navToggle) navToggle.classList.remove('active');
+            document.body.style.overflow = '';
         });
-    });
+    }
 });
 
 // Smooth scrolling for navigation links
@@ -265,43 +283,16 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    const navMenu = document.getElementById('nav-menu');
-    const navToggle = document.getElementById('nav-toggle');
-    // ESC key closes mobile menu
-    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+// Keyboard: ESC ferme le menu mobile
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    var navMenu = document.getElementById('nav-menu');
+    var navToggle = document.getElementById('nav-toggle');
+    if (navMenu && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
         if (navToggle) navToggle.classList.remove('active');
+        document.body.style.overflow = '';
     }
-});
-
-// Prevent scroll when mobile menu is open (optional)
-let isMenuOpen = false;
-document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (isMenuOpen && navMenu && !navMenu.contains(e.target) && navToggle && !navToggle.contains(e.target)) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            isMenuOpen = false;
-            document.body.style.overflow = '';
-        }
-    });
 });
 
 // Bar Chart Animation - Adham Dannaway Style
@@ -744,15 +735,15 @@ function detectAndFixOverflow() {
     }
 }
 
-// Exécuter IMMÉDIATEMENT et à chaque événement
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        detectAndFixOverflow();
-        initScrollAnimations();
-    });
-} else {
-    // DOM déjà chargé, exécuter immédiatement
+// Exécuter au chargement ET si DOM déjà prêt (script chargé en fin de body)
+function runOnReady() {
     detectAndFixOverflow();
+    initScrollAnimations();
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runOnReady);
+} else {
+    runOnReady();
 }
 
 window.addEventListener('resize', detectAndFixOverflow);
@@ -773,8 +764,8 @@ if (document.body) {
     });
 }
 
-// Initialize scroll animations on page load
-document.addEventListener('DOMContentLoaded', () => {
+// Scroll animations aussi au DOMContentLoaded si script chargé avant la fin du DOM
+document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
 });
 
