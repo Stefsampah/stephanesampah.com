@@ -316,10 +316,10 @@
         opacity: 1 !important;
     }
     
-    /* Layout mobile : conteneur About lisible (padding), texte centré, images centrées */
+    /* Layout mobile : conteneur About lisible (décalage droite pour éviter coupure J, ad, d, H, qua) */
     .about-section .container {
-        padding-left: 1.25rem !important;
-        padding-right: 1.25rem !important;
+        padding-left: 1.75rem !important;
+        padding-right: 1.75rem !important;
         overflow-x: visible !important;
         box-sizing: border-box !important;
     }
@@ -333,8 +333,8 @@
     #text-main {
         width: 100% !important;
         max-width: 100% !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
         box-sizing: border-box !important;
         text-align: center !important;
     }
@@ -351,27 +351,38 @@
         align-items: center !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     #img-main img.major {
         display: block !important;
         margin-left: auto !important;
         margin-right: auto !important;
         max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
     }
-    /* Snaps mobile : grille 2x2 puis 1 en bas (5 items) */
+    /* Snaps mobile : grille 2x2 puis 1 en bas, toutes les cellules même taille */
     #snaps {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
         gap: 0.75rem !important;
-        justify-items: center !important;
+        justify-items: stretch !important;
+        align-items: start !important;
         max-width: 100% !important;
     }
     #snaps .snap-item {
         width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
+        min-width: 0 !important;
         aspect-ratio: 1 !important;
         box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    #snaps .snap-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
     }
     #snaps .snap-item:last-child {
         grid-column: 1 / -1 !important;
@@ -390,12 +401,16 @@
         align-items: center !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     #img-random-facts img.major {
         display: block !important;
         margin-left: auto !important;
         margin-right: auto !important;
         max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
     }
     .home-buttons {
         margin-bottom: 1.5rem !important;
@@ -416,65 +431,6 @@
     --hover-color: #f5f5f5;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-/* Desktop uniquement : animation d'entrée au chargement (affichage garanti sans dépendre du JS) */
-@media (min-width: 769px) {
-    #text-main {
-        visibility: visible !important;
-        opacity: 0;
-        transform: translateX(-50px);
-        animation: desktopRevealLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
-    }
-    #img-main {
-        visibility: visible !important;
-        opacity: 0;
-        transform: translateX(50px);
-        animation: desktopRevealRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards;
-    }
-    .snaps {
-        visibility: visible !important;
-        opacity: 0;
-        animation: desktopRevealFade 0.5s ease 0.4s forwards;
-    }
-    .snap-item {
-        visibility: visible !important;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: desktopRevealUp 0.5s ease forwards;
-    }
-    .snaps .snap-item:nth-child(1) { animation-delay: 0.45s; }
-    .snaps .snap-item:nth-child(2) { animation-delay: 0.55s; }
-    .snaps .snap-item:nth-child(3) { animation-delay: 0.65s; }
-    .snaps .snap-item:nth-child(4) { animation-delay: 0.75s; }
-    .snaps .snap-item:nth-child(5) { animation-delay: 0.85s; }
-    #img-pie {
-        visibility: visible !important;
-        opacity: 0;
-        transform: translate(-50%, calc(-50% + 30px));
-        animation: desktopRevealPie 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-    }
-    #img-random-facts {
-        visibility: visible !important;
-        opacity: 0;
-        transform: translateX(50px);
-        animation: desktopRevealRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards;
-    }
-}
-@keyframes desktopRevealLeft {
-    to { opacity: 1; transform: translateX(0); }
-}
-@keyframes desktopRevealRight {
-    to { opacity: 1; transform: translateX(0); }
-}
-@keyframes desktopRevealFade {
-    to { opacity: 1; }
-}
-@keyframes desktopRevealUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes desktopRevealPie {
-    to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 html {
@@ -929,7 +885,7 @@ body {
     visibility: hidden;
     opacity: 0;
     transform: translateX(-50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: visibility 0.1s, opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #text-main.animated {
@@ -945,7 +901,7 @@ body {
     visibility: hidden;
     opacity: 0;
     transform: translateX(50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: visibility 0.1s, opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #img-main.animated {
@@ -978,7 +934,7 @@ body {
     margin-top: 3rem;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s;
+    transition: visibility 0.1s, opacity 0.8s ease, transform 0.8s ease;
 }
 
 .snaps.animated {
@@ -992,7 +948,7 @@ body {
     height: 150px;
     border-radius: 8px;
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: visibility 0.1s, opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
     visibility: hidden;
     opacity: 0;
@@ -1274,7 +1230,7 @@ body {
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: visibility 0.1s, opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     box-sizing: border-box;
@@ -1458,7 +1414,7 @@ body {
     visibility: hidden;
     opacity: 0;
     transform: translateX(50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: visibility 0.1s, opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #img-random-facts.animated {

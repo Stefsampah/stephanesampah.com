@@ -356,8 +356,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initScrollAnimations() {
     // Animation options
     const animationOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.12,
+        rootMargin: '0px 0px -60px 0px'
     };
 
     // Animate text-main and img-main
