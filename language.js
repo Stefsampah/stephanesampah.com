@@ -1,8 +1,16 @@
+// Helpers for iOS/Safari compatibility (no optional chaining)
+function getTx() {
+    return (typeof window !== 'undefined' && window.translations) ? window.translations : (typeof translations !== 'undefined' ? translations : {});
+}
+function getSection(tx, lang, section) {
+    return (tx[lang] && tx[lang][section]) || (tx.en && tx.en[section]) || (tx.fr && tx.fr[section]) || {};
+}
+
 // Explicit updater for nav and home with direct translations access
 function updateNavAndHome(lang) {
-    const tx = (typeof window !== 'undefined' && window.translations) ? window.translations : translations || {};
-    const nav = tx?.[lang]?.nav || tx?.en?.nav || tx?.fr?.nav || {};
-    const home = tx?.[lang]?.home || tx?.en?.home || tx?.fr?.home || {};
+    const tx = getTx();
+    const nav = getSection(tx, lang, 'nav');
+    const home = getSection(tx, lang, 'home');
 
     // Nav
     document.querySelectorAll('[data-translate="nav.home"]').forEach(el => {
@@ -35,26 +43,26 @@ function updateNavAndHome(lang) {
 
 // Explicit updater for About, Projects, Contact, Footer
 function updateSections(lang) {
-    const tx = (typeof window !== 'undefined' && window.translations) ? window.translations : translations || {};
-    const about = tx?.[lang]?.about || tx?.en?.about || tx?.fr?.about || {};
-    const projects = tx?.[lang]?.projects || tx?.en?.projects || tx?.fr?.projects || {};
-    const contact = tx?.[lang]?.contact || tx?.en?.contact || tx?.fr?.contact || {};
-    const footer = tx?.[lang]?.footer || tx?.en?.footer || tx?.fr?.footer || {};
+    const tx = getTx();
+    const about = getSection(tx, lang, 'about');
+    const projects = getSection(tx, lang, 'projects');
+    const contact = getSection(tx, lang, 'contact');
+    const footer = getSection(tx, lang, 'footer');
 
     // About main
     document.querySelectorAll('[data-translate="about.title"]').forEach(el => { el.textContent = about.title || ''; });
     document.querySelectorAll('[data-translate="about.titleMain"]').forEach(el => { el.textContent = about.titleMain || ''; });
     document.querySelectorAll('[data-translate="about.subtitle"]').forEach(el => { el.textContent = about.subtitle || ''; });
-    document.querySelectorAll('[data-translate="about.intro.main"]').forEach(el => { el.textContent = about.intro?.main || ''; });
-    document.querySelectorAll('[data-translate="about.intro.description"]').forEach(el => { el.textContent = about.intro?.description || ''; });
-    document.querySelectorAll('[data-translate="about.photo.fun"]').forEach(el => { el.textContent = about.photo?.fun || ''; });
+    document.querySelectorAll('[data-translate="about.intro.main"]').forEach(el => { el.textContent = (about.intro && about.intro.main) || ''; });
+    document.querySelectorAll('[data-translate="about.intro.description"]').forEach(el => { el.textContent = (about.intro && about.intro.description) || ''; });
+    document.querySelectorAll('[data-translate="about.photo.fun"]').forEach(el => { el.textContent = (about.photo && about.photo.fun) || ''; });
 
     // About tags
-    document.querySelectorAll('[data-translate="about.tags.miniMe"]').forEach(el => { el.textContent = about.tags?.miniMe || ''; });
-    document.querySelectorAll('[data-translate="about.tags.location"]').forEach(el => { el.textContent = about.tags?.location || ''; });
-    document.querySelectorAll('[data-translate="about.tags.mcHammer"]').forEach(el => { el.textContent = about.tags?.mcHammer || ''; });
-    document.querySelectorAll('[data-translate="about.tags.mac"]').forEach(el => { el.textContent = about.tags?.mac || ''; });
-    document.querySelectorAll('[data-translate="about.tags.sharks"]').forEach(el => { el.textContent = about.tags?.sharks || ''; });
+    document.querySelectorAll('[data-translate="about.tags.miniMe"]').forEach(el => { el.textContent = (about.tags && about.tags.miniMe) || ''; });
+    document.querySelectorAll('[data-translate="about.tags.location"]').forEach(el => { el.textContent = (about.tags && about.tags.location) || ''; });
+    document.querySelectorAll('[data-translate="about.tags.mcHammer"]').forEach(el => { el.textContent = (about.tags && about.tags.mcHammer) || ''; });
+    document.querySelectorAll('[data-translate="about.tags.mac"]').forEach(el => { el.textContent = (about.tags && about.tags.mac) || ''; });
+    document.querySelectorAll('[data-translate="about.tags.sharks"]').forEach(el => { el.textContent = (about.tags && about.tags.sharks) || ''; });
 
     // About web project / coder
     document.querySelectorAll('[data-translate="about.webProject"]').forEach(el => { el.textContent = about.webProject || ''; });
@@ -69,58 +77,58 @@ function updateSections(lang) {
     document.querySelectorAll('[data-translate="about.coderJs"]').forEach(el => { el.textContent = about.coderJs || ''; });
     document.querySelectorAll('[data-translate="about.coderSwearing"]').forEach(el => { el.textContent = about.coderSwearing || ''; });
     document.querySelectorAll('[data-translate="about.coderMusic"]').forEach(el => { el.textContent = about.coderMusic || ''; });
-    document.querySelectorAll('[data-translate="about.pieChart.text"]').forEach(el => { el.innerHTML = about.pieChart?.text || ''; });
+    document.querySelectorAll('[data-translate="about.pieChart.text"]').forEach(el => { el.innerHTML = (about.pieChart && about.pieChart.text) || ''; });
 
     // About marketing / tools
-    document.querySelectorAll('[data-translate="about.tools.title"]').forEach(el => { el.textContent = about.tools?.title || ''; });
-    document.querySelectorAll('[data-translate="about.tools.design"]').forEach(el => { el.textContent = about.tools?.design || ''; });
-    document.querySelectorAll('[data-translate="about.tools.code"]').forEach(el => { el.textContent = about.tools?.code || ''; });
-    document.querySelectorAll('[data-translate="about.marketing.title"]').forEach(el => { el.textContent = about.marketing?.title || ''; });
-    document.querySelectorAll('[data-translate="about.marketing.projects"]').forEach(el => { el.textContent = about.marketing?.projects || ''; });
-    document.querySelectorAll('[data-translate="about.marketing.strategy"]').forEach(el => { el.textContent = about.marketing?.strategy || ''; });
-    document.querySelectorAll('[data-translate="about.marketing.content"]').forEach(el => { el.textContent = about.marketing?.content || ''; });
-    document.querySelectorAll('[data-translate="about.marketing.tools"]').forEach(el => { el.textContent = about.marketing?.tools || ''; });
+    document.querySelectorAll('[data-translate="about.tools.title"]').forEach(el => { el.textContent = (about.tools && about.tools.title) || ''; });
+    document.querySelectorAll('[data-translate="about.tools.design"]').forEach(el => { el.textContent = (about.tools && about.tools.design) || ''; });
+    document.querySelectorAll('[data-translate="about.tools.code"]').forEach(el => { el.textContent = (about.tools && about.tools.code) || ''; });
+    document.querySelectorAll('[data-translate="about.marketing.title"]').forEach(el => { el.textContent = (about.marketing && about.marketing.title) || ''; });
+    document.querySelectorAll('[data-translate="about.marketing.projects"]').forEach(el => { el.textContent = (about.marketing && about.marketing.projects) || ''; });
+    document.querySelectorAll('[data-translate="about.marketing.strategy"]').forEach(el => { el.textContent = (about.marketing && about.marketing.strategy) || ''; });
+    document.querySelectorAll('[data-translate="about.marketing.content"]').forEach(el => { el.textContent = (about.marketing && about.marketing.content) || ''; });
+    document.querySelectorAll('[data-translate="about.marketing.tools"]').forEach(el => { el.textContent = (about.marketing && about.marketing.tools) || ''; });
 
     // About random facts
-    document.querySelectorAll('[data-translate="about.randomFacts.title"]').forEach(el => { el.textContent = about.randomFacts?.title || ''; });
-    document.querySelectorAll('[data-translate-alt="about.randomFacts.visual"]').forEach(el => { el.alt = about.randomFacts?.visual || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.placeholder"]').forEach(el => { el.textContent = about.randomFacts?.placeholder || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.social"]').forEach(el => { el.textContent = about.randomFacts?.social || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.apero"]').forEach(el => { el.textContent = about.randomFacts?.apero || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.la"]').forEach(el => { el.textContent = about.randomFacts?.la || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.nba"]').forEach(el => { el.textContent = about.randomFacts?.nba || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.eat"]').forEach(el => { el.textContent = about.randomFacts?.eat || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.design"]').forEach(el => { el.textContent = about.randomFacts?.design || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.create"]').forEach(el => { el.textContent = about.randomFacts?.create || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.mentor"]').forEach(el => { el.textContent = about.randomFacts?.mentor || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.coffee"]').forEach(el => { el.textContent = about.randomFacts?.coffee || ''; });
-    document.querySelectorAll('[data-translate="about.randomFacts.daniel"]').forEach(el => { el.textContent = about.randomFacts?.daniel || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.title"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.title) || ''; });
+    document.querySelectorAll('[data-translate-alt="about.randomFacts.visual"]').forEach(el => { el.alt = (about.randomFacts && about.randomFacts.visual) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.placeholder"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.placeholder) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.social"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.social) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.apero"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.apero) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.la"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.la) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.nba"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.nba) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.eat"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.eat) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.design"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.design) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.create"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.create) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.mentor"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.mentor) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.coffee"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.coffee) || ''; });
+    document.querySelectorAll('[data-translate="about.randomFacts.daniel"]').forEach(el => { el.textContent = (about.randomFacts && about.randomFacts.daniel) || ''; });
 
     // About stats
-    document.querySelectorAll('[data-translate="about.stats.title"]').forEach(el => { el.textContent = about.stats?.title || ''; });
-    document.querySelectorAll('[data-translate="about.stats.jedi"]').forEach(el => { el.textContent = about.stats?.jedi || ''; });
-    document.querySelectorAll('[data-translate="about.stats.ninja"]').forEach(el => { el.textContent = about.stats?.ninja || ''; });
-    document.querySelectorAll('[data-translate="about.stats.geek"]').forEach(el => { el.textContent = about.stats?.geek || ''; });
-    document.querySelectorAll('[data-translate="about.stats.newbie"]').forEach(el => { el.textContent = about.stats?.newbie || ''; });
-    document.querySelectorAll('[data-translate="about.stats.coffee"]').forEach(el => { el.textContent = about.stats?.coffee || ''; });
-    document.querySelectorAll('[data-translate="about.stats.design"]').forEach(el => { el.textContent = about.stats?.design || ''; });
-    document.querySelectorAll('[data-translate="about.stats.youtube"]').forEach(el => { el.textContent = about.stats?.youtube || ''; });
-    document.querySelectorAll('[data-translate="about.stats.dreamer"]').forEach(el => { el.textContent = about.stats?.dreamer || ''; });
-    document.querySelectorAll('[data-translate="about.stats.basketball"]').forEach(el => { el.textContent = about.stats?.basketball || ''; });
+    document.querySelectorAll('[data-translate="about.stats.title"]').forEach(el => { el.textContent = (about.stats && about.stats.title) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.jedi"]').forEach(el => { el.textContent = (about.stats && about.stats.jedi) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.ninja"]').forEach(el => { el.textContent = (about.stats && about.stats.ninja) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.geek"]').forEach(el => { el.textContent = (about.stats && about.stats.geek) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.newbie"]').forEach(el => { el.textContent = (about.stats && about.stats.newbie) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.coffee"]').forEach(el => { el.textContent = (about.stats && about.stats.coffee) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.design"]').forEach(el => { el.textContent = (about.stats && about.stats.design) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.youtube"]').forEach(el => { el.textContent = (about.stats && about.stats.youtube) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.dreamer"]').forEach(el => { el.textContent = (about.stats && about.stats.dreamer) || ''; });
+    document.querySelectorAll('[data-translate="about.stats.basketball"]').forEach(el => { el.textContent = (about.stats && about.stats.basketball) || ''; });
 
     // Projects section header
     document.querySelectorAll('[data-translate="projects.title"]').forEach(el => { el.textContent = projects.title || ''; });
     document.querySelectorAll('[data-translate="projects.subtitle"]').forEach(el => { el.textContent = projects.subtitle || ''; });
     document.querySelectorAll('[data-translate="projects.caseStudy"]').forEach(el => { el.textContent = projects.caseStudy || ''; });
     // Project cards
-    document.querySelectorAll('[data-translate="projects.autonome.title"]').forEach(el => { el.textContent = projects.autonome?.title || ''; });
-    document.querySelectorAll('[data-translate="projects.autonome.description"]').forEach(el => { el.textContent = projects.autonome?.description || ''; });
-    document.querySelectorAll('[data-translate="projects.hotelManager.title"]').forEach(el => { el.textContent = projects.hotelManager?.title || ''; });
-    document.querySelectorAll('[data-translate="projects.hotelManager.description"]').forEach(el => { el.textContent = projects.hotelManager?.description || ''; });
-    document.querySelectorAll('[data-translate="projects.taxiEssaouira.title"]').forEach(el => { el.textContent = projects.taxiEssaouira?.title || ''; });
-    document.querySelectorAll('[data-translate="projects.taxiEssaouira.description"]').forEach(el => { el.textContent = projects.taxiEssaouira?.description || ''; });
-    document.querySelectorAll('[data-translate="projects.tubenplay.title"]').forEach(el => { el.textContent = projects.tubenplay?.title || ''; });
-    document.querySelectorAll('[data-translate="projects.tubenplay.description"]').forEach(el => { el.textContent = projects.tubenplay?.description || ''; });
+    document.querySelectorAll('[data-translate="projects.autonome.title"]').forEach(el => { el.textContent = (projects.autonome && projects.autonome.title) || ''; });
+    document.querySelectorAll('[data-translate="projects.autonome.description"]').forEach(el => { el.textContent = (projects.autonome && projects.autonome.description) || ''; });
+    document.querySelectorAll('[data-translate="projects.hotelManager.title"]').forEach(el => { el.textContent = (projects.hotelManager && projects.hotelManager.title) || ''; });
+    document.querySelectorAll('[data-translate="projects.hotelManager.description"]').forEach(el => { el.textContent = (projects.hotelManager && projects.hotelManager.description) || ''; });
+    document.querySelectorAll('[data-translate="projects.taxiEssaouira.title"]').forEach(el => { el.textContent = (projects.taxiEssaouira && projects.taxiEssaouira.title) || ''; });
+    document.querySelectorAll('[data-translate="projects.taxiEssaouira.description"]').forEach(el => { el.textContent = (projects.taxiEssaouira && projects.taxiEssaouira.description) || ''; });
+    document.querySelectorAll('[data-translate="projects.tubenplay.title"]').forEach(el => { el.textContent = (projects.tubenplay && projects.tubenplay.title) || ''; });
+    document.querySelectorAll('[data-translate="projects.tubenplay.description"]').forEach(el => { el.textContent = (projects.tubenplay && projects.tubenplay.description) || ''; });
 
     // Contact
     document.querySelectorAll('[data-translate="contact.title"]').forEach(el => { el.textContent = contact.title || ''; });
@@ -178,7 +186,7 @@ function applyTranslations() {
     const tx = (typeof window !== 'undefined' && window.translations) ? window.translations : translations || {};
     // Helper to update home section with explicit language data
     function applyHomeTranslations(lang) {
-        const home = tx?.[lang]?.home || tx?.en?.home || tx?.fr?.home || {};
+        const home = getSection(tx, lang, 'home');
         const {
             greeting = 'Hi, I am',
             subtitle = 'A Results-Oriented Web Developer creating and managing Websites and Web Applications that lead to overall product success',
@@ -202,7 +210,7 @@ function applyTranslations() {
 
     // Helper to update nav explicitly
     function applyNavTranslations(lang) {
-        const nav = tx?.[lang]?.nav || tx?.en?.nav || tx?.fr?.nav || {};
+        const nav = getSection(tx, lang, 'nav');
         document.querySelectorAll('[data-translate="nav.home"]').forEach(el => {
             el.textContent = nav.home || 'Home';
         });
@@ -513,7 +521,8 @@ function updateProjectPageTranslations() {
     
     const lang = currentLanguage;
     const projectKey = projectData.projectKey;
-    const projectTranslations = translations[lang]?.project?.[projectKey] || {};
+    const tr = typeof translations !== 'undefined' ? translations : {};
+    const projectTranslations = (tr[lang] && tr[lang].project && tr[lang].project[projectKey]) ? tr[lang].project[projectKey] : {};
     
     // Update title
     const titleElement = document.getElementById('project-title');

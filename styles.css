@@ -21,6 +21,22 @@
         height: auto !important;
     }
     
+    /* Header mobile : logo fixe pour éviter qu'il gonfle (exception à la règle img ci-dessus) */
+    .navbar .logo-photo,
+    .nav-container .logo-photo {
+        width: 56px !important;
+        height: 56px !important;
+        min-width: 56px !important;
+        max-width: 56px !important;
+        object-fit: cover !important;
+    }
+    .nav-container {
+        min-height: 56px !important;
+    }
+    .nav-logo {
+        height: 56px !important;
+    }
+    
     /* Container responsive */
     .container {
         width: 100% !important;
@@ -1695,11 +1711,11 @@ body {
 @media (max-width: 768px) {
     .nav-container {
         padding: 1rem 1.5rem;
-        min-height: auto;
+        min-height: 56px !important;
     }
     
     .nav-logo {
-        height: auto;
+        height: 56px !important;
     }
     
     .lang-switcher {
@@ -1741,8 +1757,8 @@ body {
     }
     
     .logo-photo {
-        width: 60px;
-        height: 60px;
+        width: 56px !important;
+        height: 56px !important;
     }
 
     .nav-item:last-child {
