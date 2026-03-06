@@ -296,17 +296,6 @@
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
-    
-    /* Fallback mobile : About / pie / random facts visibles même si le JS ne tourne pas (ex. iOS) */
-    #text-main,
-    #img-main,
-    #snaps,
-    #snaps .snap-item,
-    #img-pie,
-    #img-random-facts {
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
 }
 
 :root {
@@ -367,6 +356,10 @@ body {
     z-index: 1000;
     transition: all 0.3s ease;
     opacity: 1;
+}
+
+.navbar .bar {
+    background-color: #fff;
 }
 
 .nav-container {
@@ -2012,6 +2005,7 @@ body {
     .home-buttons {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 2rem;
     }
 
     .home-buttons .btn {
@@ -2061,6 +2055,8 @@ body {
 
     .about-main .row {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .about-main .col-5 {
@@ -2070,6 +2066,42 @@ body {
     .about-main .col-7 {
         order: 1;
         margin-bottom: 2rem;
+    }
+
+    .about-section .about-title,
+    .about-section .intro,
+    .about-section .description {
+        text-align: center;
+    }
+
+    #img-main {
+        justify-content: center;
+    }
+
+    .snaps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .snaps .snap-item {
+        flex: 0 0 calc(50% - 0.75rem);
+        max-width: calc(50% - 0.75rem);
+    }
+
+    .snaps .snap-item:last-child {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    #img-random-facts {
+        display: flex;
+        justify-content: center;
+    }
+
+    #img-random-facts img.major {
+        margin: 0 auto;
     }
 }
 
