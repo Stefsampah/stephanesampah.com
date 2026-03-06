@@ -36,6 +36,10 @@
     .nav-logo {
         height: 56px !important;
     }
+    /* Hamburger visible sur mobile (priorité au bloc overflow) */
+    .nav-toggle {
+        display: flex !important;
+    }
     
     /* Container responsive */
     .container {
@@ -291,6 +295,17 @@
     [style*="position:absolute"] {
         max-width: 100% !important;
         box-sizing: border-box !important;
+    }
+    
+    /* Fallback mobile : About / pie / random facts visibles même si le JS ne tourne pas (ex. iOS) */
+    #text-main,
+    #img-main,
+    #snaps,
+    #snaps .snap-item,
+    #img-pie,
+    #img-random-facts {
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }
 

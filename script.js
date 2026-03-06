@@ -670,12 +670,14 @@ function detectAndFixOverflow() {
             
             // Filtrer les éléments d'extensions (ne pas les compter)
             const realOverflowElements = overflowElements.filter(item => {
-                // Ignorer les éléments d'extensions Chrome
+                // Ignorer les éléments d'extensions Chrome (compat iOS: pas de ?.)
+                var id = item.element.id;
+                var cls = item.element.getAttribute ? item.element.getAttribute('class') : '';
                 return !item.element.classList.contains('terminal-object') &&
                        !item.element.hasAttribute('data-v-') &&
                        !item.element.closest('[data-v-]') &&
-                       !item.element.id?.includes('extension') &&
-                       !item.element.className?.includes('extension');
+                       !(id && typeof id === 'string' && id.indexOf('extension') !== -1) &&
+                       !(cls && cls.indexOf('extension') !== -1);
             });
             
             // Log pour diagnostic
