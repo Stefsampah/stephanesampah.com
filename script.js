@@ -759,13 +759,13 @@ window.addEventListener('resize', detectAndFixOverflow);
 window.addEventListener('load', detectAndFixOverflow);
 window.addEventListener('orientationchange', detectAndFixOverflow);
 
-// Use MutationObserver to catch DOM changes
-const observer = new MutationObserver(() => {
+// Use MutationObserver to catch DOM changes (nom différent pour éviter redeclaration)
+const overflowMutationObserver = new MutationObserver(() => {
     detectAndFixOverflow();
 });
 
 if (document.body) {
-    observer.observe(document.body, {
+    overflowMutationObserver.observe(document.body, {
         childList: true,
         subtree: true,
         attributes: true,

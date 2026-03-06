@@ -36,9 +36,17 @@
     .nav-logo {
         height: 56px !important;
     }
-    /* Hamburger visible sur mobile (priorité au bloc overflow) */
+    /* Hamburger visible et cliquable sur mobile */
     .nav-toggle {
         display: flex !important;
+        position: relative;
+        z-index: 1002;
+        cursor: pointer;
+        padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Container responsive */
@@ -295,6 +303,17 @@
     [style*="position:absolute"] {
         max-width: 100% !important;
         box-sizing: border-box !important;
+    }
+    
+    /* Fallback mobile : About / pie / snaps / random visibles si JS en échec (ex. ancien iOS) */
+    #text-main,
+    #img-main,
+    #snaps,
+    #snaps .snap-item,
+    #img-pie,
+    #img-random-facts {
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }
 
