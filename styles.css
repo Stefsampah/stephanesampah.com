@@ -316,25 +316,47 @@
         opacity: 1 !important;
     }
     
-    /* Layout mobile : centrage About, photo fun, snaps 2x2+1, random, espacement home */
-    .about-section .about-title,
-    .about-section .intro,
-    .about-section .description,
-    #text-main {
-        text-align: center !important;
+    /* Layout mobile : conteneur About lisible (padding), texte centré, images centrées */
+    .about-section .container {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+        overflow-x: visible !important;
+        box-sizing: border-box !important;
     }
     .about-main .row {
         flex-direction: column !important;
-        align-items: center !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    #text-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+    }
+    .about-section .about-title,
+    .about-section .intro,
+    .about-section .description {
+        text-align: center !important;
     }
     #img-main {
+        width: 100% !important;
+        max-width: 100% !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     #img-main img.major {
+        display: block !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        max-width: 100% !important;
     }
     /* Snaps mobile : grille 2x2 puis 1 en bas (5 items) */
     #snaps {
@@ -356,13 +378,24 @@
         max-width: 200px !important;
         justify-self: center !important;
     }
+    .about-random-facts .row {
+        justify-content: center !important;
+        align-items: center !important;
+    }
     #img-random-facts {
+        width: 100% !important;
+        max-width: 100% !important;
         display: flex !important;
         justify-content: center !important;
+        align-items: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     #img-random-facts img.major {
+        display: block !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        max-width: 100% !important;
     }
     .home-buttons {
         margin-bottom: 1.5rem !important;
@@ -383,6 +416,65 @@
     --hover-color: #f5f5f5;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Desktop uniquement : animation d'entrée au chargement (affichage garanti sans dépendre du JS) */
+@media (min-width: 769px) {
+    #text-main {
+        visibility: visible !important;
+        opacity: 0;
+        transform: translateX(-50px);
+        animation: desktopRevealLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+    }
+    #img-main {
+        visibility: visible !important;
+        opacity: 0;
+        transform: translateX(50px);
+        animation: desktopRevealRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards;
+    }
+    .snaps {
+        visibility: visible !important;
+        opacity: 0;
+        animation: desktopRevealFade 0.5s ease 0.4s forwards;
+    }
+    .snap-item {
+        visibility: visible !important;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: desktopRevealUp 0.5s ease forwards;
+    }
+    .snaps .snap-item:nth-child(1) { animation-delay: 0.45s; }
+    .snaps .snap-item:nth-child(2) { animation-delay: 0.55s; }
+    .snaps .snap-item:nth-child(3) { animation-delay: 0.65s; }
+    .snaps .snap-item:nth-child(4) { animation-delay: 0.75s; }
+    .snaps .snap-item:nth-child(5) { animation-delay: 0.85s; }
+    #img-pie {
+        visibility: visible !important;
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 30px));
+        animation: desktopRevealPie 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+    }
+    #img-random-facts {
+        visibility: visible !important;
+        opacity: 0;
+        transform: translateX(50px);
+        animation: desktopRevealRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards;
+    }
+}
+@keyframes desktopRevealLeft {
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes desktopRevealRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes desktopRevealFade {
+    to { opacity: 1; }
+}
+@keyframes desktopRevealUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes desktopRevealPie {
+    to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 html {
