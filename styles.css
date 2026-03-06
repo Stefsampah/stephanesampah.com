@@ -829,15 +829,13 @@ body {
 }
 
 #text-main {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(-50px);
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #text-main.animated {
-    visibility: visible;
-    opacity: 1;
     transform: translateX(0);
 }
 
@@ -845,15 +843,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(50px);
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #img-main.animated {
-    visibility: visible;
-    opacity: 1;
     transform: translateX(0);
 }
 
@@ -879,13 +875,12 @@ body {
     align-items: center;
     gap: 1rem;
     margin-top: 3rem;
-    visibility: hidden;
-    opacity: 0;
+    visibility: visible;
+    opacity: 1;
     transition: visibility 0.3s, opacity 0.3s;
 }
 
 .snaps.animated {
-    visibility: visible;
     opacity: 1;
 }
 
@@ -897,16 +892,14 @@ body {
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(20px);
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
     position: relative;
     flex-shrink: 0;
 }
 
 .snap-item.animated {
-    visibility: visible;
-    opacity: 1;
     transform: translateY(0);
 }
 
@@ -1175,9 +1168,8 @@ body {
     z-index: 1;
     object-fit: contain;
     pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
-    transform: translate(-50%, calc(-50% + 30px));
+    visibility: visible;
+    opacity: 1;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
@@ -1185,8 +1177,6 @@ body {
 }
 
 #img-pie.animated {
-    visibility: visible;
-    opacity: 1;
     transform: translate(-50%, -50%);
 }
 
@@ -1359,15 +1349,13 @@ body {
 }
 
 #img-random-facts {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(50px);
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #img-random-facts.animated {
-    visibility: visible;
-    opacity: 1;
     transform: translateX(0);
 }
 

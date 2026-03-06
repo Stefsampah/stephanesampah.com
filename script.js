@@ -1,4 +1,4 @@
-// Mobile Navigation Toggle (délégation + click + touchend pour mobile)
+// Mobile Navigation Toggle — exposé globalement pour onclick inline (fallback fiable)
 function toggleMobileMenu() {
     var navMenu = document.getElementById('nav-menu');
     var navToggle = document.getElementById('nav-toggle');
@@ -8,6 +8,7 @@ function toggleMobileMenu() {
         document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     }
 }
+window.toggleMobileMenu = toggleMobileMenu;
 
 document.addEventListener('DOMContentLoaded', function() {
     var navLinks = document.querySelectorAll('.nav-link');
