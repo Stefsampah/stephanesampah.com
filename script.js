@@ -1,5 +1,3 @@
-console.log('SCRIPT_JS_START');
-alert('SCRIPT_JS_START');
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('nav-toggle');
@@ -308,6 +306,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Scroll animations for About section - Adham Dannaway style
 function initScrollAnimations() {
+    console.log('INIT_SCROLL_ANIMATIONS_START');
+    alert('INIT_SCROLL_ANIMATIONS_START');
     // Animation options
     const animationOptions = {
         threshold: 0.2,
@@ -317,6 +317,7 @@ function initScrollAnimations() {
     // Animate text-main and img-main
     const aboutMainObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            console.log('aboutMain', entry.isIntersecting);
             if (entry.isIntersecting) {
                 const textMain = document.getElementById('text-main');
                 const imgMain = document.getElementById('img-main');
@@ -373,6 +374,7 @@ function initScrollAnimations() {
     // Animate pie chart image
     const pieChartObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            console.log('pieChart', entry.isIntersecting);
             if (entry.isIntersecting) {
                 const imgPie = document.getElementById('img-pie');
                 if (imgPie) {
@@ -423,6 +425,7 @@ function initScrollAnimations() {
     // Animate random facts image
     const randomFactsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            console.log('randomFacts', entry.isIntersecting);
             if (entry.isIntersecting) {
                 const imgRandomFacts = document.getElementById('img-random-facts');
                 if (imgRandomFacts) {

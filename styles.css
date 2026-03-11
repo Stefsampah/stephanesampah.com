@@ -3302,3 +3302,16 @@ html {
     }
 }
 
+/* iOS / mobile: force visibility of About, snaps, pie, random facts if IntersectionObserver doesn't fire */
+@media (max-width: 768px) {
+    #text-main,
+    #img-main,
+    #snaps,
+    #snaps .snap-item,
+    #img-pie,
+    #img-random-facts {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
