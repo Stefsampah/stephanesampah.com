@@ -1,3 +1,5 @@
+console.log('SCRIPT_JS_START');
+alert('SCRIPT_JS_START');
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('nav-toggle');
