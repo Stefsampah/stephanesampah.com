@@ -445,16 +445,29 @@ function initScrollAnimations() {
     }
 
     // iOS / mobile fallback: IntersectionObserver often never fires true on Safari iOS — force show after delay
-    if (window.matchMedia('(max-width: 768px)').matches) {
-        setTimeout(function() {
-            ['text-main', 'img-main', 'snaps', 'img-pie', 'img-random-facts'].forEach(function(id) {
-                var el = document.getElementById(id);
-                if (el) el.classList.add('animated');
-            });
-            var snapItems = document.querySelectorAll('#snaps .snap-item');
-            for (var i = 0; i < snapItems.length; i++) snapItems[i].classList.add('animated');
-        }, 600);
+    console.log('MOBILE_FALLBACK_CHECK_START');
+    try {
+        var isMobileWidth = window.matchMedia ? window.matchMedia('(max-width: 768px)').matches : true;
+        console.log('MOBILE_FALLBACK_MATCH_MEDIA', isMobileWidth);
+    } catch (e) {
+        console.log('MOBILE_FALLBACK_MATCH_MEDIA_ERROR', e);
+        var isMobileWidth = true;
     }
+
+    // Pour debug, on exécute le fallback même si isMobileWidth est false
+    setTimeout(function() {
+        console.log('MOBILE_FALLBACK_TIMEOUT_FIRED', { isMobileWidth: isMobileWidth });
+        ['text-main', 'img-main', 'snaps', 'img-pie', 'img-random-facts'].forEach(function(id) {
+            var el = document.getElementById(id);
+            console.log('MOBILE_FALLBACK_ELEMENT', id, !!el);
+            if (el) el.classList.add('animated');
+        });
+        var snapItems = document.querySelectorAll('#snaps .snap-item');
+        console.log('MOBILE_FALLBACK_SNAP_ITEMS_COUNT', snapItems.length);
+        for (var i = 0; i < snapItems.length; i++) {
+            snapItems[i].classList.add('animated');
+        }
+    }, 800);
 }
 
 // Initialize scroll animations on page load
