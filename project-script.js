@@ -177,20 +177,14 @@ function initializeProjectPage(projectData) {
                 let embedUrl = '';
                 if (videoUrl.includes('youtube.com/watch?v=')) {
                     const parts = videoUrl.split('v=');
-                    const videoId = parts.length > 1 ? parts[1].split('&')[0] : '';
-                    if (videoId) {
-                        embedUrl = `https://www.youtube.com/embed/${videoId}`;
-                    } else {
-                        embedUrl = videoUrl;
-                    }
+                    const afterV = parts[1] || '';
+                    const videoId = afterV.split('&')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
                 } else if (videoUrl.includes('youtu.be/')) {
-                    const shortParts = videoUrl.split('youtu.be/');
-                    const shortId = shortParts.length > 1 ? shortParts[1].split('?')[0] : '';
-                    if (shortId) {
-                        embedUrl = `https://www.youtube.com/embed/${shortId}`;
-                    } else {
-                        embedUrl = videoUrl;
-                    }
+                    const parts = videoUrl.split('youtu.be/');
+                    const after = parts[1] || '';
+                    const videoId = after.split('?')[0];
+                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
                 } else if (videoUrl.includes('youtube.com/embed/')) {
                     embedUrl = videoUrl;
                 } else if (videoUrl.includes('loom.com')) {

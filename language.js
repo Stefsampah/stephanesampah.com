@@ -1,16 +1,9 @@
-// Helpers for iOS/Safari compatibility (no optional chaining)
-function getTx() {
-    return (typeof window !== 'undefined' && window.translations) ? window.translations : (typeof translations !== 'undefined' ? translations : {});
-}
-function getSection(tx, lang, section) {
-    return (tx[lang] && tx[lang][section]) || (tx.en && tx.en[section]) || (tx.fr && tx.fr[section]) || {};
-}
-
 // Explicit updater for nav and home with direct translations access
 function updateNavAndHome(lang) {
-    const tx = getTx();
-    const nav = getSection(tx, lang, 'nav');
-    const home = getSection(tx, lang, 'home');
+    const tx = (typeof window !== 'undefined' && window.translations) ? window.translations : (typeof translations !== 'undefined' ? translations : {});
+    const langData = (tx && tx[lang]) || tx.en || tx.fr || {};
+    const nav = langData.nav || {};
+    const home = langData.home || {};
 
     // Nav
     document.querySelectorAll('[data-translate="nav.home"]').forEach(el => {
@@ -43,11 +36,12 @@ function updateNavAndHome(lang) {
 
 // Explicit updater for About, Projects, Contact, Footer
 function updateSections(lang) {
-    const tx = getTx();
-    const about = getSection(tx, lang, 'about');
-    const projects = getSection(tx, lang, 'projects');
-    const contact = getSection(tx, lang, 'contact');
-    const footer = getSection(tx, lang, 'footer');
+    const tx = (typeof window !== 'undefined' && window.translations) ? window.translations : (typeof translations !== 'undefined' ? translations : {});
+    const langData = (tx && tx[lang]) || tx.en || tx.fr || {};
+    const about = langData.about || {};
+    const projects = langData.projects || {};
+    const contact = langData.contact || {};
+    const footer = langData.footer || {};
 
     // About main
     document.querySelectorAll('[data-translate="about.title"]').forEach(el => { el.textContent = about.title || ''; });
@@ -55,6 +49,11 @@ function updateSections(lang) {
     document.querySelectorAll('[data-translate="about.subtitle"]').forEach(el => { el.textContent = about.subtitle || ''; });
     document.querySelectorAll('[data-translate="about.intro.main"]').forEach(el => { el.textContent = (about.intro && about.intro.main) || ''; });
     document.querySelectorAll('[data-translate="about.intro.description"]').forEach(el => { el.textContent = (about.intro && about.intro.description) || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list1"]').forEach(el => { el.textContent = (about.intro && about.intro.list1) || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list2"]').forEach(el => { el.textContent = (about.intro && about.intro.list2) || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list3"]').forEach(el => { el.textContent = (about.intro && about.intro.list3) || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list4"]').forEach(el => { el.textContent = (about.intro && about.intro.list4) || ''; });
+    document.querySelectorAll('[data-translate="about.intro.list5"]').forEach(el => { el.textContent = (about.intro && about.intro.list5) || ''; });
     document.querySelectorAll('[data-translate="about.photo.fun"]').forEach(el => { el.textContent = (about.photo && about.photo.fun) || ''; });
 
     // About tags
@@ -186,7 +185,8 @@ function applyTranslations() {
     const tx = (typeof window !== 'undefined' && window.translations) ? window.translations : translations || {};
     // Helper to update home section with explicit language data
     function applyHomeTranslations(lang) {
-        const home = getSection(tx, lang, 'home');
+        const langData = (tx && tx[lang]) || tx.en || tx.fr || {};
+        const home = langData.home || {};
         const {
             greeting = 'Hi, I am',
             subtitle = 'A Results-Oriented Web Developer creating and managing Websites and Web Applications that lead to overall product success',
@@ -210,7 +210,8 @@ function applyTranslations() {
 
     // Helper to update nav explicitly
     function applyNavTranslations(lang) {
-        const nav = getSection(tx, lang, 'nav');
+        const langData = (tx && tx[lang]) || tx.en || tx.fr || {};
+        const nav = langData.nav || {};
         document.querySelectorAll('[data-translate="nav.home"]').forEach(el => {
             el.textContent = nav.home || 'Home';
         });
@@ -249,6 +250,21 @@ function applyTranslations() {
     });
     document.querySelectorAll('[data-translate="about.intro.description"]').forEach(el => {
         el.textContent = t('about.intro.description');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list1"]').forEach(el => {
+        el.textContent = t('about.intro.list1');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list2"]').forEach(el => {
+        el.textContent = t('about.intro.list2');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list3"]').forEach(el => {
+        el.textContent = t('about.intro.list3');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list4"]').forEach(el => {
+        el.textContent = t('about.intro.list4');
+    });
+    document.querySelectorAll('[data-translate="about.intro.list5"]').forEach(el => {
+        el.textContent = t('about.intro.list5');
     });
     document.querySelectorAll('[data-translate="about.photo.fun"]').forEach(el => {
         el.textContent = t('about.photo.fun');
@@ -521,8 +537,9 @@ function updateProjectPageTranslations() {
     
     const lang = currentLanguage;
     const projectKey = projectData.projectKey;
-    const tr = typeof translations !== 'undefined' ? translations : {};
-    const projectTranslations = (tr[lang] && tr[lang].project && tr[lang].project[projectKey]) ? tr[lang].project[projectKey] : {};
+    const tr = (typeof translations !== 'undefined') ? translations : {};
+    const langTx = tr[lang] || {};
+    const projectTranslations = (langTx.project && langTx.project[projectKey]) || {};
     
     // Update title
     const titleElement = document.getElementById('project-title');

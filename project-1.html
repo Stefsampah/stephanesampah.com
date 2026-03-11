@@ -40,14 +40,13 @@
                     </div>
                 </li>
             </ul>
-            <div class="nav-toggle" id="nav-toggle" role="button" aria-label="Menu" tabindex="0" onclick="if(window.toggleMobileMenu){window.toggleMobileMenu();} return false;">
+            <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
         </div>
     </nav>
-    <script>window.toggleMobileMenu=window.toggleMobileMenu||function(){var m=document.getElementById('nav-menu'),t=document.getElementById('nav-toggle');if(m&&t){m.classList.toggle('active');t.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';}};</script>
 
     <!-- Project Section -->
     <section class="project-detail-section">
@@ -171,25 +170,16 @@
             tools: ["Ruby on Rails", "Bootstrap", "JavaScript", "Import Maps", "Devise", "StimulusJS"]
         };
         
-        // Get translations based on current language (ES5 compatible)
+        // Get translations based on current language
         function getProjectTranslations() {
             const lang = typeof currentLanguage !== 'undefined' ? currentLanguage : (localStorage.getItem('preferredLanguage') || 'en');
             const projectKey = projectData.projectKey || 'autonome';
             
-            if (typeof translations !== 'undefined' &&
-                translations[lang] &&
-                translations[lang].project &&
-                translations[lang].project[projectKey]) {
+            if (typeof translations !== 'undefined' && translations[lang] && translations[lang].project && translations[lang].project[projectKey]) {
                 return translations[lang].project[projectKey];
             }
             // Fallback to English
-            if (typeof translations !== 'undefined' &&
-                translations.en &&
-                translations.en.project &&
-                translations.en.project[projectKey]) {
-                return translations.en.project[projectKey];
-            }
-            return {};
+            return translations?.en?.project?.[projectKey] || {};
         }
         
         // Initialize project data with translations
@@ -198,8 +188,8 @@
             projectData.title = projectTranslations.title || "AutonoMe";
             projectData.subtitle = projectTranslations.subtitle || "";
             projectData.overview = `
-                <p>${(projectTranslations.overview && projectTranslations.overview.p1) || ""}</p>
-                <p>${(projectTranslations.overview && projectTranslations.overview.p2) || ""}</p>
+                <p>${projectTranslations.overview?.p1 || ""}</p>
+                <p>${projectTranslations.overview?.p2 || ""}</p>
             `;
             projectData.features = projectTranslations.features || {};
             

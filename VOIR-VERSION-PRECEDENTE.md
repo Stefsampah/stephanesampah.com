@@ -65,5 +65,3 @@ Puis ouvrez ces fichiers dans votre éditeur pour comparer.
 
 
 
-
-
