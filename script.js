@@ -443,6 +443,18 @@ function initScrollAnimations() {
     if (randomFactsSection) {
         randomFactsObserver.observe(randomFactsSection);
     }
+
+    // iOS / mobile fallback: IntersectionObserver often never fires true on Safari iOS — force show after delay
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        setTimeout(function() {
+            ['text-main', 'img-main', 'snaps', 'img-pie', 'img-random-facts'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.add('animated');
+            });
+            var snapItems = document.querySelectorAll('#snaps .snap-item');
+            for (var i = 0; i < snapItems.length; i++) snapItems[i].classList.add('animated');
+        }, 600);
+    }
 }
 
 // Initialize scroll animations on page load
