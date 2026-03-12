@@ -1,47 +1,3 @@
-// Simple in-page debug console for iOS (no Web Inspector)
-function debugLog() {
-    try {
-        console.log.apply(console, arguments);
-    } catch (e) {}
-
-    try {
-        var panel = document.getElementById('ios-debug-panel');
-        if (!panel) {
-            panel = document.createElement('div');
-            panel.id = 'ios-debug-panel';
-            panel.style.position = 'fixed';
-            panel.style.bottom = '0';
-            panel.style.left = '0';
-            panel.style.right = '0';
-            panel.style.maxHeight = '40vh';
-            panel.style.overflowY = 'auto';
-            panel.style.background = 'rgba(0,0,0,0.8)';
-            panel.style.color = '#0f0';
-            panel.style.fontSize = '11px';
-            panel.style.fontFamily = 'SF Mono, Menlo, monospace';
-            panel.style.zIndex = '9999';
-            panel.style.padding = '4px 6px';
-            panel.style.boxSizing = 'border-box';
-            document.body.appendChild(panel);
-        }
-
-        var msg = Array.prototype.slice.call(arguments).map(function (a) {
-            try {
-                if (typeof a === 'object') return JSON.stringify(a);
-                return String(a);
-            } catch (e) {
-                return '[object]';
-            }
-        }).join(' ');
-
-        var line = document.createElement('div');
-        line.textContent = msg;
-        panel.appendChild(line);
-    } catch (e) {
-        // ignore
-    }
-}
-
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('nav-toggle');
@@ -348,35 +304,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Helper: détecter iOS (iPhone, iPad, iPod, ou Mac tactile)
-function isIOS() {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-        (navigator.userAgent && navigator.userAgent.includes('Mac') && 'ontouchend' in document);
-}
-
 // Scroll animations for About section - Adham Dannaway style
 function initScrollAnimations() {
-    debugLog('INIT_SCROLL_ANIMATIONS_START');
-
-    // Fallback iOS / mobile : on force l'affichage sans dépendre d'IntersectionObserver
-    if (isIOS()) {
-        debugLog('IOS_FALLBACK_FORCE_SHOW');
+    // iOS fallback: Safari iOS est parfois capricieux avec IntersectionObserver,
+    // on force donc l'affichage des blocs clés après un petit délai.
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.userAgent && navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+    if (isIOS) {
         setTimeout(function () {
-            var ids = ['text-main', 'img-main', 'snaps', 'img-pie', 'img-random-facts'];
+            const ids = ['text-main', 'img-main', 'snaps', 'img-pie', 'img-random-facts'];
             ids.forEach(function (id) {
-                var el = document.getElementById(id);
+                const el = document.getElementById(id);
                 if (el) {
                     el.classList.add('animated');
-                    el.style.visibility = 'visible';
-                    el.style.opacity = '1';
                 }
             });
 
-            var snapItems = document.querySelectorAll('#snaps .snap-item');
+            const snapItems = document.querySelectorAll('#snaps .snap-item');
             snapItems.forEach(function (item) {
                 item.classList.add('animated');
-                item.style.visibility = 'visible';
-                item.style.opacity = '1';
             });
         }, 500);
     }
@@ -389,7 +335,6 @@ function initScrollAnimations() {
     // Animate text-main and img-main
     const aboutMainObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            debugLog('aboutMain', entry.isIntersecting);
             if (entry.isIntersecting) {
                 const textMain = document.getElementById('text-main');
                 const imgMain = document.getElementById('img-main');
@@ -446,7 +391,6 @@ function initScrollAnimations() {
     // Animate pie chart image
     const pieChartObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            debugLog('pieChart', entry.isIntersecting);
             if (entry.isIntersecting) {
                 const imgPie = document.getElementById('img-pie');
                 if (imgPie) {
@@ -497,7 +441,6 @@ function initScrollAnimations() {
     // Animate random facts image
     const randomFactsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            debugLog('randomFacts', entry.isIntersecting);
             if (entry.isIntersecting) {
                 const imgRandomFacts = document.getElementById('img-random-facts');
                 if (imgRandomFacts) {

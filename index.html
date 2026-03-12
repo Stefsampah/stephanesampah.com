@@ -326,23 +326,6 @@
     <script src="translations.js?v=20251211"></script>
     <script src="language.js?v=20251211"></script>
     <script src="script.js?v=20251211"></script>
-    <script>
-        window.onerror = function (msg, url, line, col, error) {
-          var div = document.createElement('div');
-          div.style.position = 'fixed';
-          div.style.bottom = '0';
-          div.style.left = '0';
-          div.style.right = '0';
-          div.style.background = 'red';
-          div.style.color = 'white';
-          div.style.zIndex = '9999';
-          div.style.fontSize = '12px';
-          div.style.padding = '8px';
-          div.style.whiteSpace = 'pre-wrap';
-          div.textContent = 'JS Error: ' + msg + '\\n' + url + ':' + line + ':' + col;
-          document.body.appendChild(div);
-        };
-      </script>
 </body>  
 </html>
 
