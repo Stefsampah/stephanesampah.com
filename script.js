@@ -304,10 +304,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Helper: détecter iOS (iPhone, iPad, iPod, ou Mac tactile)
+function isIOS() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+}
+
 // Scroll animations for About section - Adham Dannaway style
 function initScrollAnimations() {
     console.log('INIT_SCROLL_ANIMATIONS_START');
-    alert('INIT_SCROLL_ANIMATIONS_START');
+
+    // Fallback iOS / mobile : on force l'affichage sans dépendre d'IntersectionObserver
+    if (isIOS()) {
+        console.log('IOS_FALLBACK_FORCE_SHOW');
+        setTimeout(function () {
+            var ids = ['text-main', 'img-main', 'snaps', 'img-pie', 'img-random-facts'];
+            ids.forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) {
+                    el.classList.add('animated');
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                }
+            });
+
+            var snapItems = document.querySelectorAll('#snaps .snap-item');
+            snapItems.forEach(function (item) {
+                item.classList.add('animated');
+                item.style.visibility = 'visible';
+                item.style.opacity = '1';
+            });
+        }, 500);
+    }
     // Animation options
     const animationOptions = {
         threshold: 0.2,
@@ -444,30 +472,6 @@ function initScrollAnimations() {
         randomFactsObserver.observe(randomFactsSection);
     }
 
-    // iOS / mobile fallback: IntersectionObserver often never fires true on Safari iOS — force show after delay
-    console.log('MOBILE_FALLBACK_CHECK_START');
-    try {
-        var isMobileWidth = window.matchMedia ? window.matchMedia('(max-width: 768px)').matches : true;
-        console.log('MOBILE_FALLBACK_MATCH_MEDIA', isMobileWidth);
-    } catch (e) {
-        console.log('MOBILE_FALLBACK_MATCH_MEDIA_ERROR', e);
-        var isMobileWidth = true;
-    }
-
-    // Pour debug, on exécute le fallback même si isMobileWidth est false
-    setTimeout(function() {
-        console.log('MOBILE_FALLBACK_TIMEOUT_FIRED', { isMobileWidth: isMobileWidth });
-        ['text-main', 'img-main', 'snaps', 'img-pie', 'img-random-facts'].forEach(function(id) {
-            var el = document.getElementById(id);
-            console.log('MOBILE_FALLBACK_ELEMENT', id, !!el);
-            if (el) el.classList.add('animated');
-        });
-        var snapItems = document.querySelectorAll('#snaps .snap-item');
-        console.log('MOBILE_FALLBACK_SNAP_ITEMS_COUNT', snapItems.length);
-        for (var i = 0; i < snapItems.length; i++) {
-            snapItems[i].classList.add('animated');
-        }
-    }, 800);
 }
 
 // Initialize scroll animations on page load
