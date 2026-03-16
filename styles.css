@@ -855,9 +855,15 @@ p.intro {
 
 /* Mobile: Styles texte - Style Adham Dannaway */
 @media (max-width: 768px) {
+    /* HOME: centrer le contenu sur mobile */
+    .home-section .home-content {
+        text-align: center;
+        align-items: center;
+    }
+
     /* Section main - Style Adham Dannaway mobile */
     section.main {
-        padding: 6.4rem 3.2rem !important;
+        padding: 4.8rem 1.6rem !important;
         box-sizing: border-box;
         overflow-x: hidden;
     }
